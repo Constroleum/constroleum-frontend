@@ -1,0 +1,27 @@
+@import "variables";
+
+.container {
+  height: 550px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+iframe {
+  width: 850px;
+  height: 480px;
+}
+
+@include mobile {
+  .container {
+    height: 50vw;
+    margin: 10px 0;
+  }
+
+  iframe {
+    width: 90vw;
+    height: 50vw;
+  }
+}

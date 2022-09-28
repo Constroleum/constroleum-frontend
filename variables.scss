@@ -1,0 +1,88 @@
+/* Container sizes */
+$containerMinWidth: 360px;
+$containerMaxWidth: 1120px;
+
+/* Breakpoints */
+$mobileBreakpoint: 760px;
+$smallMobileBreakpoint: 480px;
+$tabletBreakpoint: 1120px;
+
+/* Colors */
+$terraCota: #ED6A5A;
+$paleSpringBud: #F4F1BB;
+$opal: #9BC1BC;
+$alabaster: #E6EBE0;
+$robinEggBlue: #36C9C6;
+$error: #BE3D00;
+$formError: #DB1F26;
+
+$primaryColor: #2D6C4A;
+$secondaryColor: #525C4B;
+$lighGreen: #7B9E4E;
+
+/* NEW COLORS */
+$mainColor: #009a87; // Pantone P-130
+$lightOrange: #eae1d1; // Brandied Pears
+$orange: #f68a53; // Barbarian Flesh
+$footer: #00665e; // Arizona Stone
+$lightPurple: #c698d7;
+$purple: #3e1d66;
+
+
+/* Spacing */
+$spacing-xxxs: 1px;
+$spacing-xxs: 2px;
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-xm: 12px;
+$spacing-m: 16px;
+$spacing-l: 32px;
+$spacing-xl: 64px;
+$spacing-xxl: 128px;
+$typePageContentPadding: 48px;
+
+/* Font Sizes */
+$fontSize-0: 0.833rem;
+$fontSize-0-and-half: 0.91rem;
+$fontSize-1: 1rem;
+$fontSize-1-and-half: 1.11rem;
+$fontSize-2: 1.22rem;
+$fontSize-2-and-half: 1.32rem;
+$fontSize-3: 1.44rem;
+$fontSize-3-and-half: 1.60rem;
+$fontSize-4: 1.728rem;
+$fontSize-4-and-half: 1.88rem;
+$fontSize-5: 2.074rem;
+$fontSize-5-and-half: 2.2rem;
+$fontSize-6: 2.488rem;
+$fontSize-6-and-half: 2.64rem;
+$fontSize-7: 2.986rem;
+
+/* Fonts */
+$museo-bold: 'Museo Bold', Arial, serif;
+$museo: 'Museo', Arial, serif;
+$proximaNova : 'Proxima Nova', sans-serif;
+$proximaNovaBold: 'Proxima Nova Bold', sans-serif;
+$proximaNovaLight: 'Proxima Nova Light', sans-serif;
+$proximaNovaThin: 'Proxima Nova Thin', sans-serif;
+
+
+
+@mixin mobile {
+  @media (max-width: #{$mobileBreakpoint}) {
+    @content;
+  }
+}
+
+
+@mixin tablet {
+  @media (max-width: #{$tabletBreakpoint}) {
+    @content;
+  }
+}
+
+@mixin smallMobile {
+  @media (max-width: #{$smallMobileBreakpoint}) {
+    @content;
+  }
+}

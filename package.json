@@ -1,0 +1,46 @@
+{
+  "name": "human-reborn",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Human Reborn",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop -p 5500",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "gatsby": "^4.21.0",
+    "gatsby-plugin-google-analytics": "^4.17.0",
+    "gatsby-plugin-image": "^2.7.0",
+    "gatsby-plugin-manifest": "^4.7.0",
+    "gatsby-plugin-react-helmet": "^5.13.0",
+    "gatsby-plugin-sass": "^5.7.0",
+    "gatsby-plugin-sharp": "^4.7.0",
+    "gatsby-plugin-sitemap": "^5.7.0",
+    "gatsby-plugin-typescript": "^4.7.0",
+    "gatsby-source-datocms": "^3.0.15",
+    "gatsby-source-filesystem": "^4.7.0",
+    "gatsby-transformer-sharp": "^4.7.0",
+    "react": "^17.0.1",
+    "react-datocms": "^3.0.15",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.29.0",
+    "react-markdown": "^8.0.3",
+    "react-svg": "^14.1.12",
+    "sass": "^1.49.7"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "gatsby-plugin-graphql-codegen": "^3.1.1",
+    "react-axe": "^3.5.4"
+  }
+}
