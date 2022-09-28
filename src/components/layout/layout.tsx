@@ -33,7 +33,7 @@ const Layout:React.FC<RenderProps> = ({ header, footer, isMobile, seo, children 
                 <title>{seo ? seo.title : `Constroleum`}</title>º
                 <meta name="description" content={seo ? seo.description : `Constroleum`} />
             </Helmet>
-            { isMobile ? <BurgerMenu data={{}} /> : <Header data={{}} /> }
+            { isMobile ? <BurgerMenu data={{}} /> : <Header isMobile={false} data={{}} /> }
             <main id="main">
                 {children}
             </main>

@@ -8,11 +8,11 @@ type RichDatoCmsContentUnion = { __typename: string } & (
 */
 
 type RenderProps = {
-    data: RichDatoCmsContentUnion[]
+    data: any /* RichDatoCmsContentUnion[] */
 }
 
 const RichDatoCmsContent: React.FC<RenderProps> = ({data}) => {
-    function fetchRichDatoCmsContent(richContent: RichDatoCmsContentUnion, index: number) {
+    function fetchRichDatoCmsContent(richContent: any /* RichDatoCmsContentUnion */, index: number) {
         switch (richContent.__typename) {
             /* case "DatoCmsButton":
                 return <Button key={index} data={richContent as ButtonFieldsFragment}/> */
