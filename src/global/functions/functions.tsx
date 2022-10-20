@@ -16,3 +16,10 @@ export function displayImage(img, style, objectFit: any = "contain") {
         )
     }
 }
+
+export function elementOffset(element) {
+    let rect = element && element.getBoundingClientRect(),
+        scrollLeft = window.scrollX || document.documentElement.scrollLeft,
+        scrollTop = window.scrollY || document.documentElement.scrollTop
+    return rect ? { top: rect.top + scrollTop, left: rect.left + scrollLeft, bottom: rect.bottom + scrollTop } : null
+}

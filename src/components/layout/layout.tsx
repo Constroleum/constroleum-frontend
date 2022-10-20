@@ -6,13 +6,14 @@ import {HeaderFieldsFragment} from "../../../graphql-types";
 
 type RenderProps = {
     header: HeaderFieldsFragment,
+    backgroundImage?: any,
     seo?: {
         title?: string,
         description?: string
     }
 }
 
-const Layout:React.FC<RenderProps> = ({ header, seo, children }) => {
+const Layout:React.FC<RenderProps> = ({ header, backgroundImage, seo, children }) => {
 
     // THIS FEW LINES OF CODE ARE HERE TO AVOID PAGE FLICKERING ON PRODUCTION
     const [hasMounted, setHasMounted] = useState(false);
@@ -27,11 +28,11 @@ const Layout:React.FC<RenderProps> = ({ header, seo, children }) => {
         <div className={styles.container}>
             <Helmet htmlAttributes={{ lang: 'es' }}>
                 <meta charSet="utf-8" />
-                <title>{seo ? seo.title : `Constroleum`}</title>º
+                <title>{seo ? seo.title : `Constroleum`}</title>
                 <meta name="description" content={seo ? seo.description : `Constroleum`} />
             </Helmet>
            <Header data={header} />
-            <main id="main">
+            <main className={styles.main}>
                 {children}
             </main>
         </div>

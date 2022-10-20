@@ -1,6 +1,6 @@
 /* Container sizes */
 $containerMinWidth: 360px;
-$containerMaxWidth: 1120px;
+$containerMaxWidth: 1400px;
 
 /* Breakpoints */
 $mobileBreakpoint: 760px;
@@ -58,22 +58,18 @@ $fontSize-6: 2.488rem;
 $fontSize-6-and-half: 2.64rem;
 $fontSize-7: 2.986rem;
 
-/* Fonts */
-$museo-bold: 'Museo Bold', Arial, serif;
-$museo: 'Museo', Arial, serif;
-$proximaNova : 'Proxima Nova', sans-serif;
-$proximaNovaBold: 'Proxima Nova Bold', sans-serif;
-$proximaNovaLight: 'Proxima Nova Light', sans-serif;
-$proximaNovaThin: 'Proxima Nova Thin', sans-serif;
-
-
+// FONTS
+$quickSandBold: "Quicksand Bold";
+$quickSandSemiBold: "Quicksand SemiBold";
+$quickSandRegular: "Quicksand Regular";
+$quickSandMedium: "Quicksand Medium";
+$quickSandLight: "Quicksand Light";
 
 @mixin mobile {
   @media (max-width: #{$mobileBreakpoint}) {
     @content;
   }
 }
-
 
 @mixin tablet {
   @media (max-width: #{$tabletBreakpoint}) {

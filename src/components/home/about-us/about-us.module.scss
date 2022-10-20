@@ -1,0 +1,37 @@
+@import "variables";
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  * {
+    z-index: 994;
+  }
+}
+
+.content {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: white;
+  font-size: 60px;
+  font-family: "Josefin Sans Bold", sans-serif;
+  transition: transform .6s ease-in-out;
+}
+
+.paragraph {
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  font-family: $quickSandLight, sans-serif;
+  transition: transform .6s ease-in-out;
+}

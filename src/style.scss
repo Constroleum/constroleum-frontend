@@ -16,20 +16,16 @@ html {
 }
 
 body {
-  font-family: $proximaNova;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 
 .container {
   width: $containerMaxWidth;
   max-width: 100%;
   margin: 0 auto;
-}
-
-a {
-  color: $terraCota;
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 button {

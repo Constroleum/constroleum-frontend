@@ -1,4 +1,64 @@
+@import "variables";
+
 .container {
+  width: auto !important;
+  max-width: none !important;
+  background-attachment: fixed;
+  display: flex;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  flex-wrap: nowrap;
+}
+
+.section {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 981;
+
+  h1 {
+    font-family: "Josefin Slab Bold", sans-serif;
+    font-size: 50px;
+  }
 }
+
+.overlayer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  transition: background-color 1s ease-in-out;
+  background-color: rgba(255,255,255,1);
+}
+
+/*
+.coverContainer {
+  width: 100vw;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+.logoContainer {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  left: 10.41vw;
+  top: 100px;
+  z-index: 993;
+}
+
+.logo {
+  width: 46.87vw !important;
+  height: 23.43vw !important;
+
+  * {
+    width: 46.87vw;
+    height: 23.43vw;
+  }
+}*/

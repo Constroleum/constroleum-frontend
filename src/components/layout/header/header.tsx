@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import * as styles from "./header.module.scss";
 import {graphql} from "gatsby";
 import {HeaderFieldsFragment} from "../../../../graphql-types";
 
 type RenderProps = {
-    data: HeaderFieldsFragment,
+    data: HeaderFieldsFragment
 }
 
 const Header: React.FC<RenderProps> = ({ data }) => {
+
+    const [container, setContainer] = useState(undefined);
+
+    useEffect(() => {
+        setContainer(document.querySelector("#container"))
+    }, [])
 
     return (
         <nav className={styles.container}>
@@ -15,7 +21,17 @@ const Header: React.FC<RenderProps> = ({ data }) => {
                 <a href={'/'} className={styles.link}>{data.homeButtonName}</a>
                 <ul className={styles.linksGroup}>
                     <li className={styles.linkElement}>
-                        <a href={"#aboutus"} className={styles.link}>{data.aboutUsButtonName}</a>
+                        <span
+                            onClick={() => {
+                                container && container.scrollTo({
+                                    left: window.innerWidth,
+                                    behavior: "smooth"
+                                })
+                            }}
+                            className={styles.link}
+                        >
+                            {data.aboutUsButtonName}
+                        </span>
                     </li>
                     <li className={styles.linkElement}>
                         <a href={'/projects'} className={styles.link}>{data.projectsButtonName}</a>
