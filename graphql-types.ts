@@ -245,6 +245,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
@@ -832,6 +834,7 @@ export type DatoCmsHomePage = Node & {
   aboutUsTextContentNode?: Maybe<DatoCmsTextNode>;
   _allAboutUsTextContentLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContent>>>;
   backgroundImage?: Maybe<DatoCmsFileField>;
+  aboutBackgroundImage?: Maybe<DatoCmsFileField>;
   meta?: Maybe<DatoCmsMetaField>;
   originalId?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
@@ -1491,6 +1494,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -1640,6 +1645,7 @@ export type QueryDatoCmsHomePageArgs = {
   aboutUsTextContentNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
   _allAboutUsTextContentLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContentFilterListInput>;
   backgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
+  aboutBackgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
   meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
   originalId?: InputMaybe<StringQueryOperatorInput>;
   locale?: InputMaybe<StringQueryOperatorInput>;
@@ -2728,6 +2734,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___description'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___author___name'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
@@ -2871,6 +2879,8 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -4541,6 +4551,76 @@ export type DatoCmsHomePageFieldsEnum =
   | 'backgroundImage___customData'
   | 'backgroundImage___focalPoint___x'
   | 'backgroundImage___focalPoint___y'
+  | 'aboutBackgroundImage___size'
+  | 'aboutBackgroundImage___width'
+  | 'aboutBackgroundImage___height'
+  | 'aboutBackgroundImage___path'
+  | 'aboutBackgroundImage___format'
+  | 'aboutBackgroundImage___isImage'
+  | 'aboutBackgroundImage___notes'
+  | 'aboutBackgroundImage___author'
+  | 'aboutBackgroundImage___copyright'
+  | 'aboutBackgroundImage___tags'
+  | 'aboutBackgroundImage___smartTags'
+  | 'aboutBackgroundImage___filename'
+  | 'aboutBackgroundImage___basename'
+  | 'aboutBackgroundImage___exifInfo'
+  | 'aboutBackgroundImage___mimeType'
+  | 'aboutBackgroundImage___colors'
+  | 'aboutBackgroundImage___colors___red'
+  | 'aboutBackgroundImage___colors___green'
+  | 'aboutBackgroundImage___colors___blue'
+  | 'aboutBackgroundImage___colors___alpha'
+  | 'aboutBackgroundImage___colors___rgb'
+  | 'aboutBackgroundImage___colors___hex'
+  | 'aboutBackgroundImage___blurhash'
+  | 'aboutBackgroundImage___originalId'
+  | 'aboutBackgroundImage___url'
+  | 'aboutBackgroundImage___createdAt'
+  | 'aboutBackgroundImage___video___muxPlaybackId'
+  | 'aboutBackgroundImage___video___frameRate'
+  | 'aboutBackgroundImage___video___duration'
+  | 'aboutBackgroundImage___video___streamingUrl'
+  | 'aboutBackgroundImage___video___thumbnailUrl'
+  | 'aboutBackgroundImage___video___mp4Url'
+  | 'aboutBackgroundImage___fluid___base64'
+  | 'aboutBackgroundImage___fluid___tracedSVG'
+  | 'aboutBackgroundImage___fluid___aspectRatio'
+  | 'aboutBackgroundImage___fluid___width'
+  | 'aboutBackgroundImage___fluid___height'
+  | 'aboutBackgroundImage___fluid___src'
+  | 'aboutBackgroundImage___fluid___srcSet'
+  | 'aboutBackgroundImage___fluid___sizes'
+  | 'aboutBackgroundImage___sizes___base64'
+  | 'aboutBackgroundImage___sizes___tracedSVG'
+  | 'aboutBackgroundImage___sizes___aspectRatio'
+  | 'aboutBackgroundImage___sizes___width'
+  | 'aboutBackgroundImage___sizes___height'
+  | 'aboutBackgroundImage___sizes___src'
+  | 'aboutBackgroundImage___sizes___srcSet'
+  | 'aboutBackgroundImage___sizes___sizes'
+  | 'aboutBackgroundImage___fixed___base64'
+  | 'aboutBackgroundImage___fixed___tracedSVG'
+  | 'aboutBackgroundImage___fixed___aspectRatio'
+  | 'aboutBackgroundImage___fixed___width'
+  | 'aboutBackgroundImage___fixed___height'
+  | 'aboutBackgroundImage___fixed___src'
+  | 'aboutBackgroundImage___fixed___srcSet'
+  | 'aboutBackgroundImage___fixed___sizes'
+  | 'aboutBackgroundImage___resolutions___base64'
+  | 'aboutBackgroundImage___resolutions___tracedSVG'
+  | 'aboutBackgroundImage___resolutions___aspectRatio'
+  | 'aboutBackgroundImage___resolutions___width'
+  | 'aboutBackgroundImage___resolutions___height'
+  | 'aboutBackgroundImage___resolutions___src'
+  | 'aboutBackgroundImage___resolutions___srcSet'
+  | 'aboutBackgroundImage___resolutions___sizes'
+  | 'aboutBackgroundImage___gatsbyImageData'
+  | 'aboutBackgroundImage___alt'
+  | 'aboutBackgroundImage___title'
+  | 'aboutBackgroundImage___customData'
+  | 'aboutBackgroundImage___focalPoint___x'
+  | 'aboutBackgroundImage___focalPoint___y'
   | 'meta___createdAt'
   | 'meta___updatedAt'
   | 'meta___publishedAt'
@@ -4803,6 +4883,7 @@ export type DatoCmsHomePageFilterInput = {
   aboutUsTextContentNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
   _allAboutUsTextContentLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContentFilterListInput>;
   backgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
+  aboutBackgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
   meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
   originalId?: InputMaybe<StringQueryOperatorInput>;
   locale?: InputMaybe<StringQueryOperatorInput>;
@@ -6647,7 +6728,7 @@ export type ImageSharpSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type HomeAboutUsFieldsFragment = { aboutUsTextContent?: string | null, aboutUsTitle?: string | null };
+export type HomeAboutUsFieldsFragment = { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, aboutBackgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null };
 
 export type HomeCoverFieldsFragment = { backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null };
 
@@ -6658,7 +6739,7 @@ export type HomeQueryVariables = Exact<{
 }>;
 
 
-export type HomeQuery = { datoCmsHomePage?: { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
+export type HomeQuery = { datoCmsHomePage?: { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, aboutBackgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
 
 export type GatsbyDatoCmsResolutionsFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 

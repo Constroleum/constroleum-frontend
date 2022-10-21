@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from "react";
 import {graphql} from "gatsby";
 import {HomeQuery} from "../../graphql-types";
 import * as styles from "./index.module.scss";
@@ -17,10 +17,10 @@ gsap.registerPlugin(ScrollTrigger);
 const Index:React.FC<RenderProps> = ({ data }) => {
 
     const overlayer = useRef(null);
-    const sections = useRef([]);
-    const sectionsContainer = useRef();
+    const sections = useRef([])
+    const sectionsContainer = useRef(null)
     const [startAnimation, setStartAnimation] = useState(false);
-
+    const [timeline, setTimeline] = useState(null);
     const createSectionsRefs = (section, index) => {
         sections.current[index] = section;
     }
@@ -30,22 +30,28 @@ const Index:React.FC<RenderProps> = ({ data }) => {
     })
 
     useEffect(() => {
-        const totalSections = sections.current.length;
-        let loadTimeout = setTimeout(() => {
-            let scrollTween = gsap.to(sections.current, {
-                xPercent: +100 * (totalSections - 2),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: sectionsContainer.current,
-                    pin: true,
-                    scrub: .1,
-                    // base vertical scrolling on how wide the container is so it feels more natural.
-                    end: `+=${sectionsContainer.current.offsetWidth}`
-                }
-            });
-        }, 1600);
+        const s = sections;
+        const sc = sectionsContainer;
+        let refsLoaded = false;
 
-        return () => clearTimeout(loadTimeout);
+        let checkIfRefsAreLoaded = setInterval(() => {
+            if(typeof s.current !== undefined && typeof sc.current !== undefined) {
+                refsLoaded = true;
+                if(refsLoaded) {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: sc.current,
+                            pin: true,
+                            scrub: 2,
+                            end: `+=${sc.current.offsetWidth}`
+                        }
+                    })
+                    tl.to(s.current[0], { width: 0, duration: 2 })
+                    setTimeline(tl)
+                    clearInterval(checkIfRefsAreLoaded)
+                }
+            }
+        }, 100);
     }, [])
 
     return (
@@ -54,18 +60,19 @@ const Index:React.FC<RenderProps> = ({ data }) => {
                 id="container"
                 className={styles.container}
                 ref={sectionsContainer}
-                style={{ backgroundImage: `url(${data.datoCmsHomePage.backgroundImage.url})` }}
             >
-                <section id="cover-section" className={styles.section} ref={(e) => createSectionsRefs(e, 0)}>
+                <section
+                    id="cover-section"
+                    className={styles.section}
+                    ref={(e) => createSectionsRefs(e, 0)}
+                    style={{ backgroundImage: `url(${data.datoCmsHomePage.backgroundImage.url})` }}
+                >
+                    <div ref={overlayer} className={styles.overlayer} />
                     <Cover data={data.datoCmsHomePage} />
                 </section>
                 <section id="about-section" className={styles.section} ref={(e) => createSectionsRefs(e, 1)}>
-                    <AboutUs data={data.datoCmsHomePage} />
+                    <AboutUs data={data.datoCmsHomePage} tl={timeline} />
                 </section>
-                <section id="about-section2" className={styles.section} ref={(e) => createSectionsRefs(e, 2)}>
-                    <AboutUs data={data.datoCmsHomePage} />
-                </section>
-                <div ref={overlayer} className={styles.overlayer} />
             </div>
         </Layout>
     )
@@ -74,6 +81,9 @@ const Index:React.FC<RenderProps> = ({ data }) => {
         setTimeout(() => {
             overlayer.current.style.backgroundColor = "rgba(0,0,0,0.5)";
         }, 600)
+    }
+
+    function splashAnimation() {
     }
 }
 
