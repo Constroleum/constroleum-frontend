@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   * {
     z-index: 994;
@@ -19,19 +20,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: $white;
+  padding: 60px 100px;
+  z-index: 901;
 }
 
 .title {
-  color: white;
+  margin: 10px 0;
+  color: $black;
   font-size: 60px;
   font-family: "Josefin Sans Bold", sans-serif;
-  transition: transform .6s ease-in-out;
+  transition: all .6s ease-in-out;
 }
 
 .paragraph {
-  color: white;
+  color: $black;
   font-size: 22px;
   text-align: center;
   font-family: $quickSandLight, sans-serif;
-  transition: transform .6s ease-in-out;
+  transition: all .6s ease-in-out;
+}
+
+.bgImageContainer {
+  position: absolute;
+  width: 50vw;
+  left: 0;
+  z-index: 900;
+  overflow: hidden;
+}
+
+.bgImage {
+  * {
+    width: 100vw;
+    min-height: 100vh;
+  }
 }
