@@ -3,9 +3,8 @@ $containerMinWidth: 360px;
 $containerMaxWidth: 1400px;
 
 /* Breakpoints */
-$mobileBreakpoint: 760px;
-$smallMobileBreakpoint: 480px;
-$tabletBreakpoint: 1120px;
+$mobileBreakpoint: 720px;
+$tabletBreakpoint: 1200px;
 
 /* NEW COLORS */
 $white: #EBEEF2;
@@ -15,6 +14,7 @@ $extraLightBrown: #BFB2AA;
 $black: #0D0000;
 $error: #BE3D00;
 $formError: #DB1F26;
+$yellow: #FFE600;
 
 /* Spacing */
 $spacing-xxxs: 1px;
@@ -60,12 +60,6 @@ $quickSandLight: "Quicksand Light";
 
 @mixin tablet {
   @media (max-width: #{$tabletBreakpoint}) {
-    @content;
-  }
-}
-
-@mixin smallMobile {
-  @media (max-width: #{$smallMobileBreakpoint}) {
     @content;
   }
 }

@@ -33,7 +33,7 @@
 }
 
 .link {
-  color: white;
+  color: $white;
   font-size: 18px;
   font-family: $quickSandLight, sans-serif;
   text-decoration: none;
@@ -41,6 +41,11 @@
   cursor: pointer;
 
   &:hover {
-    color: #FFE600;
+    color: $yellow;
   }
+}
+
+.homeLink {
+  @extend .link;
+  padding-left: 20px;
 }
