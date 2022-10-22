@@ -66,9 +66,6 @@ const AboutUs:React.FC<RenderProps> = ({ data, tl }) => {
         const b = background;
 
         let checkIfRefsAreLoaded = setInterval(() => {
-            console.log(s.current)
-            console.log(sc.current)
-            console.log(b.current)
             if(typeof s.current !== undefined && typeof sc.current !== undefined && typeof b.current !== undefined) {
                 const tl = gsap.timeline({
                     scrollTrigger: {

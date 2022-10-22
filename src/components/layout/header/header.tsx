@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {Fragment, useEffect, useState} from "react";
 import * as styles from "./header.module.scss";
 import {graphql} from "gatsby";
 import {HeaderFieldsFragment} from "../../../../graphql-types";
@@ -18,17 +18,18 @@ const Header: React.FC<RenderProps> = ({ data }) => {
     }, [])
 
     return (
-        <nav className={styles.container}>
+        <Fragment>
             {isMobile() ? <BurgerMenu data={data} /> : displayHeader()}
-        </nav>
+        </Fragment>
     )
 
     function displayHeader():JSX.Element {
         return (
-            <div className={styles.content}>
-                <a href={'/'} className={styles.homeLink}>{data.homeButtonName}</a>
-                <ul className={styles.linksGroup}>
-                    <li className={styles.linkElement}>
+            <nav className={styles.container}>
+                <div className={styles.content}>
+                    <a href={'/'} className={styles.homeLink}>{data.homeButtonName}</a>
+                    <ul className={styles.linksGroup}>
+                        <li className={styles.linkElement}>
                         <span
                             onClick={() => {
                                 container && container.scrollTo({
@@ -40,18 +41,19 @@ const Header: React.FC<RenderProps> = ({ data }) => {
                         >
                             {data.aboutUsButtonName}
                         </span>
-                    </li>
-                    <li className={styles.linkElement}>
-                        <a href={'/projects'} className={styles.link}>{data.projectsButtonName}</a>
-                    </li>
-                    <li className={styles.linkElement}>
-                        <a href={'/services'} className={styles.link}>{data.servicesButtonName}</a>
-                    </li>
-                    <li className={styles.linkElement}>
-                        <a href={'/contact'} className={styles.link}>{data.contactButtonName}</a>
-                    </li>
-                </ul>
-            </div>
+                        </li>
+                        <li className={styles.linkElement}>
+                            <a href={'/projects'} className={styles.link}>{data.projectsButtonName}</a>
+                        </li>
+                        <li className={styles.linkElement}>
+                            <a href={'/services'} className={styles.link}>{data.servicesButtonName}</a>
+                        </li>
+                        <li className={styles.linkElement}>
+                            <a href={'/contact'} className={styles.link}>{data.contactButtonName}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         )
     }
 

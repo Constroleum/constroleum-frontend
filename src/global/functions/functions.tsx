@@ -29,24 +29,3 @@ export function elementOffset(element) {
 export function isMobile():boolean {
     return useWindowWidth() <= 1200;
 }
-
-export function checkIfRefsAreLoaded(referencedElements: any, callback: () => void) {
-    let refsLoaded = false;
-    let undefinedRefs = false;
-    let refs = [...referencedElements]
-
-    let checkIfRefsAreLoaded = setInterval(() => {
-        refs.forEach(ref => {
-            if(typeof ref === undefined || typeof ref === null || ref === null) undefinedRefs = true;
-        })
-
-        if(!undefinedRefs) {
-            refsLoaded = true;
-            console.log(refsLoaded)
-            if(refsLoaded) {
-                callback()
-                clearInterval(checkIfRefsAreLoaded)
-            }
-        }
-    }, 100);
-}
