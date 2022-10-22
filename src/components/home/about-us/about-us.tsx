@@ -5,7 +5,7 @@ import {HomeAboutUsFieldsFragment} from "../../../../graphql-types";
 import ReactMarkdown from "react-markdown";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {displayImage} from "../../../global/functions/functions";
+import {displayImage, isMobile} from "../../../global/functions/functions";
 
 type RenderProps = {
     data: HomeAboutUsFieldsFragment,
@@ -16,11 +16,32 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutUs:React.FC<RenderProps> = ({ data, tl }) => {
 
-    const section = useRef();
-    const sectionContainer = useRef();
-    const background = useRef();
+    const section = useRef(null);
+    const sectionContainer = useRef(null);
+    const background = useRef(null);
+    const isSmallScreen = isMobile();
 
     useEffect(() => {
+        if(isSmallScreen) {
+            mobileAnimation();
+        } else {
+            desktopAnimation();
+        }
+    })
+
+    return (
+        <section ref={sectionContainer} id="about-us" className={styles.container}>
+            <div ref={background} className={styles.bgImageContainer}>
+                {displayImage(data.aboutBackgroundImage, styles.bgImage, isSmallScreen ? "contain" : "cover")}
+            </div>
+            <div ref={section} id="about-us-content" className={styles.content}>
+                <h1 className={styles.title}>{data.aboutUsTitle}</h1>
+                <ReactMarkdown className={styles.paragraph}>{data.aboutUsTextContent}</ReactMarkdown>
+            </div>
+        </section>
+    )
+
+    function desktopAnimation() {
         const s = section;
         const sc = sectionContainer;
         const b = background;
@@ -37,19 +58,32 @@ const AboutUs:React.FC<RenderProps> = ({ data, tl }) => {
                 }
             }
         }, 100);
-    })
+    }
 
-    return (
-        <section ref={sectionContainer} id="about-us" className={styles.container}>
-            <div ref={background} className={styles.bgImageContainer}>
-                {displayImage(data.aboutBackgroundImage, styles.bgImage, "cover")}
-            </div>
-            <div ref={section} id="about-us-content" className={styles.content}>
-                <h1 className={styles.title}>{data.aboutUsTitle}</h1>
-                <ReactMarkdown className={styles.paragraph}>{data.aboutUsTextContent}</ReactMarkdown>
-            </div>
-        </section>
-    )
+    function mobileAnimation() {
+        const s = section;
+        const sc = sectionContainer;
+        const b = background;
+
+        let checkIfRefsAreLoaded = setInterval(() => {
+            console.log(s.current)
+            console.log(sc.current)
+            console.log(b.current)
+            if(typeof s.current !== undefined && typeof sc.current !== undefined && typeof b.current !== undefined) {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sc.current,
+                        scrub: 2,
+                        end: `+=${sc.current.offsetHeight}`
+                    }
+                })
+                tl .from(b.current, { x: 1200, ease: 'Power1.easeOut', duration: 5, delay: 1 }, `+=1`)
+                    .from(s.current, { x: 1200, ease: 'Power1.easeOut', duration: 5, delay: 1 })
+
+                clearInterval(checkIfRefsAreLoaded)
+            }
+        }, 100);
+    }
 
 }
 
