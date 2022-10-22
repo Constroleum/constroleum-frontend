@@ -77,8 +77,8 @@ const AboutUs:React.FC<RenderProps> = ({ data, tl }) => {
                         end: `+=${sc.current.offsetHeight}`
                     }
                 })
-                tl .from(b.current, { x: 1200, ease: 'Power1.easeOut', duration: 5, delay: 1 }, `+=1`)
-                    .from(s.current, { x: 1200, ease: 'Power1.easeOut', duration: 5, delay: 1 })
+                tl .from(b.current, { x: sc.current.offsetWidth, ease: 'Power1.easeOut', duration: 5 })
+                    .from(s.current, { x: sc.current.offsetWidth, ease: 'Power1.easeOut', duration: 5 })
 
                 clearInterval(checkIfRefsAreLoaded)
             }
