@@ -7,7 +7,7 @@ import AboutUs from "../components/home/about-us/about-us";
 import Cover from "../components/home/cover/cover";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {checkIfRefsAreLoaded, isMobile} from "../global/functions/functions";
+import {isMobile} from "../global/functions/functions";
 
 type RenderProps = {
     data: HomeQuery

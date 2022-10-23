@@ -27,7 +27,7 @@ const Cover:React.FC<RenderProps> = ({ data }) => {
     function loadLogoAnimation() {
         setTimeout(() => {
             logo.current.style.opacity = 1;
-        }, 1600)
+        }, 800)
     }
 }
 

@@ -1,9 +1,10 @@
 import React, {Fragment, useRef, useState} from "react";
 import * as styles from "./burger-menu.module.scss";
 import {gsap} from "gsap";
+import {HeaderFieldsFragment} from "../../../../../graphql-types";
 
 type RenderProps = {
-    data: any
+    data: HeaderFieldsFragment
 }
 
 const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
@@ -11,33 +12,62 @@ const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
     const [open, setOpen] = useState(false);
     const [tl, setTl] = useState(gsap.timeline({ paused: true }));
     const menuContainer = useRef();
+    const link1 = useRef();
+    const link2 = useRef();
+    const link3 = useRef();
+    const link4 = useRef();
 
     return (
         <div ref={menuContainer} className={styles.container}>
             {displayMenuButton()}
+            {open && displayMenu()}
         </div>
     )
 
     function displayMenu():JSX.Element {
-        return <Fragment />
+        return (
+            <ul className={styles.burgerMenu}>
+                <li className={styles.burgerMenuElement}>
+                    <a className={styles.link} href="/">{data.homeButtonName}</a>
+                </li>
+                <li className={styles.burgerMenuElement}>
+                    <a className={styles.link} href="/">{data.aboutUsButtonName}</a>
+                </li>
+                <li className={styles.burgerMenuElement}>
+                    <a className={styles.link} href="/">{data.projectsButtonName}</a>
+                </li>
+                <li className={styles.burgerMenuElement}>
+                    <a className={styles.link} href="/">{data.servicesButtonName}</a>
+                </li>
+                <li className={styles.burgerMenuElement}>
+                    <a className={styles.link} href="/">{data.contactButtonName}</a>
+                </li>
+            </ul>
+        )
     }
 
     function displayMenuButton():JSX.Element {
         return (
-            <button className={styles.button} onClick={() => {
-                openMenuAnimation();
-            }}>
-                <span className={styles.span1}>{open ? 'X' : 'O'}</span>
+            <button
+                className={styles.button}
+                onClick={() => {
+                    openMenuAnimation();
+                }}
+            >
+                <div className={open ? styles.burgerClose : styles.burger} />
             </button>
         )
     }
 
     function openMenuAnimation() {
-        tl.to(menuContainer.current, { backgroundColor: '#FFE600', padding: 0, height: window.innerHeight, duration: .5 })
-        if (tl.reversed()) {
+        setOpen(prevState => !prevState);
+        if (!open) {
+            tl.to(menuContainer.current, { backgroundColor: '#0D0000', paddingLeft: 20, paddingTop: 20, height: window.innerHeight, duration: .5, delay: 0 });
             tl.play();
+
         } else {
-            tl.reverse();
+            tl.to(menuContainer.current, { backgroundColor: 'transparent', paddingLeft: 20, paddingTop: 20, height: 100, duration: .5, delay: 0 })
+            tl.play();
         }
 
     }
