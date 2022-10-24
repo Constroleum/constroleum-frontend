@@ -79,6 +79,28 @@ const Services:React.FC<RenderProps> = ({ data, tl }) => {
 
     function mobileAnimation() {
 
+        let checkIfRefsAreLoaded = setInterval(() => {
+            if(
+                typeof services.current !== undefined &&
+                typeof title.current !== undefined &&
+                typeof button.current !== undefined &&
+                typeof sectionContainer.current !== undefined
+            ) {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sectionContainer.current,
+                        scrub: 2,
+                        end: `+=${sectionContainer.current.offsetHeight}`
+                    }
+                })
+                //tl.from(title.current, { x: sectionContainer.current.offsetWidth, ease: 'Power1.easeOut', duration: 3 })
+                services.current.forEach(service => {
+                    tl.from(service, { x: sectionContainer.current.offsetWidth, ease: 'Power1.easeOut', duration: 5 })
+                })
+                tl.from(button.current, { x: sectionContainer.current.offsetWidth, ease: 'Power1.easeOut', duration: 5 })
+                clearInterval(checkIfRefsAreLoaded)
+            }
+        }, 100);
     }
 }
 

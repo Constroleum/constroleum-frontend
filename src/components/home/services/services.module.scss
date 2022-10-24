@@ -92,3 +92,37 @@
     height: 80px !important;
   }
 }
+
+@include tablet {
+  .container {
+    height: auto;
+  }
+
+  .content {
+    width: 95%;
+  }
+
+  .servicesListContainer {
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+  }
+
+  .title {
+    transform: translate(0px, 0px);
+  }
+
+  .service {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .serviceDescription {
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  .serviceTitle {
+    font-size: 26px;
+  }
+}
