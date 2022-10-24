@@ -8,6 +8,7 @@ import Cover from "../components/home/cover/cover";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {isMobile} from "../global/functions/functions";
+import Services from "../components/home/services/services";
 
 type RenderProps = {
     data: HomeQuery
@@ -20,9 +21,9 @@ const Index:React.FC<RenderProps> = ({ data }) => {
     const overlayer = useRef(null);
     const sections = useRef([])
     const sectionsContainer = useRef(null)
-    const [startAnimation, setStartAnimation] = useState(false);
     const [timeline, setTimeline] = useState(null);
     const isSmallScreen = isMobile();
+
     const createSectionsRefs = (section, index) => {
         sections.current[index] = section;
     }
@@ -49,7 +50,10 @@ const Index:React.FC<RenderProps> = ({ data }) => {
                     <Cover data={data.datoCmsHomePage} />
                 </section>
                 <section id="about-section" className={styles.aboutSection} ref={(e) => createSectionsRefs(e, 1)}>
-                    <AboutUs data={data.datoCmsHomePage} tl={timeline} />
+                    <AboutUs data={data.datoCmsHomePage} tl={timeline} servicesSection={sections.current[2]} />
+                </section>
+                <section id="services-section" className={styles.servicesSection} ref={(e) => createSectionsRefs(e, 2)}>
+                    <Services data={data.datoCmsHomePage} tl={timeline} />
                 </section>
             </div>
         </Layout>
@@ -60,6 +64,35 @@ const Index:React.FC<RenderProps> = ({ data }) => {
             overlayer.current.style.backgroundColor = "rgba(0,0,0,0.5)";
         }, 600)
     }
+
+    /*function desktopAnimation() {
+        let refsLoaded = false;
+
+        let checkIfRefsAreLoaded = setInterval(() => {
+            if(typeof sections.current !== undefined && typeof sectionsContainer.current !== undefined) {
+                refsLoaded = true;
+                if(refsLoaded) {
+                    const tl = gsap.timeline();
+                    ScrollTrigger.create({
+                        animation: tl,
+                        trigger: sectionsContainer.current,
+                        start: "top top",
+                        end: "+=3000",
+                        scrub: true,
+                        pin: true,
+                        markers: true,
+                        anticipatePin: 1
+                    })
+                    tl.to(sections.current[0], { width: 0, duration: 2 })
+                        .to(sections.current[1], { width: 0, duration: 2 })
+                        .to(sections.current[2], { width: 0, duration: 2 })
+                    setTimeline(tl)
+                    clearInterval(checkIfRefsAreLoaded)
+                }
+            }
+        }, 100);
+    }*/
+
     function desktopAnimation() {
         let refsLoaded = false;
 
@@ -72,10 +105,11 @@ const Index:React.FC<RenderProps> = ({ data }) => {
                             trigger: sectionsContainer.current,
                             pin: true,
                             scrub: 2,
-                            end: `+=${sectionsContainer.current.offsetWidth}`
+                            end: `+=5000`,
                         }
                     })
-                    tl.to(sections.current[0], { width: 0, duration: 2 })
+                        .to(sections.current[1], { xPercent: -100, duration: 2 })
+                    ScrollTrigger.refresh()
                     setTimeline(tl)
                     clearInterval(checkIfRefsAreLoaded)
                 }
@@ -103,6 +137,7 @@ export const pageQuery = graphql`
                 alt
             }
             ...HomeAboutUsFields
+            ...HomeServicesFields
         }
         datoCmsHeader(locale: { eq: $locale }) {
             ...HeaderFields

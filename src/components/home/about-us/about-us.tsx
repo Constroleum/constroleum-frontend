@@ -9,12 +9,13 @@ import {displayImage, isMobile} from "../../../global/functions/functions";
 
 type RenderProps = {
     data: HomeAboutUsFieldsFragment,
-    tl: any
+    tl: any,
+    servicesSection: any
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutUs:React.FC<RenderProps> = ({ data, tl }) => {
+const AboutUs:React.FC<RenderProps> = ({ data, tl, servicesSection }) => {
 
     const section = useRef(null);
     const sectionContainer = useRef(null);
@@ -52,8 +53,11 @@ const AboutUs:React.FC<RenderProps> = ({ data, tl }) => {
                 refsLoaded = true;
                 if(refsLoaded) {
                     tl
-                        .from(s.current, { y: 900, ease: 'Power1.easeOut' }, '-=1.2')
                         .from(b.current, { x: b.current.offsetWidth, width: 0, left: b.current.offsetWidth, ease: 'Power1.easeOut', duration: 2 }, '-=1.8')
+                        .from(s.current, { y: 900, ease: 'Power1.easeOut' }, '-=1.2')
+                        .to(b.current, { x: b.current.offsetWidth, width: 0, left: 0, ease: 'Power1.easeOut', duration: 2 })
+                        .to(s.current, { x: -2000, ease: 'Power1.easeInOut' }, '-=1.3')
+                        .to(servicesSection, { xPercent: -200, duration: 2 }, '-=2')
                     clearInterval(checkIfRefsAreLoaded)
                 }
             }
@@ -90,11 +94,11 @@ export const fragment = graphql`
         aboutUsTitle
         aboutBackgroundImage {
             gatsbyImageData(layout: FIXED)
-                url
-                title
-                format
-                alt
-            }
+            url
+            title
+            format
+            alt
+        }
     }
 `
 

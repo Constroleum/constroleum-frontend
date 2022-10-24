@@ -1,4 +1,4 @@
-import React, {Fragment, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import * as styles from "./burger-menu.module.scss";
 import {gsap} from "gsap";
 import {HeaderFieldsFragment} from "../../../../../graphql-types";
@@ -12,10 +12,6 @@ const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
     const [open, setOpen] = useState(false);
     const [tl, setTl] = useState(gsap.timeline({ paused: true }));
     const menuContainer = useRef();
-    const link1 = useRef();
-    const link2 = useRef();
-    const link3 = useRef();
-    const link4 = useRef();
 
     return (
         <div ref={menuContainer} className={styles.container}>
@@ -62,7 +58,7 @@ const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
     function openMenuAnimation() {
         setOpen(prevState => !prevState);
         if (!open) {
-            tl.to(menuContainer.current, { backgroundColor: '#0D0000', paddingLeft: 20, paddingTop: 20, height: window.innerHeight, duration: .5, delay: 0 });
+            tl.to(menuContainer.current, { backgroundColor: '#000000', paddingLeft: 20, paddingTop: 20, height: window.innerHeight, duration: .5, delay: 0 });
             tl.play();
 
         } else {

@@ -3,12 +3,92 @@
 .container {
   height: 100vh;
   width: 100vw;
-  background-color: transparent;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
 
   * {
     z-index: 994;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.title {
+  margin: 10px 0;
+  color: $white;
+  font-size: 60px;
+  font-family: "Josefin Sans Bold", sans-serif;
+  transition: all .6s ease-in-out;
+  text-transform: uppercase;
+}
+
+.servicesListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 40px;
+}
+
+.serviceTitle {
+  color: white;
+  font-family: $quickSandLight, sans-serif;
+  font-size: $fontSize-2;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.serviceDescription {
+  color: white;
+  text-align: center;
+  font-family: $quickSandLight, sans-serif;
+  font-size: $fontSize-1-and-half;
+}
+
+.button {
+  width: 200px;
+  height: 40px;
+  font-family: $quickSandLight, sans-serif;
+  font-size: $fontSize-1;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  border: none;
+  background-color: $brown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+}
+
+
+.icon {
+  width: 80px !important;
+  height: 80px !important;
+  margin-bottom: 20px;
+
+  img {
+    width: 80px !important;
+    height: 80px !important;
   }
 }
