@@ -1,0 +1,122 @@
+@import "variables";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  position: relative;
+}
+
+.projectContainer {
+  width: calc(100vw / 3);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .overlayer {
+      background-color: rgba(0,0,0,0);
+    }
+
+    .projectTitle {
+      opacity: 0;
+    }
+  }
+}
+
+.projectImage {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+.overlayer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 100;
+  transition: background-color .4s ease-in-out;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.projectTitleContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+  transition: opacity .4s ease-in-out;
+}
+
+.projectTitle {
+  font-size: 60px;
+  line-height: 72px;
+  text-transform: uppercase;
+  font-family: "Josefin Sans Bold", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.button {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  font-family: $quickSandLight, sans-serif;
+  font-size: $fontSize-1;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  border: none;
+  background-color: $brown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  z-index: 102;
+  bottom: 150px;
+  left: calc(50vw - 100px);
+
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+}
+
+@include tablet {
+  .container {
+    flex-direction: column;
+    height: inherit;
+    padding: 40px 0 0 0;
+  }
+
+  .projectContainer {
+    width: 100vw;
+    height: calc(100vh / 3);
+  }
+
+  .projectImage {
+    width: 100vw !important;
+    height: auto !important;
+    min-height: unset;
+    max-height: unset;
+  }
+
+  .button {
+    position: relative;
+    bottom: unset;
+    left: unset;
+    margin: 60px 0;
+    align-self: center;
+  }
+
+  .projectTitle {
+    font-size: 30px;
+  }
+}

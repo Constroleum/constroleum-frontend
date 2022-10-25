@@ -58,7 +58,7 @@ const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
     function openMenuAnimation() {
         setOpen(prevState => !prevState);
         if (!open) {
-            tl.to(menuContainer.current, { backgroundColor: '#000000', paddingLeft: 20, paddingTop: 20, height: window.innerHeight, duration: .5, delay: 0 });
+            tl.to(menuContainer.current, { backgroundColor: '#000000', paddingLeft: 20, paddingTop: 20, height: "100vh", duration: .5, delay: 0 });
             tl.play();
 
         } else {

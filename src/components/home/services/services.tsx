@@ -9,17 +9,18 @@ import ReactMarkdown from "react-markdown";
 
 type RenderProps = {
     data: HomeServicesFieldsFragment,
-    tl: any
+    tl: any,
+    projectsSection: any
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Services:React.FC<RenderProps> = ({ data, tl }) => {
+const Services:React.FC<RenderProps> = ({ data, tl, projectsSection }) => {
 
     const sectionContainer = useRef();
     const isSmallScreen = isMobile();
     const services = useRef([])
-    const title = useRef()
+    const servicesTitle = useRef()
     const button = useRef()
 
     const createSectionsRefs = (section, index) => {
@@ -37,7 +38,7 @@ const Services:React.FC<RenderProps> = ({ data, tl }) => {
     return (
         <section ref={sectionContainer} id="services" className={styles.container}>
             <div className={styles.content}>
-                <h3 ref={title} className={styles.title}>services</h3>
+                <h3 ref={servicesTitle} className={styles.title}>services</h3>
                 <ul className={styles.servicesListContainer}>
                     {data.services.map((service, index) => {
                         return (
@@ -49,28 +50,30 @@ const Services:React.FC<RenderProps> = ({ data, tl }) => {
                         )
                     })}
                 </ul>
-                <a ref={button} href={"/"} className={styles.button}>{data.seeAllProjectsButtonTitle}</a>
+                <a ref={button} href={"/services"} className={styles.button}>{data.seeAllProjectsButtonTitle}</a>
             </div>
         </section>
     )
 
     function desktopAnimation() {
+        let s = services.current.slice().reverse();
         let refsLoaded = false;
 
         let checkIfRefsAreLoaded = setInterval(() => {
             if(
                 typeof services.current !== undefined &&
-                typeof title.current !== undefined &&
+                typeof servicesTitle.current !== undefined &&
                 typeof button.current !== undefined &&
                 tl !== null
             ) {
                 refsLoaded = true;
                 if(refsLoaded) {
-                    tl.from(title.current, { y: 900, ease: 'Power1.easeOut' }, '-=2')
-                    services.current.forEach((service, index) => {
+                    tl.from(servicesTitle.current, { y: 900, ease: 'Power1.easeOut' }, '-=2')
+                    s.forEach((service, index) => {
                         tl.from(service, { y: 900, ease: 'Power1.easeOut' }, `-=${0.3 + (index / 2)}`)
                     })
                     tl.from(button.current, { y: 900, ease: 'Power1.easeOut' }, '-=0.2')
+                    tl.to(projectsSection, { xPercent: -300, duration: 2 }, `-=0.4`)
                     clearInterval(checkIfRefsAreLoaded)
                 }
             }
@@ -78,11 +81,10 @@ const Services:React.FC<RenderProps> = ({ data, tl }) => {
     }
 
     function mobileAnimation() {
-
         let checkIfRefsAreLoaded = setInterval(() => {
             if(
                 typeof services.current !== undefined &&
-                typeof title.current !== undefined &&
+                typeof servicesTitle.current !== undefined &&
                 typeof button.current !== undefined &&
                 typeof sectionContainer.current !== undefined
             ) {
@@ -93,7 +95,8 @@ const Services:React.FC<RenderProps> = ({ data, tl }) => {
                         end: `+=${sectionContainer.current.offsetHeight}`
                     }
                 })
-                //tl.from(title.current, { x: sectionContainer.current.offsetWidth, ease: 'Power1.easeOut', duration: 3 })
+                tl.from(servicesTitle.current, { x: sectionContainer.current.offsetWidth, ease: 'Power1.easeOut' })
+                tl.to(servicesTitle.current, { x: 0, ease: 'Power1.easeOut' }, `-=5`)
                 services.current.forEach(service => {
                     tl.from(service, { x: sectionContainer.current.offsetWidth, ease: 'Power1.easeOut', duration: 5 })
                 })
