@@ -4,6 +4,7 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  overflow: hidden;
 }
 
 .sideImageContainer {
@@ -44,7 +45,6 @@
   color: $white;
   font-size: 3.2vw;
   font-family: "Josefin Sans Bold", sans-serif;
-  transition: all .6s ease-in-out;
   text-transform: uppercase;
 }
 
@@ -53,7 +53,6 @@
   font-size: 1.04vw;
   text-align: justify;
   font-family: $quickSandLight, sans-serif;
-  transition: all .6s ease-in-out;
 }
 
 .sliderContainer {
@@ -95,8 +94,7 @@
 
 @include mobile {
   .container {
-    height: auto;
-    min-height: 100vh;
+    min-height: 100vh !important;
   }
 
   .sideImageContainer {
@@ -104,11 +102,13 @@
   }
 
   .sliderContainer {
+    width: 95vw;
     height: 300px;
     margin-bottom: 30px;
   }
 
   .textContentContainer {
+    width: 95vw;
     margin: 20px 0;
   }
 }
