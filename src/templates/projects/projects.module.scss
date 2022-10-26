@@ -1,0 +1,143 @@
+@import "variables";
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pageTitleContainer {
+  margin-top: 100px;
+  width: 100%;
+}
+
+.pageTitle {
+  height: 150px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 60px;
+  font-family: "Josefin Sans Bold", sans-serif;
+  transition: all .6s ease-in-out;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.projectsListContainer {
+  width: 90vw;
+}
+
+.projectsList {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  grid-auto-rows: 30vw;
+  grid-gap: 30px;
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.project {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    .overlayer {
+      background-color: rgba(0,0,0,0);
+    }
+  }
+}
+
+.projectBackgroundImage {
+  width: 30vw !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+
+  * {
+    min-width: 30vw !important;
+    height: 30vw !important;
+  }
+}
+
+.overlayer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 101;
+  transition: background-color .4s ease-in-out;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.projectLink {
+  width: 100%;
+  height: 100%;
+  z-index: 102;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 35px;
+  line-height: 47px;
+  text-transform: uppercase;
+  font-family: "Josefin Sans Bold", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+@include tablet {
+  .projectsList {
+    grid-template-columns: 45vw 45vw;
+    grid-auto-rows: 45vw;
+    grid-gap: unset;
+  }
+
+  .projectBackgroundImage {
+    width: 45vw !important;
+
+    * {
+      min-width: 45vw !important;
+      height: 45vw !important;
+    }
+  }
+}
+
+@include mobile {
+  .projectsList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projectsListContainer {
+    width: 100vw;
+  }
+
+  .project {
+    width: 100%;
+    height: 100vw;
+  }
+
+  .projectsList {
+    width: 100vw;
+  }
+
+  .projectBackgroundImage {
+    width: 100vw !important;
+
+    * {
+      min-width: 100vw !important;
+      height: 100vw !important;
+    }
+  }
+}

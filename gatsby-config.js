@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Human Reborn`,
-        siteUrl: `https://www.humanreborn.com/`,
+        title: `Constroleum`,
+        siteUrl: `https://www.constroleum.com/`,
         author: {
             name: `Guillem León Font`,
         },

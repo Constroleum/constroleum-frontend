@@ -30,13 +30,13 @@ const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
                     <a className={styles.link} href="/">{data.aboutUsButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/">{data.projectsButtonName}</a>
+                    <a className={styles.link} href="/projects">{data.projectsButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/">{data.servicesButtonName}</a>
+                    <a className={styles.link} href="/services">{data.servicesButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/">{data.contactButtonName}</a>
+                    <a className={styles.link} href="/contact">{data.contactButtonName}</a>
                 </li>
             </ul>
         )

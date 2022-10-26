@@ -1,0 +1,90 @@
+@import "variables";
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.imagesContainer {
+  width: 94%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .5s ease-in-out;
+}
+
+.image {
+  width: 48.75vw;
+  overflow: hidden;
+
+  * {
+    width: 100% !important;
+    min-height: 100% !important;
+  }
+}
+
+.controlsContainer {
+  width: 6%;
+  height: 100%;
+}
+
+.control {
+  width: 100%;
+  height: 50%;
+  background-color: $brown;
+  color: $white;
+  font-size: 2.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: white;
+    color: $brown;
+  }
+}
+
+@include tablet {
+  .image {
+    width: 100vw !important;
+
+    * {
+      width: 100vw !important;
+    }
+  }
+}
+
+@include mobile {
+  .container {
+    flex-direction: column;
+  }
+
+  .imagesContainer {
+    width: 100%;
+  }
+
+  .controlsContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+  }
+
+  .control {
+    width: 50%;
+    height: 40px;
+    border: 1px solid $brown;
+  }
+
+}

@@ -1,0 +1,114 @@
+@import "variables";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.sideImageContainer {
+  width: 35%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideImage {
+  height: 100% !important;
+
+  * {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+  }
+}
+
+.content {
+  width: 65%;
+  height: 100%;
+  background-color: $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.textContentContainer {
+  width: 75%;
+}
+
+.title {
+  margin: 10px 0;
+  color: $white;
+  font-size: 3.2vw;
+  font-family: "Josefin Sans Bold", sans-serif;
+  transition: all .6s ease-in-out;
+  text-transform: uppercase;
+}
+
+.description {
+  color: $white;
+  font-size: 1.04vw;
+  text-align: justify;
+  font-family: $quickSandLight, sans-serif;
+  transition: all .6s ease-in-out;
+}
+
+.sliderContainer {
+  width: 48.75vw;
+  height: 23.438vw;
+}
+
+@include tablet {
+  .container {
+    flex-direction: column;
+  }
+
+  .sideImageContainer {
+    width: 100vw;
+    height: 35%;
+  }
+
+  .content {
+    width: 100vw;
+  }
+
+  .textContentContainer {
+    width: 90%;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .sliderContainer {
+    width: 90vw;
+    height: 400px;
+  }
+}
+
+@include mobile {
+  .container {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sideImageContainer {
+    height: 250px;
+  }
+
+  .sliderContainer {
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .textContentContainer {
+    margin: 20px 0;
+  }
+}

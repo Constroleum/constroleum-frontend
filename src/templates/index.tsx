@@ -80,8 +80,9 @@ const Index:React.FC<RenderProps> = ({ data }) => {
                         scrollTrigger: {
                             trigger: sectionsContainer.current,
                             pin: true,
-                            scrub: 2,
-                            end: `+=5000`,
+                            scrub: 1,
+                            end: sections.current[0].offsetWidth * 4,
+                            invalidateOnRefresh: true
                         }
                     })
                         .to(sections.current[1], { xPercent: -100, duration: 2 })
@@ -124,14 +125,3 @@ export const pageQuery = graphql`
 
 
 export default Index
-
-/*
-
-typeof window !== undefined && document.addEventListener("scroll", (e) => {
-            const vh = window.innerHeight;
-            setOpacity(prevOpacity => {
-                return (window.pageYOffset * 0.8 / vh) + 0.5 > 0.8 ? 0.8 : (window.pageYOffset * 0.8 / vh) + 0.5
-            })
-        }, {passive: false})
-
- */

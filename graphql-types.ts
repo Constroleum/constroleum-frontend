@@ -952,6 +952,123 @@ export type DatoCmsProject = Node & {
   internal: Internal;
 };
 
+export type DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitle = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsList = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Array<Maybe<DatoCmsProjectPage>>>;
+};
+
+export type DatoCmsAllProjectsPage = Node & {
+  pageTitle?: Maybe<Scalars['String']>;
+  _allPageTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitle>>>;
+  projectsList?: Maybe<Array<Maybe<DatoCmsProjectPage>>>;
+  _allProjectsListLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsList>>>;
+  meta?: Maybe<DatoCmsMetaField>;
+  originalId?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+  seoMetaTags?: Maybe<DatoCmsSeoMetaTags>;
+  model?: Maybe<DatoCmsModel>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageSlug = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageTitle = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageDescription = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+  valueNode?: Maybe<DatoCmsTextNode>;
+};
+
+export type DatoCmsProjectPage = Node & {
+  imagesCollection?: Maybe<Array<Maybe<DatoCmsFileField>>>;
+  slug?: Maybe<Scalars['String']>;
+  _allSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsProjectPageSlug>>>;
+  title?: Maybe<Scalars['String']>;
+  _allTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsProjectPageTitle>>>;
+  description?: Maybe<Scalars['String']>;
+  descriptionNode?: Maybe<DatoCmsTextNode>;
+  _allDescriptionLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsProjectPageDescription>>>;
+  mainImage?: Maybe<DatoCmsFileField>;
+  meta?: Maybe<DatoCmsMetaField>;
+  originalId?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+  seoMetaTags?: Maybe<DatoCmsSeoMetaTags>;
+  model?: Maybe<DatoCmsModel>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlug = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReference = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlug = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReference = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlug = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReference = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsSlugsConfiguration = Node & {
+  servicesPageSlug?: Maybe<Scalars['String']>;
+  _allServicesPageSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlug>>>;
+  servicesPageSlugReference?: Maybe<Scalars['String']>;
+  _allServicesPageSlugReferenceLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReference>>>;
+  projectsPageSlug?: Maybe<Scalars['String']>;
+  _allProjectsPageSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlug>>>;
+  projectsPageSlugReference?: Maybe<Scalars['String']>;
+  _allProjectsPageSlugReferenceLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReference>>>;
+  contactPageSlug?: Maybe<Scalars['String']>;
+  _allContactPageSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlug>>>;
+  contactPageSlugReference?: Maybe<Scalars['String']>;
+  _allContactPageSlugReferenceLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReference>>>;
+  meta?: Maybe<DatoCmsMetaField>;
+  originalId?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+  seoMetaTags?: Maybe<DatoCmsSeoMetaTags>;
+  model?: Maybe<DatoCmsModel>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
 export type DatoCmsAsset = Node & {
   size?: Maybe<Scalars['Int']>;
   width?: Maybe<Scalars['Int']>;
@@ -1440,6 +1557,12 @@ export type Query = {
   allDatoCmsService: DatoCmsServiceConnection;
   datoCmsProject?: Maybe<DatoCmsProject>;
   allDatoCmsProject: DatoCmsProjectConnection;
+  datoCmsAllProjectsPage?: Maybe<DatoCmsAllProjectsPage>;
+  allDatoCmsAllProjectsPage: DatoCmsAllProjectsPageConnection;
+  datoCmsProjectPage?: Maybe<DatoCmsProjectPage>;
+  allDatoCmsProjectPage: DatoCmsProjectPageConnection;
+  datoCmsSlugsConfiguration?: Maybe<DatoCmsSlugsConfiguration>;
+  allDatoCmsSlugsConfiguration: DatoCmsSlugsConfigurationConnection;
   datoCmsAsset?: Maybe<DatoCmsAsset>;
   allDatoCmsAsset: DatoCmsAssetConnection;
   datoCmsSite?: Maybe<DatoCmsSite>;
@@ -1812,6 +1935,94 @@ export type QueryDatoCmsProjectArgs = {
 export type QueryAllDatoCmsProjectArgs = {
   filter?: InputMaybe<DatoCmsProjectFilterInput>;
   sort?: InputMaybe<DatoCmsProjectSortInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryDatoCmsAllProjectsPageArgs = {
+  pageTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allPageTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitleFilterListInput>;
+  projectsList?: InputMaybe<DatoCmsProjectPageFilterListInput>;
+  _allProjectsListLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsListFilterListInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+
+export type QueryAllDatoCmsAllProjectsPageArgs = {
+  filter?: InputMaybe<DatoCmsAllProjectsPageFilterInput>;
+  sort?: InputMaybe<DatoCmsAllProjectsPageSortInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryDatoCmsProjectPageArgs = {
+  imagesCollection?: InputMaybe<DatoCmsFileFieldFilterListInput>;
+  slug?: InputMaybe<StringQueryOperatorInput>;
+  _allSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageSlugFilterListInput>;
+  title?: InputMaybe<StringQueryOperatorInput>;
+  _allTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageTitleFilterListInput>;
+  description?: InputMaybe<StringQueryOperatorInput>;
+  descriptionNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
+  _allDescriptionLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageDescriptionFilterListInput>;
+  mainImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+
+export type QueryAllDatoCmsProjectPageArgs = {
+  filter?: InputMaybe<DatoCmsProjectPageFilterInput>;
+  sort?: InputMaybe<DatoCmsProjectPageSortInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryDatoCmsSlugsConfigurationArgs = {
+  servicesPageSlug?: InputMaybe<StringQueryOperatorInput>;
+  _allServicesPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterListInput>;
+  servicesPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
+  _allServicesPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterListInput>;
+  projectsPageSlug?: InputMaybe<StringQueryOperatorInput>;
+  _allProjectsPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterListInput>;
+  projectsPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
+  _allProjectsPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterListInput>;
+  contactPageSlug?: InputMaybe<StringQueryOperatorInput>;
+  _allContactPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterListInput>;
+  contactPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
+  _allContactPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterListInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+
+export type QueryAllDatoCmsSlugsConfigurationArgs = {
+  filter?: InputMaybe<DatoCmsSlugsConfigurationFilterInput>;
+  sort?: InputMaybe<DatoCmsSlugsConfigurationSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
@@ -6789,6 +7000,1699 @@ export type DatoCmsProjectSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+export type DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitleFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitleFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsProjectPageFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsProjectPageFilterInput>;
+};
+
+export type DatoCmsProjectPageFilterInput = {
+  imagesCollection?: InputMaybe<DatoCmsFileFieldFilterListInput>;
+  slug?: InputMaybe<StringQueryOperatorInput>;
+  _allSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageSlugFilterListInput>;
+  title?: InputMaybe<StringQueryOperatorInput>;
+  _allTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageTitleFilterListInput>;
+  description?: InputMaybe<StringQueryOperatorInput>;
+  descriptionNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
+  _allDescriptionLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageDescriptionFilterListInput>;
+  mainImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+export type DatoCmsFileFieldFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsFileFieldFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageSlugFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageSlugFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageSlugFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageTitleFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageTitleFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageDescriptionFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsProjectPageDescriptionFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsProjectPageDescriptionFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+  valueNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsListFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsListFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsListFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<DatoCmsProjectPageFilterListInput>;
+};
+
+export type DatoCmsAllProjectsPageConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsAllProjectsPageEdge>;
+  nodes: Array<DatoCmsAllProjectsPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsAllProjectsPageGroupConnection>;
+};
+
+
+export type DatoCmsAllProjectsPageConnectionDistinctArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageConnectionMaxArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageConnectionMinArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageConnectionSumArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+export type DatoCmsAllProjectsPageEdge = {
+  next?: Maybe<DatoCmsAllProjectsPage>;
+  node: DatoCmsAllProjectsPage;
+  previous?: Maybe<DatoCmsAllProjectsPage>;
+};
+
+export type DatoCmsAllProjectsPageFieldsEnum =
+  | 'pageTitle'
+  | '_allPageTitleLocales'
+  | '_allPageTitleLocales___locale'
+  | '_allPageTitleLocales___value'
+  | 'projectsList'
+  | 'projectsList___imagesCollection'
+  | 'projectsList___imagesCollection___size'
+  | 'projectsList___imagesCollection___width'
+  | 'projectsList___imagesCollection___height'
+  | 'projectsList___imagesCollection___path'
+  | 'projectsList___imagesCollection___format'
+  | 'projectsList___imagesCollection___isImage'
+  | 'projectsList___imagesCollection___notes'
+  | 'projectsList___imagesCollection___author'
+  | 'projectsList___imagesCollection___copyright'
+  | 'projectsList___imagesCollection___tags'
+  | 'projectsList___imagesCollection___smartTags'
+  | 'projectsList___imagesCollection___filename'
+  | 'projectsList___imagesCollection___basename'
+  | 'projectsList___imagesCollection___exifInfo'
+  | 'projectsList___imagesCollection___mimeType'
+  | 'projectsList___imagesCollection___colors'
+  | 'projectsList___imagesCollection___colors___red'
+  | 'projectsList___imagesCollection___colors___green'
+  | 'projectsList___imagesCollection___colors___blue'
+  | 'projectsList___imagesCollection___colors___alpha'
+  | 'projectsList___imagesCollection___colors___rgb'
+  | 'projectsList___imagesCollection___colors___hex'
+  | 'projectsList___imagesCollection___blurhash'
+  | 'projectsList___imagesCollection___originalId'
+  | 'projectsList___imagesCollection___url'
+  | 'projectsList___imagesCollection___createdAt'
+  | 'projectsList___imagesCollection___video___muxPlaybackId'
+  | 'projectsList___imagesCollection___video___frameRate'
+  | 'projectsList___imagesCollection___video___duration'
+  | 'projectsList___imagesCollection___video___streamingUrl'
+  | 'projectsList___imagesCollection___video___thumbnailUrl'
+  | 'projectsList___imagesCollection___video___mp4Url'
+  | 'projectsList___imagesCollection___fluid___base64'
+  | 'projectsList___imagesCollection___fluid___tracedSVG'
+  | 'projectsList___imagesCollection___fluid___aspectRatio'
+  | 'projectsList___imagesCollection___fluid___width'
+  | 'projectsList___imagesCollection___fluid___height'
+  | 'projectsList___imagesCollection___fluid___src'
+  | 'projectsList___imagesCollection___fluid___srcSet'
+  | 'projectsList___imagesCollection___fluid___sizes'
+  | 'projectsList___imagesCollection___sizes___base64'
+  | 'projectsList___imagesCollection___sizes___tracedSVG'
+  | 'projectsList___imagesCollection___sizes___aspectRatio'
+  | 'projectsList___imagesCollection___sizes___width'
+  | 'projectsList___imagesCollection___sizes___height'
+  | 'projectsList___imagesCollection___sizes___src'
+  | 'projectsList___imagesCollection___sizes___srcSet'
+  | 'projectsList___imagesCollection___sizes___sizes'
+  | 'projectsList___imagesCollection___fixed___base64'
+  | 'projectsList___imagesCollection___fixed___tracedSVG'
+  | 'projectsList___imagesCollection___fixed___aspectRatio'
+  | 'projectsList___imagesCollection___fixed___width'
+  | 'projectsList___imagesCollection___fixed___height'
+  | 'projectsList___imagesCollection___fixed___src'
+  | 'projectsList___imagesCollection___fixed___srcSet'
+  | 'projectsList___imagesCollection___fixed___sizes'
+  | 'projectsList___imagesCollection___resolutions___base64'
+  | 'projectsList___imagesCollection___resolutions___tracedSVG'
+  | 'projectsList___imagesCollection___resolutions___aspectRatio'
+  | 'projectsList___imagesCollection___resolutions___width'
+  | 'projectsList___imagesCollection___resolutions___height'
+  | 'projectsList___imagesCollection___resolutions___src'
+  | 'projectsList___imagesCollection___resolutions___srcSet'
+  | 'projectsList___imagesCollection___resolutions___sizes'
+  | 'projectsList___imagesCollection___gatsbyImageData'
+  | 'projectsList___imagesCollection___alt'
+  | 'projectsList___imagesCollection___title'
+  | 'projectsList___imagesCollection___customData'
+  | 'projectsList___imagesCollection___focalPoint___x'
+  | 'projectsList___imagesCollection___focalPoint___y'
+  | 'projectsList___slug'
+  | 'projectsList____allSlugLocales'
+  | 'projectsList____allSlugLocales___locale'
+  | 'projectsList____allSlugLocales___value'
+  | 'projectsList___title'
+  | 'projectsList____allTitleLocales'
+  | 'projectsList____allTitleLocales___locale'
+  | 'projectsList____allTitleLocales___value'
+  | 'projectsList___description'
+  | 'projectsList___descriptionNode___id'
+  | 'projectsList___descriptionNode___parent___id'
+  | 'projectsList___descriptionNode___parent___children'
+  | 'projectsList___descriptionNode___children'
+  | 'projectsList___descriptionNode___children___id'
+  | 'projectsList___descriptionNode___children___children'
+  | 'projectsList___descriptionNode___internal___content'
+  | 'projectsList___descriptionNode___internal___contentDigest'
+  | 'projectsList___descriptionNode___internal___description'
+  | 'projectsList___descriptionNode___internal___fieldOwners'
+  | 'projectsList___descriptionNode___internal___ignoreType'
+  | 'projectsList___descriptionNode___internal___mediaType'
+  | 'projectsList___descriptionNode___internal___owner'
+  | 'projectsList___descriptionNode___internal___type'
+  | 'projectsList___descriptionNode___internal___contentFilePath'
+  | 'projectsList____allDescriptionLocales'
+  | 'projectsList____allDescriptionLocales___locale'
+  | 'projectsList____allDescriptionLocales___value'
+  | 'projectsList____allDescriptionLocales___valueNode___id'
+  | 'projectsList____allDescriptionLocales___valueNode___children'
+  | 'projectsList___mainImage___size'
+  | 'projectsList___mainImage___width'
+  | 'projectsList___mainImage___height'
+  | 'projectsList___mainImage___path'
+  | 'projectsList___mainImage___format'
+  | 'projectsList___mainImage___isImage'
+  | 'projectsList___mainImage___notes'
+  | 'projectsList___mainImage___author'
+  | 'projectsList___mainImage___copyright'
+  | 'projectsList___mainImage___tags'
+  | 'projectsList___mainImage___smartTags'
+  | 'projectsList___mainImage___filename'
+  | 'projectsList___mainImage___basename'
+  | 'projectsList___mainImage___exifInfo'
+  | 'projectsList___mainImage___mimeType'
+  | 'projectsList___mainImage___colors'
+  | 'projectsList___mainImage___colors___red'
+  | 'projectsList___mainImage___colors___green'
+  | 'projectsList___mainImage___colors___blue'
+  | 'projectsList___mainImage___colors___alpha'
+  | 'projectsList___mainImage___colors___rgb'
+  | 'projectsList___mainImage___colors___hex'
+  | 'projectsList___mainImage___blurhash'
+  | 'projectsList___mainImage___originalId'
+  | 'projectsList___mainImage___url'
+  | 'projectsList___mainImage___createdAt'
+  | 'projectsList___mainImage___video___muxPlaybackId'
+  | 'projectsList___mainImage___video___frameRate'
+  | 'projectsList___mainImage___video___duration'
+  | 'projectsList___mainImage___video___streamingUrl'
+  | 'projectsList___mainImage___video___thumbnailUrl'
+  | 'projectsList___mainImage___video___mp4Url'
+  | 'projectsList___mainImage___fluid___base64'
+  | 'projectsList___mainImage___fluid___tracedSVG'
+  | 'projectsList___mainImage___fluid___aspectRatio'
+  | 'projectsList___mainImage___fluid___width'
+  | 'projectsList___mainImage___fluid___height'
+  | 'projectsList___mainImage___fluid___src'
+  | 'projectsList___mainImage___fluid___srcSet'
+  | 'projectsList___mainImage___fluid___sizes'
+  | 'projectsList___mainImage___sizes___base64'
+  | 'projectsList___mainImage___sizes___tracedSVG'
+  | 'projectsList___mainImage___sizes___aspectRatio'
+  | 'projectsList___mainImage___sizes___width'
+  | 'projectsList___mainImage___sizes___height'
+  | 'projectsList___mainImage___sizes___src'
+  | 'projectsList___mainImage___sizes___srcSet'
+  | 'projectsList___mainImage___sizes___sizes'
+  | 'projectsList___mainImage___fixed___base64'
+  | 'projectsList___mainImage___fixed___tracedSVG'
+  | 'projectsList___mainImage___fixed___aspectRatio'
+  | 'projectsList___mainImage___fixed___width'
+  | 'projectsList___mainImage___fixed___height'
+  | 'projectsList___mainImage___fixed___src'
+  | 'projectsList___mainImage___fixed___srcSet'
+  | 'projectsList___mainImage___fixed___sizes'
+  | 'projectsList___mainImage___resolutions___base64'
+  | 'projectsList___mainImage___resolutions___tracedSVG'
+  | 'projectsList___mainImage___resolutions___aspectRatio'
+  | 'projectsList___mainImage___resolutions___width'
+  | 'projectsList___mainImage___resolutions___height'
+  | 'projectsList___mainImage___resolutions___src'
+  | 'projectsList___mainImage___resolutions___srcSet'
+  | 'projectsList___mainImage___resolutions___sizes'
+  | 'projectsList___mainImage___gatsbyImageData'
+  | 'projectsList___mainImage___alt'
+  | 'projectsList___mainImage___title'
+  | 'projectsList___mainImage___customData'
+  | 'projectsList___mainImage___focalPoint___x'
+  | 'projectsList___mainImage___focalPoint___y'
+  | 'projectsList___meta___createdAt'
+  | 'projectsList___meta___updatedAt'
+  | 'projectsList___meta___publishedAt'
+  | 'projectsList___meta___firstPublishedAt'
+  | 'projectsList___meta___isValid'
+  | 'projectsList___meta___status'
+  | 'projectsList___originalId'
+  | 'projectsList___locale'
+  | 'projectsList___seoMetaTags___tags'
+  | 'projectsList___seoMetaTags___id'
+  | 'projectsList___seoMetaTags___parent___id'
+  | 'projectsList___seoMetaTags___parent___children'
+  | 'projectsList___seoMetaTags___children'
+  | 'projectsList___seoMetaTags___children___id'
+  | 'projectsList___seoMetaTags___children___children'
+  | 'projectsList___seoMetaTags___internal___content'
+  | 'projectsList___seoMetaTags___internal___contentDigest'
+  | 'projectsList___seoMetaTags___internal___description'
+  | 'projectsList___seoMetaTags___internal___fieldOwners'
+  | 'projectsList___seoMetaTags___internal___ignoreType'
+  | 'projectsList___seoMetaTags___internal___mediaType'
+  | 'projectsList___seoMetaTags___internal___owner'
+  | 'projectsList___seoMetaTags___internal___type'
+  | 'projectsList___seoMetaTags___internal___contentFilePath'
+  | 'projectsList___model___name'
+  | 'projectsList___model___singleton'
+  | 'projectsList___model___sortable'
+  | 'projectsList___model___apiKey'
+  | 'projectsList___model___orderingDirection'
+  | 'projectsList___model___tree'
+  | 'projectsList___model___modularBlock'
+  | 'projectsList___model___draftModeActive'
+  | 'projectsList___model___allLocalesRequired'
+  | 'projectsList___model___collectionAppeareance'
+  | 'projectsList___model___hasSingletonItem'
+  | 'projectsList___model___originalId'
+  | 'projectsList___model___fields___tags'
+  | 'projectsList___model___fields___id'
+  | 'projectsList___model___fields___children'
+  | 'projectsList___model___id'
+  | 'projectsList___model___parent___id'
+  | 'projectsList___model___parent___children'
+  | 'projectsList___model___children'
+  | 'projectsList___model___children___id'
+  | 'projectsList___model___children___children'
+  | 'projectsList___model___internal___content'
+  | 'projectsList___model___internal___contentDigest'
+  | 'projectsList___model___internal___description'
+  | 'projectsList___model___internal___fieldOwners'
+  | 'projectsList___model___internal___ignoreType'
+  | 'projectsList___model___internal___mediaType'
+  | 'projectsList___model___internal___owner'
+  | 'projectsList___model___internal___type'
+  | 'projectsList___model___internal___contentFilePath'
+  | 'projectsList___id'
+  | 'projectsList___parent___id'
+  | 'projectsList___parent___parent___id'
+  | 'projectsList___parent___parent___children'
+  | 'projectsList___parent___children'
+  | 'projectsList___parent___children___id'
+  | 'projectsList___parent___children___children'
+  | 'projectsList___parent___internal___content'
+  | 'projectsList___parent___internal___contentDigest'
+  | 'projectsList___parent___internal___description'
+  | 'projectsList___parent___internal___fieldOwners'
+  | 'projectsList___parent___internal___ignoreType'
+  | 'projectsList___parent___internal___mediaType'
+  | 'projectsList___parent___internal___owner'
+  | 'projectsList___parent___internal___type'
+  | 'projectsList___parent___internal___contentFilePath'
+  | 'projectsList___children'
+  | 'projectsList___children___id'
+  | 'projectsList___children___parent___id'
+  | 'projectsList___children___parent___children'
+  | 'projectsList___children___children'
+  | 'projectsList___children___children___id'
+  | 'projectsList___children___children___children'
+  | 'projectsList___children___internal___content'
+  | 'projectsList___children___internal___contentDigest'
+  | 'projectsList___children___internal___description'
+  | 'projectsList___children___internal___fieldOwners'
+  | 'projectsList___children___internal___ignoreType'
+  | 'projectsList___children___internal___mediaType'
+  | 'projectsList___children___internal___owner'
+  | 'projectsList___children___internal___type'
+  | 'projectsList___children___internal___contentFilePath'
+  | 'projectsList___internal___content'
+  | 'projectsList___internal___contentDigest'
+  | 'projectsList___internal___description'
+  | 'projectsList___internal___fieldOwners'
+  | 'projectsList___internal___ignoreType'
+  | 'projectsList___internal___mediaType'
+  | 'projectsList___internal___owner'
+  | 'projectsList___internal___type'
+  | 'projectsList___internal___contentFilePath'
+  | '_allProjectsListLocales'
+  | '_allProjectsListLocales___locale'
+  | '_allProjectsListLocales___value'
+  | '_allProjectsListLocales___value___imagesCollection'
+  | '_allProjectsListLocales___value___imagesCollection___size'
+  | '_allProjectsListLocales___value___imagesCollection___width'
+  | '_allProjectsListLocales___value___imagesCollection___height'
+  | '_allProjectsListLocales___value___imagesCollection___path'
+  | '_allProjectsListLocales___value___imagesCollection___format'
+  | '_allProjectsListLocales___value___imagesCollection___isImage'
+  | '_allProjectsListLocales___value___imagesCollection___notes'
+  | '_allProjectsListLocales___value___imagesCollection___author'
+  | '_allProjectsListLocales___value___imagesCollection___copyright'
+  | '_allProjectsListLocales___value___imagesCollection___tags'
+  | '_allProjectsListLocales___value___imagesCollection___smartTags'
+  | '_allProjectsListLocales___value___imagesCollection___filename'
+  | '_allProjectsListLocales___value___imagesCollection___basename'
+  | '_allProjectsListLocales___value___imagesCollection___exifInfo'
+  | '_allProjectsListLocales___value___imagesCollection___mimeType'
+  | '_allProjectsListLocales___value___imagesCollection___colors'
+  | '_allProjectsListLocales___value___imagesCollection___blurhash'
+  | '_allProjectsListLocales___value___imagesCollection___originalId'
+  | '_allProjectsListLocales___value___imagesCollection___url'
+  | '_allProjectsListLocales___value___imagesCollection___createdAt'
+  | '_allProjectsListLocales___value___imagesCollection___gatsbyImageData'
+  | '_allProjectsListLocales___value___imagesCollection___alt'
+  | '_allProjectsListLocales___value___imagesCollection___title'
+  | '_allProjectsListLocales___value___imagesCollection___customData'
+  | '_allProjectsListLocales___value___slug'
+  | '_allProjectsListLocales___value____allSlugLocales'
+  | '_allProjectsListLocales___value____allSlugLocales___locale'
+  | '_allProjectsListLocales___value____allSlugLocales___value'
+  | '_allProjectsListLocales___value___title'
+  | '_allProjectsListLocales___value____allTitleLocales'
+  | '_allProjectsListLocales___value____allTitleLocales___locale'
+  | '_allProjectsListLocales___value____allTitleLocales___value'
+  | '_allProjectsListLocales___value___description'
+  | '_allProjectsListLocales___value___descriptionNode___id'
+  | '_allProjectsListLocales___value___descriptionNode___children'
+  | '_allProjectsListLocales___value____allDescriptionLocales'
+  | '_allProjectsListLocales___value____allDescriptionLocales___locale'
+  | '_allProjectsListLocales___value____allDescriptionLocales___value'
+  | '_allProjectsListLocales___value___mainImage___size'
+  | '_allProjectsListLocales___value___mainImage___width'
+  | '_allProjectsListLocales___value___mainImage___height'
+  | '_allProjectsListLocales___value___mainImage___path'
+  | '_allProjectsListLocales___value___mainImage___format'
+  | '_allProjectsListLocales___value___mainImage___isImage'
+  | '_allProjectsListLocales___value___mainImage___notes'
+  | '_allProjectsListLocales___value___mainImage___author'
+  | '_allProjectsListLocales___value___mainImage___copyright'
+  | '_allProjectsListLocales___value___mainImage___tags'
+  | '_allProjectsListLocales___value___mainImage___smartTags'
+  | '_allProjectsListLocales___value___mainImage___filename'
+  | '_allProjectsListLocales___value___mainImage___basename'
+  | '_allProjectsListLocales___value___mainImage___exifInfo'
+  | '_allProjectsListLocales___value___mainImage___mimeType'
+  | '_allProjectsListLocales___value___mainImage___colors'
+  | '_allProjectsListLocales___value___mainImage___blurhash'
+  | '_allProjectsListLocales___value___mainImage___originalId'
+  | '_allProjectsListLocales___value___mainImage___url'
+  | '_allProjectsListLocales___value___mainImage___createdAt'
+  | '_allProjectsListLocales___value___mainImage___gatsbyImageData'
+  | '_allProjectsListLocales___value___mainImage___alt'
+  | '_allProjectsListLocales___value___mainImage___title'
+  | '_allProjectsListLocales___value___mainImage___customData'
+  | '_allProjectsListLocales___value___meta___createdAt'
+  | '_allProjectsListLocales___value___meta___updatedAt'
+  | '_allProjectsListLocales___value___meta___publishedAt'
+  | '_allProjectsListLocales___value___meta___firstPublishedAt'
+  | '_allProjectsListLocales___value___meta___isValid'
+  | '_allProjectsListLocales___value___meta___status'
+  | '_allProjectsListLocales___value___originalId'
+  | '_allProjectsListLocales___value___locale'
+  | '_allProjectsListLocales___value___seoMetaTags___tags'
+  | '_allProjectsListLocales___value___seoMetaTags___id'
+  | '_allProjectsListLocales___value___seoMetaTags___children'
+  | '_allProjectsListLocales___value___model___name'
+  | '_allProjectsListLocales___value___model___singleton'
+  | '_allProjectsListLocales___value___model___sortable'
+  | '_allProjectsListLocales___value___model___apiKey'
+  | '_allProjectsListLocales___value___model___orderingDirection'
+  | '_allProjectsListLocales___value___model___tree'
+  | '_allProjectsListLocales___value___model___modularBlock'
+  | '_allProjectsListLocales___value___model___draftModeActive'
+  | '_allProjectsListLocales___value___model___allLocalesRequired'
+  | '_allProjectsListLocales___value___model___collectionAppeareance'
+  | '_allProjectsListLocales___value___model___hasSingletonItem'
+  | '_allProjectsListLocales___value___model___originalId'
+  | '_allProjectsListLocales___value___model___id'
+  | '_allProjectsListLocales___value___model___children'
+  | '_allProjectsListLocales___value___id'
+  | '_allProjectsListLocales___value___parent___id'
+  | '_allProjectsListLocales___value___parent___children'
+  | '_allProjectsListLocales___value___children'
+  | '_allProjectsListLocales___value___children___id'
+  | '_allProjectsListLocales___value___children___children'
+  | '_allProjectsListLocales___value___internal___content'
+  | '_allProjectsListLocales___value___internal___contentDigest'
+  | '_allProjectsListLocales___value___internal___description'
+  | '_allProjectsListLocales___value___internal___fieldOwners'
+  | '_allProjectsListLocales___value___internal___ignoreType'
+  | '_allProjectsListLocales___value___internal___mediaType'
+  | '_allProjectsListLocales___value___internal___owner'
+  | '_allProjectsListLocales___value___internal___type'
+  | '_allProjectsListLocales___value___internal___contentFilePath'
+  | 'meta___createdAt'
+  | 'meta___updatedAt'
+  | 'meta___publishedAt'
+  | 'meta___firstPublishedAt'
+  | 'meta___isValid'
+  | 'meta___status'
+  | 'originalId'
+  | 'locale'
+  | 'seoMetaTags___tags'
+  | 'seoMetaTags___id'
+  | 'seoMetaTags___parent___id'
+  | 'seoMetaTags___parent___parent___id'
+  | 'seoMetaTags___parent___parent___children'
+  | 'seoMetaTags___parent___children'
+  | 'seoMetaTags___parent___children___id'
+  | 'seoMetaTags___parent___children___children'
+  | 'seoMetaTags___parent___internal___content'
+  | 'seoMetaTags___parent___internal___contentDigest'
+  | 'seoMetaTags___parent___internal___description'
+  | 'seoMetaTags___parent___internal___fieldOwners'
+  | 'seoMetaTags___parent___internal___ignoreType'
+  | 'seoMetaTags___parent___internal___mediaType'
+  | 'seoMetaTags___parent___internal___owner'
+  | 'seoMetaTags___parent___internal___type'
+  | 'seoMetaTags___parent___internal___contentFilePath'
+  | 'seoMetaTags___children'
+  | 'seoMetaTags___children___id'
+  | 'seoMetaTags___children___parent___id'
+  | 'seoMetaTags___children___parent___children'
+  | 'seoMetaTags___children___children'
+  | 'seoMetaTags___children___children___id'
+  | 'seoMetaTags___children___children___children'
+  | 'seoMetaTags___children___internal___content'
+  | 'seoMetaTags___children___internal___contentDigest'
+  | 'seoMetaTags___children___internal___description'
+  | 'seoMetaTags___children___internal___fieldOwners'
+  | 'seoMetaTags___children___internal___ignoreType'
+  | 'seoMetaTags___children___internal___mediaType'
+  | 'seoMetaTags___children___internal___owner'
+  | 'seoMetaTags___children___internal___type'
+  | 'seoMetaTags___children___internal___contentFilePath'
+  | 'seoMetaTags___internal___content'
+  | 'seoMetaTags___internal___contentDigest'
+  | 'seoMetaTags___internal___description'
+  | 'seoMetaTags___internal___fieldOwners'
+  | 'seoMetaTags___internal___ignoreType'
+  | 'seoMetaTags___internal___mediaType'
+  | 'seoMetaTags___internal___owner'
+  | 'seoMetaTags___internal___type'
+  | 'seoMetaTags___internal___contentFilePath'
+  | 'model___name'
+  | 'model___singleton'
+  | 'model___sortable'
+  | 'model___apiKey'
+  | 'model___orderingDirection'
+  | 'model___tree'
+  | 'model___modularBlock'
+  | 'model___draftModeActive'
+  | 'model___allLocalesRequired'
+  | 'model___collectionAppeareance'
+  | 'model___hasSingletonItem'
+  | 'model___originalId'
+  | 'model___fields___tags'
+  | 'model___fields___id'
+  | 'model___fields___parent___id'
+  | 'model___fields___parent___children'
+  | 'model___fields___children'
+  | 'model___fields___children___id'
+  | 'model___fields___children___children'
+  | 'model___fields___internal___content'
+  | 'model___fields___internal___contentDigest'
+  | 'model___fields___internal___description'
+  | 'model___fields___internal___fieldOwners'
+  | 'model___fields___internal___ignoreType'
+  | 'model___fields___internal___mediaType'
+  | 'model___fields___internal___owner'
+  | 'model___fields___internal___type'
+  | 'model___fields___internal___contentFilePath'
+  | 'model___id'
+  | 'model___parent___id'
+  | 'model___parent___parent___id'
+  | 'model___parent___parent___children'
+  | 'model___parent___children'
+  | 'model___parent___children___id'
+  | 'model___parent___children___children'
+  | 'model___parent___internal___content'
+  | 'model___parent___internal___contentDigest'
+  | 'model___parent___internal___description'
+  | 'model___parent___internal___fieldOwners'
+  | 'model___parent___internal___ignoreType'
+  | 'model___parent___internal___mediaType'
+  | 'model___parent___internal___owner'
+  | 'model___parent___internal___type'
+  | 'model___parent___internal___contentFilePath'
+  | 'model___children'
+  | 'model___children___id'
+  | 'model___children___parent___id'
+  | 'model___children___parent___children'
+  | 'model___children___children'
+  | 'model___children___children___id'
+  | 'model___children___children___children'
+  | 'model___children___internal___content'
+  | 'model___children___internal___contentDigest'
+  | 'model___children___internal___description'
+  | 'model___children___internal___fieldOwners'
+  | 'model___children___internal___ignoreType'
+  | 'model___children___internal___mediaType'
+  | 'model___children___internal___owner'
+  | 'model___children___internal___type'
+  | 'model___children___internal___contentFilePath'
+  | 'model___internal___content'
+  | 'model___internal___contentDigest'
+  | 'model___internal___description'
+  | 'model___internal___fieldOwners'
+  | 'model___internal___ignoreType'
+  | 'model___internal___mediaType'
+  | 'model___internal___owner'
+  | 'model___internal___type'
+  | 'model___internal___contentFilePath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___internal___contentFilePath'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'internal___contentFilePath';
+
+export type DatoCmsAllProjectsPageGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsAllProjectsPageEdge>;
+  nodes: Array<DatoCmsAllProjectsPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsAllProjectsPageGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type DatoCmsAllProjectsPageGroupConnectionDistinctArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageGroupConnectionMaxArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageGroupConnectionMinArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageGroupConnectionSumArgs = {
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+
+export type DatoCmsAllProjectsPageGroupConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsAllProjectsPageFieldsEnum;
+};
+
+export type DatoCmsAllProjectsPageFilterInput = {
+  pageTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allPageTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsAllProjectsPagePageTitleFilterListInput>;
+  projectsList?: InputMaybe<DatoCmsProjectPageFilterListInput>;
+  _allProjectsListLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsAllProjectsPageProjectsListFilterListInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+export type DatoCmsAllProjectsPageSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<DatoCmsAllProjectsPageFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
+export type DatoCmsProjectPageConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsProjectPageEdge>;
+  nodes: Array<DatoCmsProjectPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsProjectPageGroupConnection>;
+};
+
+
+export type DatoCmsProjectPageConnectionDistinctArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageConnectionMaxArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageConnectionMinArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageConnectionSumArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+export type DatoCmsProjectPageEdge = {
+  next?: Maybe<DatoCmsProjectPage>;
+  node: DatoCmsProjectPage;
+  previous?: Maybe<DatoCmsProjectPage>;
+};
+
+export type DatoCmsProjectPageFieldsEnum =
+  | 'imagesCollection'
+  | 'imagesCollection___size'
+  | 'imagesCollection___width'
+  | 'imagesCollection___height'
+  | 'imagesCollection___path'
+  | 'imagesCollection___format'
+  | 'imagesCollection___isImage'
+  | 'imagesCollection___notes'
+  | 'imagesCollection___author'
+  | 'imagesCollection___copyright'
+  | 'imagesCollection___tags'
+  | 'imagesCollection___smartTags'
+  | 'imagesCollection___filename'
+  | 'imagesCollection___basename'
+  | 'imagesCollection___exifInfo'
+  | 'imagesCollection___mimeType'
+  | 'imagesCollection___colors'
+  | 'imagesCollection___colors___red'
+  | 'imagesCollection___colors___green'
+  | 'imagesCollection___colors___blue'
+  | 'imagesCollection___colors___alpha'
+  | 'imagesCollection___colors___rgb'
+  | 'imagesCollection___colors___hex'
+  | 'imagesCollection___blurhash'
+  | 'imagesCollection___originalId'
+  | 'imagesCollection___url'
+  | 'imagesCollection___createdAt'
+  | 'imagesCollection___video___muxPlaybackId'
+  | 'imagesCollection___video___frameRate'
+  | 'imagesCollection___video___duration'
+  | 'imagesCollection___video___streamingUrl'
+  | 'imagesCollection___video___thumbnailUrl'
+  | 'imagesCollection___video___mp4Url'
+  | 'imagesCollection___fluid___base64'
+  | 'imagesCollection___fluid___tracedSVG'
+  | 'imagesCollection___fluid___aspectRatio'
+  | 'imagesCollection___fluid___width'
+  | 'imagesCollection___fluid___height'
+  | 'imagesCollection___fluid___src'
+  | 'imagesCollection___fluid___srcSet'
+  | 'imagesCollection___fluid___sizes'
+  | 'imagesCollection___sizes___base64'
+  | 'imagesCollection___sizes___tracedSVG'
+  | 'imagesCollection___sizes___aspectRatio'
+  | 'imagesCollection___sizes___width'
+  | 'imagesCollection___sizes___height'
+  | 'imagesCollection___sizes___src'
+  | 'imagesCollection___sizes___srcSet'
+  | 'imagesCollection___sizes___sizes'
+  | 'imagesCollection___fixed___base64'
+  | 'imagesCollection___fixed___tracedSVG'
+  | 'imagesCollection___fixed___aspectRatio'
+  | 'imagesCollection___fixed___width'
+  | 'imagesCollection___fixed___height'
+  | 'imagesCollection___fixed___src'
+  | 'imagesCollection___fixed___srcSet'
+  | 'imagesCollection___fixed___sizes'
+  | 'imagesCollection___resolutions___base64'
+  | 'imagesCollection___resolutions___tracedSVG'
+  | 'imagesCollection___resolutions___aspectRatio'
+  | 'imagesCollection___resolutions___width'
+  | 'imagesCollection___resolutions___height'
+  | 'imagesCollection___resolutions___src'
+  | 'imagesCollection___resolutions___srcSet'
+  | 'imagesCollection___resolutions___sizes'
+  | 'imagesCollection___gatsbyImageData'
+  | 'imagesCollection___alt'
+  | 'imagesCollection___title'
+  | 'imagesCollection___customData'
+  | 'imagesCollection___focalPoint___x'
+  | 'imagesCollection___focalPoint___y'
+  | 'slug'
+  | '_allSlugLocales'
+  | '_allSlugLocales___locale'
+  | '_allSlugLocales___value'
+  | 'title'
+  | '_allTitleLocales'
+  | '_allTitleLocales___locale'
+  | '_allTitleLocales___value'
+  | 'description'
+  | 'descriptionNode___id'
+  | 'descriptionNode___parent___id'
+  | 'descriptionNode___parent___parent___id'
+  | 'descriptionNode___parent___parent___children'
+  | 'descriptionNode___parent___children'
+  | 'descriptionNode___parent___children___id'
+  | 'descriptionNode___parent___children___children'
+  | 'descriptionNode___parent___internal___content'
+  | 'descriptionNode___parent___internal___contentDigest'
+  | 'descriptionNode___parent___internal___description'
+  | 'descriptionNode___parent___internal___fieldOwners'
+  | 'descriptionNode___parent___internal___ignoreType'
+  | 'descriptionNode___parent___internal___mediaType'
+  | 'descriptionNode___parent___internal___owner'
+  | 'descriptionNode___parent___internal___type'
+  | 'descriptionNode___parent___internal___contentFilePath'
+  | 'descriptionNode___children'
+  | 'descriptionNode___children___id'
+  | 'descriptionNode___children___parent___id'
+  | 'descriptionNode___children___parent___children'
+  | 'descriptionNode___children___children'
+  | 'descriptionNode___children___children___id'
+  | 'descriptionNode___children___children___children'
+  | 'descriptionNode___children___internal___content'
+  | 'descriptionNode___children___internal___contentDigest'
+  | 'descriptionNode___children___internal___description'
+  | 'descriptionNode___children___internal___fieldOwners'
+  | 'descriptionNode___children___internal___ignoreType'
+  | 'descriptionNode___children___internal___mediaType'
+  | 'descriptionNode___children___internal___owner'
+  | 'descriptionNode___children___internal___type'
+  | 'descriptionNode___children___internal___contentFilePath'
+  | 'descriptionNode___internal___content'
+  | 'descriptionNode___internal___contentDigest'
+  | 'descriptionNode___internal___description'
+  | 'descriptionNode___internal___fieldOwners'
+  | 'descriptionNode___internal___ignoreType'
+  | 'descriptionNode___internal___mediaType'
+  | 'descriptionNode___internal___owner'
+  | 'descriptionNode___internal___type'
+  | 'descriptionNode___internal___contentFilePath'
+  | '_allDescriptionLocales'
+  | '_allDescriptionLocales___locale'
+  | '_allDescriptionLocales___value'
+  | '_allDescriptionLocales___valueNode___id'
+  | '_allDescriptionLocales___valueNode___parent___id'
+  | '_allDescriptionLocales___valueNode___parent___children'
+  | '_allDescriptionLocales___valueNode___children'
+  | '_allDescriptionLocales___valueNode___children___id'
+  | '_allDescriptionLocales___valueNode___children___children'
+  | '_allDescriptionLocales___valueNode___internal___content'
+  | '_allDescriptionLocales___valueNode___internal___contentDigest'
+  | '_allDescriptionLocales___valueNode___internal___description'
+  | '_allDescriptionLocales___valueNode___internal___fieldOwners'
+  | '_allDescriptionLocales___valueNode___internal___ignoreType'
+  | '_allDescriptionLocales___valueNode___internal___mediaType'
+  | '_allDescriptionLocales___valueNode___internal___owner'
+  | '_allDescriptionLocales___valueNode___internal___type'
+  | '_allDescriptionLocales___valueNode___internal___contentFilePath'
+  | 'mainImage___size'
+  | 'mainImage___width'
+  | 'mainImage___height'
+  | 'mainImage___path'
+  | 'mainImage___format'
+  | 'mainImage___isImage'
+  | 'mainImage___notes'
+  | 'mainImage___author'
+  | 'mainImage___copyright'
+  | 'mainImage___tags'
+  | 'mainImage___smartTags'
+  | 'mainImage___filename'
+  | 'mainImage___basename'
+  | 'mainImage___exifInfo'
+  | 'mainImage___mimeType'
+  | 'mainImage___colors'
+  | 'mainImage___colors___red'
+  | 'mainImage___colors___green'
+  | 'mainImage___colors___blue'
+  | 'mainImage___colors___alpha'
+  | 'mainImage___colors___rgb'
+  | 'mainImage___colors___hex'
+  | 'mainImage___blurhash'
+  | 'mainImage___originalId'
+  | 'mainImage___url'
+  | 'mainImage___createdAt'
+  | 'mainImage___video___muxPlaybackId'
+  | 'mainImage___video___frameRate'
+  | 'mainImage___video___duration'
+  | 'mainImage___video___streamingUrl'
+  | 'mainImage___video___thumbnailUrl'
+  | 'mainImage___video___mp4Url'
+  | 'mainImage___fluid___base64'
+  | 'mainImage___fluid___tracedSVG'
+  | 'mainImage___fluid___aspectRatio'
+  | 'mainImage___fluid___width'
+  | 'mainImage___fluid___height'
+  | 'mainImage___fluid___src'
+  | 'mainImage___fluid___srcSet'
+  | 'mainImage___fluid___sizes'
+  | 'mainImage___sizes___base64'
+  | 'mainImage___sizes___tracedSVG'
+  | 'mainImage___sizes___aspectRatio'
+  | 'mainImage___sizes___width'
+  | 'mainImage___sizes___height'
+  | 'mainImage___sizes___src'
+  | 'mainImage___sizes___srcSet'
+  | 'mainImage___sizes___sizes'
+  | 'mainImage___fixed___base64'
+  | 'mainImage___fixed___tracedSVG'
+  | 'mainImage___fixed___aspectRatio'
+  | 'mainImage___fixed___width'
+  | 'mainImage___fixed___height'
+  | 'mainImage___fixed___src'
+  | 'mainImage___fixed___srcSet'
+  | 'mainImage___fixed___sizes'
+  | 'mainImage___resolutions___base64'
+  | 'mainImage___resolutions___tracedSVG'
+  | 'mainImage___resolutions___aspectRatio'
+  | 'mainImage___resolutions___width'
+  | 'mainImage___resolutions___height'
+  | 'mainImage___resolutions___src'
+  | 'mainImage___resolutions___srcSet'
+  | 'mainImage___resolutions___sizes'
+  | 'mainImage___gatsbyImageData'
+  | 'mainImage___alt'
+  | 'mainImage___title'
+  | 'mainImage___customData'
+  | 'mainImage___focalPoint___x'
+  | 'mainImage___focalPoint___y'
+  | 'meta___createdAt'
+  | 'meta___updatedAt'
+  | 'meta___publishedAt'
+  | 'meta___firstPublishedAt'
+  | 'meta___isValid'
+  | 'meta___status'
+  | 'originalId'
+  | 'locale'
+  | 'seoMetaTags___tags'
+  | 'seoMetaTags___id'
+  | 'seoMetaTags___parent___id'
+  | 'seoMetaTags___parent___parent___id'
+  | 'seoMetaTags___parent___parent___children'
+  | 'seoMetaTags___parent___children'
+  | 'seoMetaTags___parent___children___id'
+  | 'seoMetaTags___parent___children___children'
+  | 'seoMetaTags___parent___internal___content'
+  | 'seoMetaTags___parent___internal___contentDigest'
+  | 'seoMetaTags___parent___internal___description'
+  | 'seoMetaTags___parent___internal___fieldOwners'
+  | 'seoMetaTags___parent___internal___ignoreType'
+  | 'seoMetaTags___parent___internal___mediaType'
+  | 'seoMetaTags___parent___internal___owner'
+  | 'seoMetaTags___parent___internal___type'
+  | 'seoMetaTags___parent___internal___contentFilePath'
+  | 'seoMetaTags___children'
+  | 'seoMetaTags___children___id'
+  | 'seoMetaTags___children___parent___id'
+  | 'seoMetaTags___children___parent___children'
+  | 'seoMetaTags___children___children'
+  | 'seoMetaTags___children___children___id'
+  | 'seoMetaTags___children___children___children'
+  | 'seoMetaTags___children___internal___content'
+  | 'seoMetaTags___children___internal___contentDigest'
+  | 'seoMetaTags___children___internal___description'
+  | 'seoMetaTags___children___internal___fieldOwners'
+  | 'seoMetaTags___children___internal___ignoreType'
+  | 'seoMetaTags___children___internal___mediaType'
+  | 'seoMetaTags___children___internal___owner'
+  | 'seoMetaTags___children___internal___type'
+  | 'seoMetaTags___children___internal___contentFilePath'
+  | 'seoMetaTags___internal___content'
+  | 'seoMetaTags___internal___contentDigest'
+  | 'seoMetaTags___internal___description'
+  | 'seoMetaTags___internal___fieldOwners'
+  | 'seoMetaTags___internal___ignoreType'
+  | 'seoMetaTags___internal___mediaType'
+  | 'seoMetaTags___internal___owner'
+  | 'seoMetaTags___internal___type'
+  | 'seoMetaTags___internal___contentFilePath'
+  | 'model___name'
+  | 'model___singleton'
+  | 'model___sortable'
+  | 'model___apiKey'
+  | 'model___orderingDirection'
+  | 'model___tree'
+  | 'model___modularBlock'
+  | 'model___draftModeActive'
+  | 'model___allLocalesRequired'
+  | 'model___collectionAppeareance'
+  | 'model___hasSingletonItem'
+  | 'model___originalId'
+  | 'model___fields___tags'
+  | 'model___fields___id'
+  | 'model___fields___parent___id'
+  | 'model___fields___parent___children'
+  | 'model___fields___children'
+  | 'model___fields___children___id'
+  | 'model___fields___children___children'
+  | 'model___fields___internal___content'
+  | 'model___fields___internal___contentDigest'
+  | 'model___fields___internal___description'
+  | 'model___fields___internal___fieldOwners'
+  | 'model___fields___internal___ignoreType'
+  | 'model___fields___internal___mediaType'
+  | 'model___fields___internal___owner'
+  | 'model___fields___internal___type'
+  | 'model___fields___internal___contentFilePath'
+  | 'model___id'
+  | 'model___parent___id'
+  | 'model___parent___parent___id'
+  | 'model___parent___parent___children'
+  | 'model___parent___children'
+  | 'model___parent___children___id'
+  | 'model___parent___children___children'
+  | 'model___parent___internal___content'
+  | 'model___parent___internal___contentDigest'
+  | 'model___parent___internal___description'
+  | 'model___parent___internal___fieldOwners'
+  | 'model___parent___internal___ignoreType'
+  | 'model___parent___internal___mediaType'
+  | 'model___parent___internal___owner'
+  | 'model___parent___internal___type'
+  | 'model___parent___internal___contentFilePath'
+  | 'model___children'
+  | 'model___children___id'
+  | 'model___children___parent___id'
+  | 'model___children___parent___children'
+  | 'model___children___children'
+  | 'model___children___children___id'
+  | 'model___children___children___children'
+  | 'model___children___internal___content'
+  | 'model___children___internal___contentDigest'
+  | 'model___children___internal___description'
+  | 'model___children___internal___fieldOwners'
+  | 'model___children___internal___ignoreType'
+  | 'model___children___internal___mediaType'
+  | 'model___children___internal___owner'
+  | 'model___children___internal___type'
+  | 'model___children___internal___contentFilePath'
+  | 'model___internal___content'
+  | 'model___internal___contentDigest'
+  | 'model___internal___description'
+  | 'model___internal___fieldOwners'
+  | 'model___internal___ignoreType'
+  | 'model___internal___mediaType'
+  | 'model___internal___owner'
+  | 'model___internal___type'
+  | 'model___internal___contentFilePath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___internal___contentFilePath'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'internal___contentFilePath';
+
+export type DatoCmsProjectPageGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsProjectPageEdge>;
+  nodes: Array<DatoCmsProjectPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsProjectPageGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type DatoCmsProjectPageGroupConnectionDistinctArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageGroupConnectionMaxArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageGroupConnectionMinArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageGroupConnectionSumArgs = {
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+
+export type DatoCmsProjectPageGroupConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsProjectPageFieldsEnum;
+};
+
+export type DatoCmsProjectPageSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<DatoCmsProjectPageFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsSlugsConfigurationConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsSlugsConfigurationEdge>;
+  nodes: Array<DatoCmsSlugsConfiguration>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsSlugsConfigurationGroupConnection>;
+};
+
+
+export type DatoCmsSlugsConfigurationConnectionDistinctArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationConnectionMaxArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationConnectionMinArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationConnectionSumArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+export type DatoCmsSlugsConfigurationEdge = {
+  next?: Maybe<DatoCmsSlugsConfiguration>;
+  node: DatoCmsSlugsConfiguration;
+  previous?: Maybe<DatoCmsSlugsConfiguration>;
+};
+
+export type DatoCmsSlugsConfigurationFieldsEnum =
+  | 'servicesPageSlug'
+  | '_allServicesPageSlugLocales'
+  | '_allServicesPageSlugLocales___locale'
+  | '_allServicesPageSlugLocales___value'
+  | 'servicesPageSlugReference'
+  | '_allServicesPageSlugReferenceLocales'
+  | '_allServicesPageSlugReferenceLocales___locale'
+  | '_allServicesPageSlugReferenceLocales___value'
+  | 'projectsPageSlug'
+  | '_allProjectsPageSlugLocales'
+  | '_allProjectsPageSlugLocales___locale'
+  | '_allProjectsPageSlugLocales___value'
+  | 'projectsPageSlugReference'
+  | '_allProjectsPageSlugReferenceLocales'
+  | '_allProjectsPageSlugReferenceLocales___locale'
+  | '_allProjectsPageSlugReferenceLocales___value'
+  | 'contactPageSlug'
+  | '_allContactPageSlugLocales'
+  | '_allContactPageSlugLocales___locale'
+  | '_allContactPageSlugLocales___value'
+  | 'contactPageSlugReference'
+  | '_allContactPageSlugReferenceLocales'
+  | '_allContactPageSlugReferenceLocales___locale'
+  | '_allContactPageSlugReferenceLocales___value'
+  | 'meta___createdAt'
+  | 'meta___updatedAt'
+  | 'meta___publishedAt'
+  | 'meta___firstPublishedAt'
+  | 'meta___isValid'
+  | 'meta___status'
+  | 'originalId'
+  | 'locale'
+  | 'seoMetaTags___tags'
+  | 'seoMetaTags___id'
+  | 'seoMetaTags___parent___id'
+  | 'seoMetaTags___parent___parent___id'
+  | 'seoMetaTags___parent___parent___children'
+  | 'seoMetaTags___parent___children'
+  | 'seoMetaTags___parent___children___id'
+  | 'seoMetaTags___parent___children___children'
+  | 'seoMetaTags___parent___internal___content'
+  | 'seoMetaTags___parent___internal___contentDigest'
+  | 'seoMetaTags___parent___internal___description'
+  | 'seoMetaTags___parent___internal___fieldOwners'
+  | 'seoMetaTags___parent___internal___ignoreType'
+  | 'seoMetaTags___parent___internal___mediaType'
+  | 'seoMetaTags___parent___internal___owner'
+  | 'seoMetaTags___parent___internal___type'
+  | 'seoMetaTags___parent___internal___contentFilePath'
+  | 'seoMetaTags___children'
+  | 'seoMetaTags___children___id'
+  | 'seoMetaTags___children___parent___id'
+  | 'seoMetaTags___children___parent___children'
+  | 'seoMetaTags___children___children'
+  | 'seoMetaTags___children___children___id'
+  | 'seoMetaTags___children___children___children'
+  | 'seoMetaTags___children___internal___content'
+  | 'seoMetaTags___children___internal___contentDigest'
+  | 'seoMetaTags___children___internal___description'
+  | 'seoMetaTags___children___internal___fieldOwners'
+  | 'seoMetaTags___children___internal___ignoreType'
+  | 'seoMetaTags___children___internal___mediaType'
+  | 'seoMetaTags___children___internal___owner'
+  | 'seoMetaTags___children___internal___type'
+  | 'seoMetaTags___children___internal___contentFilePath'
+  | 'seoMetaTags___internal___content'
+  | 'seoMetaTags___internal___contentDigest'
+  | 'seoMetaTags___internal___description'
+  | 'seoMetaTags___internal___fieldOwners'
+  | 'seoMetaTags___internal___ignoreType'
+  | 'seoMetaTags___internal___mediaType'
+  | 'seoMetaTags___internal___owner'
+  | 'seoMetaTags___internal___type'
+  | 'seoMetaTags___internal___contentFilePath'
+  | 'model___name'
+  | 'model___singleton'
+  | 'model___sortable'
+  | 'model___apiKey'
+  | 'model___orderingDirection'
+  | 'model___tree'
+  | 'model___modularBlock'
+  | 'model___draftModeActive'
+  | 'model___allLocalesRequired'
+  | 'model___collectionAppeareance'
+  | 'model___hasSingletonItem'
+  | 'model___originalId'
+  | 'model___fields___tags'
+  | 'model___fields___id'
+  | 'model___fields___parent___id'
+  | 'model___fields___parent___children'
+  | 'model___fields___children'
+  | 'model___fields___children___id'
+  | 'model___fields___children___children'
+  | 'model___fields___internal___content'
+  | 'model___fields___internal___contentDigest'
+  | 'model___fields___internal___description'
+  | 'model___fields___internal___fieldOwners'
+  | 'model___fields___internal___ignoreType'
+  | 'model___fields___internal___mediaType'
+  | 'model___fields___internal___owner'
+  | 'model___fields___internal___type'
+  | 'model___fields___internal___contentFilePath'
+  | 'model___id'
+  | 'model___parent___id'
+  | 'model___parent___parent___id'
+  | 'model___parent___parent___children'
+  | 'model___parent___children'
+  | 'model___parent___children___id'
+  | 'model___parent___children___children'
+  | 'model___parent___internal___content'
+  | 'model___parent___internal___contentDigest'
+  | 'model___parent___internal___description'
+  | 'model___parent___internal___fieldOwners'
+  | 'model___parent___internal___ignoreType'
+  | 'model___parent___internal___mediaType'
+  | 'model___parent___internal___owner'
+  | 'model___parent___internal___type'
+  | 'model___parent___internal___contentFilePath'
+  | 'model___children'
+  | 'model___children___id'
+  | 'model___children___parent___id'
+  | 'model___children___parent___children'
+  | 'model___children___children'
+  | 'model___children___children___id'
+  | 'model___children___children___children'
+  | 'model___children___internal___content'
+  | 'model___children___internal___contentDigest'
+  | 'model___children___internal___description'
+  | 'model___children___internal___fieldOwners'
+  | 'model___children___internal___ignoreType'
+  | 'model___children___internal___mediaType'
+  | 'model___children___internal___owner'
+  | 'model___children___internal___type'
+  | 'model___children___internal___contentFilePath'
+  | 'model___internal___content'
+  | 'model___internal___contentDigest'
+  | 'model___internal___description'
+  | 'model___internal___fieldOwners'
+  | 'model___internal___ignoreType'
+  | 'model___internal___mediaType'
+  | 'model___internal___owner'
+  | 'model___internal___type'
+  | 'model___internal___contentFilePath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___internal___contentFilePath'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'internal___contentFilePath';
+
+export type DatoCmsSlugsConfigurationGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsSlugsConfigurationEdge>;
+  nodes: Array<DatoCmsSlugsConfiguration>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsSlugsConfigurationGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type DatoCmsSlugsConfigurationGroupConnectionDistinctArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationGroupConnectionMaxArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationGroupConnectionMinArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationGroupConnectionSumArgs = {
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+
+export type DatoCmsSlugsConfigurationGroupConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsSlugsConfigurationFieldsEnum;
+};
+
+export type DatoCmsSlugsConfigurationFilterInput = {
+  servicesPageSlug?: InputMaybe<StringQueryOperatorInput>;
+  _allServicesPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterListInput>;
+  servicesPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
+  _allServicesPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterListInput>;
+  projectsPageSlug?: InputMaybe<StringQueryOperatorInput>;
+  _allProjectsPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterListInput>;
+  projectsPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
+  _allProjectsPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterListInput>;
+  contactPageSlug?: InputMaybe<StringQueryOperatorInput>;
+  _allContactPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterListInput>;
+  contactPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
+  _allContactPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterListInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+export type DatoCmsSlugsConfigurationSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<DatoCmsSlugsConfigurationFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
 export type DatoCmsAssetConnection = {
   totalCount: Scalars['Int'];
   edges: Array<DatoCmsAssetEdge>;
@@ -8241,6 +10145,22 @@ export type HomeQueryVariables = Exact<{
 
 
 export type HomeQuery = { datoCmsHomePage?: { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, servicesSectionTitle?: string | null, seeAllProjectsButtonTitle?: string | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, aboutBackgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, services?: Array<{ serviceTitle?: string | null, serviceDescription?: string | null, serviceIcon?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null, projects?: Array<{ projectTitle?: string | null, slug?: string | null, projectImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
+
+export type ProjectFieldsFragment = { id: string, title?: string | null, slug?: string | null, description?: string | null, mainImage?: { gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null, imagesCollection?: Array<{ gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null> | null };
+
+export type ProjectQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
+
+
+export type ProjectQuery = { allDatoCmsProjectPage: { nodes: Array<{ id: string, title?: string | null, slug?: string | null, description?: string | null, mainImage?: { gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null, imagesCollection?: Array<{ gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null> | null }> }, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
+
+export type ProjectsQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
+
+
+export type ProjectsQuery = { datoCmsAllProjectsPage?: { pageTitle?: string | null, projectsList?: Array<{ id: string, title?: string | null, slug?: string | null, description?: string | null, mainImage?: { gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null, imagesCollection?: Array<{ gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null> | null } | null> | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
 
 export type GatsbyDatoCmsResolutionsFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
 
