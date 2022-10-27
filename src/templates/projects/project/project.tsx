@@ -6,6 +6,8 @@ import Layout from "../../../components/layout/layout";
 import {displayImage} from "../../../global/functions/functions";
 import Slider from "./Slider/slider";
 import {gsap} from "gsap";
+import ReactMarkdown from "react-markdown";
+import useWindowWidth from "../../../hooks/use-window-width";
 
 type RenderProps = {
     data: ProjectQuery,
@@ -17,6 +19,7 @@ const ProjectPage:React.FC<RenderProps> = ({ data, pageContext }) => {
     const project = data.allDatoCmsProjectPage.nodes.find(proj => proj.id === pageContext.projectId);
     const container = useRef();
     const pageElements = useRef([])
+    const isMobile = useWindowWidth() < 720;
 
     const createElementsRefs = (section, index) => {
         pageElements.current[index] = section;
@@ -27,15 +30,23 @@ const ProjectPage:React.FC<RenderProps> = ({ data, pageContext }) => {
     }, [])
 
     return (
-        <Layout header={data.datoCmsHeader}>
+        <Layout
+            header={data.datoCmsHeader}
+            lang={pageContext.lang}
+            mainSlugs={pageContext.mainSlugs}
+        >
             <div ref={container} className={styles.container}>
-                <div className={styles.sideImageContainer}>
-                    {displayImage(project.mainImage, styles.sideImage, "cover")}
-                </div>
+                {isMobile && (
+                    <div className={styles.sideImageContainer}>
+                        {displayImage(project.mainImage, styles.sideImage, "cover")}
+                    </div>
+                )}
                 <div className={styles.content}>
                     <div className={styles.textContentContainer}>
                         <h1 className={styles.title} ref={(e) => createElementsRefs(e, 0)}>{project.title}</h1>
-                        <p className={styles.description} ref={(e) => createElementsRefs(e, 1)}>{project.description}</p>
+                        <div ref={(e) => createElementsRefs(e, 1)}>
+                            <ReactMarkdown className={styles.description}>{project.description}</ReactMarkdown>
+                        </div>
                     </div>
                     <div className={styles.sliderContainer} ref={(e) => createElementsRefs(e, 2)}>
                         <Slider imageCollection={project.imagesCollection} />

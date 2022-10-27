@@ -12,14 +12,14 @@ import Services from "../components/home/services/services";
 import Projects from "../components/home/projects/projects";
 
 type RenderProps = {
-    data: HomeQuery
+    data: HomeQuery,
+    pageContext
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Index:React.FC<RenderProps> = ({ data }) => {
+const Index:React.FC<RenderProps> = ({ data, pageContext }) => {
 
-    const overlayer = useRef(null);
     const sections = useRef([])
     const sectionsContainer = useRef(null)
     const [timeline, setTimeline] = useState(null);
@@ -30,12 +30,15 @@ const Index:React.FC<RenderProps> = ({ data }) => {
     }
 
     useEffect(() => {
-        loadOverlayerAnimation()
         if(!isSmallScreen) desktopAnimation();
     }, [])
 
     return (
-        <Layout header={data.datoCmsHeader}>
+        <Layout
+            header={data.datoCmsHeader}
+            lang={pageContext.lang}
+            mainSlugs={pageContext.mainSlugs}
+        >
             <div
                 id="container"
                 className={styles.container}
@@ -47,27 +50,36 @@ const Index:React.FC<RenderProps> = ({ data }) => {
                     ref={(e) => createSectionsRefs(e, 0)}
                     style={{ backgroundImage: `url(${data.datoCmsHomePage.backgroundImage.url})` }}
                 >
-                    <div ref={overlayer} className={styles.overlayer} />
+                    <div className={styles.overlayer} />
                     <Cover data={data.datoCmsHomePage} />
                 </section>
                 <section id="about-section" className={styles.aboutSection} ref={(e) => createSectionsRefs(e, 1)}>
-                    <AboutUs data={data.datoCmsHomePage} tl={timeline} servicesSection={sections.current[2]} />
+                    <AboutUs
+                        data={data.datoCmsHomePage}
+                        tl={timeline}
+                        servicesSection={sections.current[2]}
+                    />
                 </section>
                 <section id="services-section" className={styles.servicesSection} ref={(e) => createSectionsRefs(e, 2)}>
-                    <Services data={data.datoCmsHomePage} tl={timeline} projectsSection={sections.current[3]} />
+                    <Services
+                        data={data.datoCmsHomePage}
+                        tl={timeline}
+                        projectsSection={sections.current[3]}
+                        lang={pageContext.lang}
+                        mainSlug={pageContext.mainSlugs.servicesPageSlug}
+                    />
                 </section>
                 <section id="projects-section" className={styles.projectsSection} ref={(e) => createSectionsRefs(e, 3)}>
-                    <Projects data={data.datoCmsHomePage} tl={timeline} />
+                    <Projects
+                        data={data.datoCmsHomePage}
+                        tl={timeline}
+                        lang={pageContext.lang}
+                        mainSlug={pageContext.mainSlugs.projectsPageSlug}
+                    />
                 </section>
             </div>
         </Layout>
     )
-
-    function loadOverlayerAnimation() {
-        setTimeout(() => {
-            overlayer.current.style.backgroundColor = "rgba(0,0,0,0.5)";
-        }, 600)
-    }
 
     function desktopAnimation() {
         let refsLoaded = false;

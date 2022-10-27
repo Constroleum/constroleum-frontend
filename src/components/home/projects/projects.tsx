@@ -3,17 +3,19 @@ import {graphql} from "gatsby";
 import * as styles from "./projects.module.scss";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {displayImage, isMobile} from "../../../global/functions/functions";
+import {displayImage, getLocalizedSlug, isMobile} from "../../../global/functions/functions";
 import {HomeProjectsFieldsFragment} from "../../../../graphql-types";
 
 type RenderProps = {
     data: HomeProjectsFieldsFragment,
-    tl: any
+    tl: any,
+    lang: any,
+    mainSlug: any
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects:React.FC<RenderProps> = ({ data, tl }) => {
+const Projects:React.FC<RenderProps> = ({ data, tl, lang, mainSlug }) => {
 
     const sectionContainer = useRef(null);
     const projects = useRef([]);
@@ -35,7 +37,7 @@ const Projects:React.FC<RenderProps> = ({ data, tl }) => {
     return (
         <section ref={sectionContainer} className={styles.container}>
             {data.projects.map((project,index) => (
-                <a href={`/projects/${project.slug}`} className={styles.projectContainer} ref={(e) => createSectionsRefs(e, index)}>
+                <a href={getLocalizedSlug(lang, mainSlug, project.slug)} className={styles.projectContainer} ref={(e) => createSectionsRefs(e, index)}>
                     <div className={styles.projectTitleContainer}>
                         <h3 className={styles.projectTitle}>{project.projectTitle}</h3>
                     </div>
@@ -43,7 +45,7 @@ const Projects:React.FC<RenderProps> = ({ data, tl }) => {
                     {displayImage(project.projectImage, styles.projectImage, "cover")}
                 </a>
             ))}
-            <a ref={button} href={"/projects"} className={styles.button}>See all</a>
+            <a ref={button} href={getLocalizedSlug(lang, mainSlug)} className={styles.button}>See all</a>
         </section>
     )
 

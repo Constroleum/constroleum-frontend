@@ -29,3 +29,15 @@ export function elementOffset(element) {
 export function isMobile():boolean {
     return useWindowWidth() <= 1200;
 }
+
+export function getLocalizedSlug(lang, mainSlug, projectSlug?): string {
+    if(!projectSlug) {
+        return lang.defaultLanguage === lang.locale ?
+            `/${mainSlug}` :
+            `/${lang.locale}/${mainSlug}`
+    } else {
+        return lang.defaultLanguage === lang.locale ?
+            `/${mainSlug}/${projectSlug}` :
+            `/${lang.locale}/${mainSlug}/${projectSlug}`
+    }
+}

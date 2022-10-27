@@ -1,0 +1,109 @@
+@import "variables";
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $black;
+  padding: 100px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.titleContainer {
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  color: $white;
+  text-transform: uppercase;
+  font-size: 60px;
+  font-family: "Josefin Sans Bold", sans-serif;
+  transition: all .6s ease-in-out;
+  margin: 0;
+  text-align: center;
+}
+
+.servicesContainer {
+  width: 100vw;
+}
+
+.servicesListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 30px;
+  width: 25%;
+}
+
+.serviceTitle {
+  color: black;
+  font-family: $quickSandBold, sans-serif;
+  font-size: $fontSize-2;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px 40px;
+  background:  linear-gradient(to right, rgba(0, 0, 0, 0), white, white, white, white, rgba(0, 0, 0, 0));
+}
+
+.serviceDescription {
+  color: white;
+  text-align: center;
+  font-family: $quickSandLight, sans-serif;
+  font-size: $fontSize-1-and-half;
+}
+
+.icon {
+  width: 80px !important;
+  height: 80px !important;
+  margin-bottom: 20px;
+
+  img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
+.otherServicesTitle {
+  @extend .title;
+  font-size: 40px;
+}
+
+@include tablet {
+  .service {
+    width: 80%;
+  }
+}
+
+@include mobile {
+  .service {
+    width: 95vw;
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .serviceTitle {
+    font-size: $fontSize-1-and-half;
+  }
+
+  .serviceDescription {
+    font-size: $fontSize-1;
+  }
+}

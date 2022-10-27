@@ -2,12 +2,15 @@ import React, {useRef, useState} from "react";
 import * as styles from "./burger-menu.module.scss";
 import {gsap} from "gsap";
 import {HeaderFieldsFragment} from "../../../../../graphql-types";
+import {getLocalizedSlug} from "../../../../global/functions/functions";
 
 type RenderProps = {
-    data: HeaderFieldsFragment
+    data: HeaderFieldsFragment,
+    lang: any,
+    mainSlugs: any
 }
 
-const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
+const BurgerMenu: React.FC<RenderProps> = ({ data, lang, mainSlugs }) => {
 
     const [open, setOpen] = useState(false);
     const [tl, setTl] = useState(gsap.timeline({ paused: true }));
@@ -24,20 +27,33 @@ const BurgerMenu: React.FC<RenderProps> = ({ data }) => {
         return (
             <ul className={styles.burgerMenu}>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/">{data.homeButtonName}</a>
+                    <a className={styles.link} href={lang.locale === lang.defaultLanguage ? `/` : `/${lang.locale}`}>{data.homeButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
                     <a className={styles.link} href="/">{data.aboutUsButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/projects">{data.projectsButtonName}</a>
+                    <a className={styles.link} href={getLocalizedSlug(lang, mainSlugs.projectsPageSlug)}>{data.projectsButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/services">{data.servicesButtonName}</a>
+                    <a className={styles.link} href={getLocalizedSlug(lang, mainSlugs.servicesPageSlug)}>{data.servicesButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/contact">{data.contactButtonName}</a>
+                    <a className={styles.link} href={getLocalizedSlug(lang, mainSlugs.contactPageSlug)}>{data.contactButtonName}</a>
                 </li>
+                <ul className={styles.langContainer}>
+                    <li className={styles.langListElement}>
+                        <a href={'/'} className={styles.link}>EN</a>
+                        <span className={styles.separator} style={{ paddingLeft: 5 }}>|</span>
+                    </li>
+                    <li className={styles.langListElement}>
+                        <a href={'/hu'} className={styles.link}>HU</a>
+                        <span className={styles.separator} style={{ paddingLeft: 6 }}>|</span>
+                    </li>
+                    <li className={styles.langListElement}>
+                        <a href={'/es'} className={styles.link}>ES</a>
+                    </li>
+                </ul>
             </ul>
         )
     }

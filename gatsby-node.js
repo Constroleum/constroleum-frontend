@@ -38,6 +38,8 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
         console.log("--- All projects pages built ---"),
         generateProjectPage(),
         console.log("--- Projects page built ---"),
+        generateServicesPage(),
+        console.log("--- Services page built ---"),
         generateNotFoundPage(),
         console.log("--- 404 page built ---")
     ])
@@ -64,8 +66,16 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
                 path: locale === defaultLanguage ? `/` : `/${locale}`,
                 component: index,
                 context: {
-                    defaultLanguage: defaultLanguage,
-                    locale: locale
+                    locale: locale,
+                    lang: {
+                        defaultLanguage: defaultLanguage,
+                        locale: locale,
+                    },
+                    mainSlugs: {
+                        projectsPageSlug: mainSlugs.node.projectsPageSlug,
+                        servicesPageSlug: mainSlugs.node.servicesPageSlug,
+                        contactPageSlug: mainSlugs.node.contactPageSlug
+                    }
                 }
             })
         })
@@ -104,10 +114,17 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
                         `/${locale}/${mainSlugs.node.projectsPageSlug}/${page.slug}`,
                     component: projectPage,
                     context: {
-                        defaultLanguage: defaultLanguage,
                         locale: locale,
+                        lang: {
+                            defaultLanguage: defaultLanguage,
+                            locale: locale,
+                        },
                         projectId: page.id,
-                        page: page
+                        mainSlugs: {
+                            projectsPageSlug: mainSlugs.node.projectsPageSlug,
+                            servicesPageSlug: mainSlugs.node.servicesPageSlug,
+                            contactPageSlug: mainSlugs.node.contactPageSlug
+                        }
                     }
                 })
             })
@@ -137,8 +154,54 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
                     `/${locale}/${mainSlugs.node.projectsPageSlug}`,
                 component: projectsPage,
                 context: {
-                    defaultLanguage: defaultLanguage,
-                    locale: locale
+                    locale: locale,
+                    lang: {
+                        defaultLanguage: defaultLanguage,
+                        locale: locale,
+                    },
+                    mainSlugs: {
+                        projectsPageSlug: mainSlugs.node.projectsPageSlug,
+                        servicesPageSlug: mainSlugs.node.servicesPageSlug,
+                        contactPageSlug: mainSlugs.node.contactPageSlug
+                    }
+                }
+            })
+        })
+    }
+
+    /* SERVICES PAGE */
+    async function generateServicesPage() {
+        const servicesPage = path.resolve('./src/templates/services/services.tsx')
+        const result = await graphql(`
+            query ServicesPageCreation {
+                allDatoCmsSlugsConfiguration {
+                    nodes {
+                        locale
+                        servicesPageSlug
+                    }
+                }
+            }
+        `)
+
+        result.data.allDatoCmsSlugsConfiguration.nodes.forEach(({ locale }) => {
+            const mainSlugs = allMainSlugs.find(page => page.node.locale === locale)
+
+            createPage({
+                path: locale === defaultLanguage ?
+                    `/${mainSlugs.node.servicesPageSlug}` :
+                    `/${locale}/${mainSlugs.node.servicesPageSlug}`,
+                component: servicesPage,
+                context: {
+                    locale: locale,
+                    lang: {
+                        defaultLanguage: defaultLanguage,
+                        locale: locale,
+                    },
+                    mainSlugs: {
+                        projectsPageSlug: mainSlugs.node.projectsPageSlug,
+                        servicesPageSlug: mainSlugs.node.servicesPageSlug,
+                        contactPageSlug: mainSlugs.node.contactPageSlug
+                    }
                 }
             })
         })

@@ -2,9 +2,8 @@
 
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  overflow: hidden;
 }
 
 .sideImageContainer {
@@ -27,13 +26,13 @@
 }
 
 .content {
-  width: 65%;
-  height: 100%;
+  width: 100%;
   background-color: $black;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 150px 0;
 }
 
 .textContentContainer {
@@ -110,5 +109,9 @@
   .textContentContainer {
     width: 95vw;
     margin: 20px 0;
+  }
+
+  .content {
+    padding: 0;
   }
 }

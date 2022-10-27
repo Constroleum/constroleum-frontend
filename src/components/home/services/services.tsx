@@ -10,12 +10,14 @@ import ReactMarkdown from "react-markdown";
 type RenderProps = {
     data: HomeServicesFieldsFragment,
     tl: any,
-    projectsSection: any
+    projectsSection: any,
+    lang: any,
+    mainSlug: any
 }
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Services:React.FC<RenderProps> = ({ data, tl, projectsSection }) => {
+const Services:React.FC<RenderProps> = ({ data, tl, projectsSection, lang, mainSlug }) => {
 
     const sectionContainer = useRef();
     const isSmallScreen = isMobile();

@@ -3,14 +3,15 @@ import {graphql} from "gatsby";
 import {ProjectsQuery} from "../../../graphql-types";
 import Layout from "../../components/layout/layout";
 import * as styles from "./projects.module.scss";
-import {displayImage} from "../../global/functions/functions";
+import {displayImage, getLocalizedSlug} from "../../global/functions/functions";
 import {gsap} from "gsap";
 
 type RenderProps = {
-    data: ProjectsQuery
+    data: ProjectsQuery,
+    pageContext
 }
 
-const ProjectsPage:React.FC<RenderProps> = ({ data }) => {
+const ProjectsPage:React.FC<RenderProps> = ({ data, pageContext }) => {
 
     const container = useRef();
     const projects = useRef([])
@@ -24,7 +25,11 @@ const ProjectsPage:React.FC<RenderProps> = ({ data }) => {
     }, [])
 
     return (
-        <Layout header={data.datoCmsHeader}>
+        <Layout
+            header={data.datoCmsHeader}
+            lang={pageContext.lang}
+            mainSlugs={pageContext.mainSlugs}
+        >
             <div ref={container} className={styles.container}>
                 <div className={styles.pageTitleContainer}>
                     <h1 className={styles.pageTitle}>{data.datoCmsAllProjectsPage.pageTitle}</h1>
@@ -33,7 +38,7 @@ const ProjectsPage:React.FC<RenderProps> = ({ data }) => {
                     <ul className={styles.projectsList}>
                         {data.datoCmsAllProjectsPage.projectsList.map((project, index) => (
                             <li ref={(e) => createProjectsRefs(e, index)} className={styles.project}>
-                                <a className={styles.projectLink} href={`/projects/${project.slug}`}>
+                                <a className={styles.projectLink} href={getLocalizedSlug(pageContext.lang, pageContext.mainSlugs.projectsPageSlug, project.slug)}>
                                     {project.title}
                                 </a>
                                 <div className={styles.overlayer} />

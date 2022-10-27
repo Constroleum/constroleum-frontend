@@ -45,6 +45,24 @@
   }
 }
 
+.langContainer {
+  display: flex;
+  list-style: none;
+
+  .linkElement {
+    padding: 0 3px;
+  }
+}
+
+.separator {
+  @extend .link;
+  cursor: auto;
+
+  &:hover {
+    color: $white;
+  }
+}
+
 .homeLink {
   @extend .link;
   padding-left: 20px;

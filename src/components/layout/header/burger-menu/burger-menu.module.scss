@@ -125,6 +125,30 @@
   }
 }
 
+.langContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  width: 100vw;
+  height: 100px;
+}
+
+.langListElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separator {
+  color: $white;
+  font-size: 20px;
+  text-align: center;
+  font-family: "Josefin Sans Light", sans-serif;
+  margin: 0 6px 0 0;
+}
+
 @keyframes opacity {
   0% {
     opacity: 0;
