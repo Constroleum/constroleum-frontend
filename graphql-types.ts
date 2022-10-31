@@ -245,6 +245,8 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
@@ -834,12 +836,17 @@ export type DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContent = {
   valueNode?: Maybe<DatoCmsTextNode>;
 };
 
+export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitle = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
 export type DatoCmsAllLocalesForDatoCmsHomePageServices = {
   locale?: Maybe<Scalars['String']>;
   value?: Maybe<Array<Maybe<DatoCmsService>>>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitle = {
+export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitle = {
   locale?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
 };
@@ -856,11 +863,13 @@ export type DatoCmsHomePage = Node & {
   aboutUsTextContentNode?: Maybe<DatoCmsTextNode>;
   _allAboutUsTextContentLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContent>>>;
   backgroundImage?: Maybe<DatoCmsFileField>;
+  seeAllProjectsButtonTitle?: Maybe<Scalars['String']>;
+  _allSeeAllProjectsButtonTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitle>>>;
   services?: Maybe<Array<Maybe<DatoCmsService>>>;
   _allServicesLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsHomePageServices>>>;
   aboutBackgroundImage?: Maybe<DatoCmsFileField>;
-  seeAllProjectsButtonTitle?: Maybe<Scalars['String']>;
-  _allSeeAllProjectsButtonTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitle>>>;
+  seeAllServicesButtonTitle?: Maybe<Scalars['String']>;
+  _allSeeAllServicesButtonTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitle>>>;
   meta?: Maybe<DatoCmsMetaField>;
   originalId?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
@@ -1749,6 +1758,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -1902,11 +1913,13 @@ export type QueryDatoCmsHomePageArgs = {
   aboutUsTextContentNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
   _allAboutUsTextContentLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContentFilterListInput>;
   backgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
+  seeAllProjectsButtonTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allSeeAllProjectsButtonTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterListInput>;
   services?: InputMaybe<DatoCmsServiceFilterListInput>;
   _allServicesLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageServicesFilterListInput>;
   aboutBackgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
-  seeAllProjectsButtonTitle?: InputMaybe<StringQueryOperatorInput>;
-  _allSeeAllProjectsButtonTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterListInput>;
+  seeAllServicesButtonTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allSeeAllServicesButtonTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitleFilterListInput>;
   meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
   originalId?: InputMaybe<StringQueryOperatorInput>;
   locale?: InputMaybe<StringQueryOperatorInput>;
@@ -3192,6 +3205,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___description'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___author___name'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
@@ -3335,6 +3350,8 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
+  port?: InputMaybe<IntQueryOperatorInput>;
+  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -4792,6 +4809,15 @@ export type DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContentFilterInput = {
   valueNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
 };
 
+export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
 export type DatoCmsServiceFilterListInput = {
   elemMatch?: InputMaybe<DatoCmsServiceFilterInput>;
 };
@@ -4821,11 +4847,11 @@ export type DatoCmsAllLocalesForDatoCmsHomePageServicesFilterInput = {
   value?: InputMaybe<DatoCmsServiceFilterListInput>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterListInput = {
-  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterInput>;
+export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitleFilterInput>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterInput = {
+export type DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitleFilterInput = {
   locale?: InputMaybe<StringQueryOperatorInput>;
   value?: InputMaybe<StringQueryOperatorInput>;
 };
@@ -5321,6 +5347,10 @@ export type DatoCmsHomePageFieldsEnum =
   | 'backgroundImage___customData'
   | 'backgroundImage___focalPoint___x'
   | 'backgroundImage___focalPoint___y'
+  | 'seeAllProjectsButtonTitle'
+  | '_allSeeAllProjectsButtonTitleLocales'
+  | '_allSeeAllProjectsButtonTitleLocales___locale'
+  | '_allSeeAllProjectsButtonTitleLocales___value'
   | 'services'
   | 'services___serviceTitle'
   | 'services___serviceDescription'
@@ -5645,10 +5675,10 @@ export type DatoCmsHomePageFieldsEnum =
   | 'aboutBackgroundImage___customData'
   | 'aboutBackgroundImage___focalPoint___x'
   | 'aboutBackgroundImage___focalPoint___y'
-  | 'seeAllProjectsButtonTitle'
-  | '_allSeeAllProjectsButtonTitleLocales'
-  | '_allSeeAllProjectsButtonTitleLocales___locale'
-  | '_allSeeAllProjectsButtonTitleLocales___value'
+  | 'seeAllServicesButtonTitle'
+  | '_allSeeAllServicesButtonTitleLocales'
+  | '_allSeeAllServicesButtonTitleLocales___locale'
+  | '_allSeeAllServicesButtonTitleLocales___value'
   | 'meta___createdAt'
   | 'meta___updatedAt'
   | 'meta___publishedAt'
@@ -5915,11 +5945,13 @@ export type DatoCmsHomePageFilterInput = {
   aboutUsTextContentNode?: InputMaybe<DatoCmsTextNodeFilterInput>;
   _allAboutUsTextContentLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageAboutUsTextContentFilterListInput>;
   backgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
+  seeAllProjectsButtonTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allSeeAllProjectsButtonTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterListInput>;
   services?: InputMaybe<DatoCmsServiceFilterListInput>;
   _allServicesLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageServicesFilterListInput>;
   aboutBackgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
-  seeAllProjectsButtonTitle?: InputMaybe<StringQueryOperatorInput>;
-  _allSeeAllProjectsButtonTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllProjectsButtonTitleFilterListInput>;
+  seeAllServicesButtonTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allSeeAllServicesButtonTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsHomePageSeeAllServicesButtonTitleFilterListInput>;
   meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
   originalId?: InputMaybe<StringQueryOperatorInput>;
   locale?: InputMaybe<StringQueryOperatorInput>;
@@ -11481,9 +11513,9 @@ export type HomeAboutUsFieldsFragment = { aboutUsTextContent?: string | null, ab
 
 export type HomeCoverFieldsFragment = { backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null };
 
-export type HomeProjectsFieldsFragment = { projects?: Array<{ projectTitle?: string | null, slug?: string | null, projectImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null };
+export type HomeProjectsFieldsFragment = { seeAllProjectsButtonTitle?: string | null, projects?: Array<{ projectTitle?: string | null, slug?: string | null, projectImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null };
 
-export type HomeServicesFieldsFragment = { servicesSectionTitle?: string | null, seeAllProjectsButtonTitle?: string | null, services?: Array<{ serviceTitle?: string | null, serviceDescription?: string | null, serviceIcon?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null };
+export type HomeServicesFieldsFragment = { servicesSectionTitle?: string | null, seeAllServicesButtonTitle?: string | null, services?: Array<{ serviceTitle?: string | null, serviceDescription?: string | null, serviceIcon?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null };
 
 export type HeaderFieldsFragment = { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null };
 
@@ -11501,7 +11533,7 @@ export type HomeQueryVariables = Exact<{
 }>;
 
 
-export type HomeQuery = { datoCmsHomePage?: { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, servicesSectionTitle?: string | null, seeAllProjectsButtonTitle?: string | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, aboutBackgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, services?: Array<{ serviceTitle?: string | null, serviceDescription?: string | null, serviceIcon?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null, projects?: Array<{ projectTitle?: string | null, slug?: string | null, projectImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
+export type HomeQuery = { datoCmsHomePage?: { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, servicesSectionTitle?: string | null, seeAllServicesButtonTitle?: string | null, seeAllProjectsButtonTitle?: string | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, aboutBackgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, services?: Array<{ serviceTitle?: string | null, serviceDescription?: string | null, serviceIcon?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null, projects?: Array<{ projectTitle?: string | null, slug?: string | null, projectImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
 
 export type ProjectFieldsFragment = { id: string, title?: string | null, slug?: string | null, description?: string | null, mainImage?: { gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null, imagesCollection?: Array<{ gatsbyImageData?: any | null, alt?: string | null, format?: string | null, url?: string | null } | null> | null };
 

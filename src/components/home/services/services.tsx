@@ -4,7 +4,7 @@ import {graphql} from "gatsby";
 import {HomeServicesFieldsFragment} from "../../../../graphql-types";
 import {gsap} from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {displayImage, isMobile} from "../../../global/functions/functions";
+import {displayImage, getLocalizedSlug, isMobile} from "../../../global/functions/functions";
 import ReactMarkdown from "react-markdown";
 
 type RenderProps = {
@@ -52,7 +52,7 @@ const Services:React.FC<RenderProps> = ({ data, tl, projectsSection, lang, mainS
                         )
                     })}
                 </ul>
-                <a ref={button} href={"/services"} className={styles.button}>{data.seeAllProjectsButtonTitle}</a>
+                <a ref={button} href={getLocalizedSlug(lang, mainSlug)} className={styles.button}>{data.seeAllServicesButtonTitle}</a>
             </div>
         </section>
     )
@@ -112,7 +112,7 @@ const Services:React.FC<RenderProps> = ({ data, tl, projectsSection, lang, mainS
 export const fragment = graphql`
     fragment HomeServicesFields on DatoCmsHomePage {
         servicesSectionTitle
-        seeAllProjectsButtonTitle
+        seeAllServicesButtonTitle
         services {
             serviceTitle
             serviceDescription
