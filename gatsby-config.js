@@ -28,9 +28,9 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                "icon": "src/assets/images/logo-blue.png",
-                "name": "Human Reborn",
-                "short_name": "Human Reborn",
+                "icon": "src/assets/images/logo.png",
+                "name": "Constroleum",
+                "short_name": "Constroleum",
             }
         },
         "gatsby-plugin-sharp",

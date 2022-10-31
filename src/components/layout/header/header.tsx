@@ -41,19 +41,6 @@ const Header: React.FC<RenderProps> = ({ data, lang, mainSlugs }) => {
                     <a href={lang.locale === lang.defaultLanguage ? `/` : `/${lang.locale}`} className={styles.homeLink}>{data.homeButtonName}</a>
                     <ul className={styles.linksGroup}>
                         <li className={styles.linkElement}>
-                        <span
-                            onClick={() => {
-                                container && container.scrollTo({
-                                    left: window.innerWidth,
-                                    behavior: "smooth"
-                                })
-                            }}
-                            className={styles.link}
-                        >
-                            {data.aboutUsButtonName}
-                        </span>
-                        </li>
-                        <li className={styles.linkElement}>
                             <a href={getLocalizedSlug(lang, mainSlugs.projectsPageSlug)} className={styles.link}>{data.projectsButtonName}</a>
                         </li>
                         <li className={styles.linkElement}>

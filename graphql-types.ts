@@ -245,8 +245,6 @@ export type DirectoryCtimeArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   jsxRuntime?: Maybe<Scalars['String']>;
@@ -1020,17 +1018,7 @@ export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlug = {
   value?: Maybe<Scalars['String']>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReference = {
-  locale?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-};
-
 export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlug = {
-  locale?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReference = {
   locale?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
 };
@@ -1040,24 +1028,16 @@ export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlug = {
   value?: Maybe<Scalars['String']>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReference = {
-  locale?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-};
-
 export type DatoCmsSlugsConfiguration = Node & {
   servicesPageSlug?: Maybe<Scalars['String']>;
   _allServicesPageSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlug>>>;
   servicesPageSlugReference?: Maybe<Scalars['String']>;
-  _allServicesPageSlugReferenceLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReference>>>;
   projectsPageSlug?: Maybe<Scalars['String']>;
   _allProjectsPageSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlug>>>;
   projectsPageSlugReference?: Maybe<Scalars['String']>;
-  _allProjectsPageSlugReferenceLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReference>>>;
   contactPageSlug?: Maybe<Scalars['String']>;
   _allContactPageSlugLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlug>>>;
   contactPageSlugReference?: Maybe<Scalars['String']>;
-  _allContactPageSlugReferenceLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReference>>>;
   meta?: Maybe<DatoCmsMetaField>;
   originalId?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
@@ -1098,6 +1078,51 @@ export type DatoCmsServicesPage = Node & {
   _allConstructionIndustryServicesLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsServicesPageConstructionIndustryServices>>>;
   servicesPageTitle?: Maybe<Scalars['String']>;
   _allServicesPageTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsServicesPageServicesPageTitle>>>;
+  meta?: Maybe<DatoCmsMetaField>;
+  originalId?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+  seoMetaTags?: Maybe<DatoCmsSeoMetaTags>;
+  model?: Maybe<DatoCmsModel>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPagePageTitle = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageCompanyName = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitle = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageCallUsTitle = {
+  locale?: Maybe<Scalars['String']>;
+  value?: Maybe<Scalars['String']>;
+};
+
+export type DatoCmsContactPage = Node & {
+  pageTitle?: Maybe<Scalars['String']>;
+  _allPageTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitle>>>;
+  companyName?: Maybe<Scalars['String']>;
+  _allCompanyNameLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsContactPageCompanyName>>>;
+  ourEmailTitle?: Maybe<Scalars['String']>;
+  _allOurEmailTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitle>>>;
+  email?: Maybe<Scalars['String']>;
+  callUsTitle?: Maybe<Scalars['String']>;
+  _allCallUsTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsContactPageCallUsTitle>>>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  secondPhoneNumber?: Maybe<Scalars['String']>;
+  facebookUrl?: Maybe<Scalars['String']>;
+  instagramUrl?: Maybe<Scalars['String']>;
   meta?: Maybe<DatoCmsMetaField>;
   originalId?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
@@ -1570,210 +1595,6 @@ export type ImageSharpResize = {
   originalName?: Maybe<Scalars['String']>;
 };
 
-export type DatoCmsContactPage = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  locale?: Maybe<Scalars['String']>;
-  entityPayload?: Maybe<DatoCmsContactPageEntityPayload>;
-  seoMetaTags?: Maybe<DatoCmsSeoMetaTags>;
-};
-
-export type DatoCmsContactPageEntityPayload = {
-  id?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  attributes?: Maybe<DatoCmsContactPageEntityPayloadAttributes>;
-  relationships?: Maybe<DatoCmsContactPageEntityPayloadRelationships>;
-  meta?: Maybe<DatoCmsContactPageEntityPayloadMeta>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributes = {
-  name_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesName_Title>;
-  name_placeholder?: Maybe<DatoCmsContactPageEntityPayloadAttributesName_Placeholder>;
-  page_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesPage_Title>;
-  last_name_placeholder?: Maybe<DatoCmsContactPageEntityPayloadAttributesLast_Name_Placeholder>;
-  page_background?: Maybe<DatoCmsContactPageEntityPayloadAttributesPage_Background>;
-  email_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesEmail_Title>;
-  our_email_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesOur_Email_Title>;
-  email?: Maybe<Scalars['String']>;
-  email_placeholder?: Maybe<DatoCmsContactPageEntityPayloadAttributesEmail_Placeholder>;
-  call_us_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesCall_Us_Title>;
-  message_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesMessage_Title>;
-  message_placeholder?: Maybe<DatoCmsContactPageEntityPayloadAttributesMessage_Placeholder>;
-  phone_number?: Maybe<Scalars['String']>;
-  submit_button_title?: Maybe<DatoCmsContactPageEntityPayloadAttributesSubmit_Button_Title>;
-  updated_at?: Maybe<Scalars['Date']>;
-  created_at?: Maybe<Scalars['Date']>;
-};
-
-
-export type DatoCmsContactPageEntityPayloadAttributesUpdated_AtArgs = {
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  difference?: InputMaybe<Scalars['String']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DatoCmsContactPageEntityPayloadAttributesCreated_AtArgs = {
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  difference?: InputMaybe<Scalars['String']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesName_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesName_Placeholder = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesLast_Name_Placeholder = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_Background = {
-  en?: Maybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEn>;
-  es?: Maybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEs>;
-  hu?: Maybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundHu>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEn = {
-  upload_id?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEs = {
-  upload_id?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundHu = {
-  upload_id?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesEmail_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesOur_Email_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesEmail_Placeholder = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesCall_Us_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesMessage_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesMessage_Placeholder = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesSubmit_Button_Title = {
-  en?: Maybe<Scalars['String']>;
-  es?: Maybe<Scalars['String']>;
-  hu?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationships = {
-  item_type?: Maybe<DatoCmsContactPageEntityPayloadRelationshipsItem_Type>;
-  creator?: Maybe<DatoCmsContactPageEntityPayloadRelationshipsCreator>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsItem_Type = {
-  data?: Maybe<DatoCmsContactPageEntityPayloadRelationshipsItem_TypeData>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsItem_TypeData = {
-  id?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsCreator = {
-  data?: Maybe<DatoCmsContactPageEntityPayloadRelationshipsCreatorData>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsCreatorData = {
-  id?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type DatoCmsContactPageEntityPayloadMeta = {
-  created_at?: Maybe<Scalars['Date']>;
-  updated_at?: Maybe<Scalars['Date']>;
-  published_at?: Maybe<Scalars['Date']>;
-  first_published_at?: Maybe<Scalars['Date']>;
-  is_valid?: Maybe<Scalars['Boolean']>;
-  is_current_version_valid?: Maybe<Scalars['Boolean']>;
-  is_published_version_valid?: Maybe<Scalars['Boolean']>;
-  status?: Maybe<Scalars['String']>;
-  current_version?: Maybe<Scalars['String']>;
-};
-
-
-export type DatoCmsContactPageEntityPayloadMetaCreated_AtArgs = {
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  difference?: InputMaybe<Scalars['String']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DatoCmsContactPageEntityPayloadMetaUpdated_AtArgs = {
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  difference?: InputMaybe<Scalars['String']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DatoCmsContactPageEntityPayloadMetaPublished_AtArgs = {
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  difference?: InputMaybe<Scalars['String']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
-
-export type DatoCmsContactPageEntityPayloadMetaFirst_Published_AtArgs = {
-  formatString?: InputMaybe<Scalars['String']>;
-  fromNow?: InputMaybe<Scalars['Boolean']>;
-  difference?: InputMaybe<Scalars['String']>;
-  locale?: InputMaybe<Scalars['String']>;
-};
-
 export type Query = {
   file?: Maybe<File>;
   allFile: FileConnection;
@@ -1809,6 +1630,8 @@ export type Query = {
   allDatoCmsSlugsConfiguration: DatoCmsSlugsConfigurationConnection;
   datoCmsServicesPage?: Maybe<DatoCmsServicesPage>;
   allDatoCmsServicesPage: DatoCmsServicesPageConnection;
+  datoCmsContactPage?: Maybe<DatoCmsContactPage>;
+  allDatoCmsContactPage: DatoCmsContactPageConnection;
   datoCmsAsset?: Maybe<DatoCmsAsset>;
   allDatoCmsAsset: DatoCmsAssetConnection;
   datoCmsSite?: Maybe<DatoCmsSite>;
@@ -1821,8 +1644,6 @@ export type Query = {
   allDatoCmsModel: DatoCmsModelConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  datoCmsContactPage?: Maybe<DatoCmsContactPage>;
-  allDatoCmsContactPage: DatoCmsContactPageConnection;
 };
 
 
@@ -1928,8 +1749,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
-  port?: InputMaybe<IntQueryOperatorInput>;
-  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -2247,15 +2066,12 @@ export type QueryDatoCmsSlugsConfigurationArgs = {
   servicesPageSlug?: InputMaybe<StringQueryOperatorInput>;
   _allServicesPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterListInput>;
   servicesPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
-  _allServicesPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterListInput>;
   projectsPageSlug?: InputMaybe<StringQueryOperatorInput>;
   _allProjectsPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterListInput>;
   projectsPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
-  _allProjectsPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterListInput>;
   contactPageSlug?: InputMaybe<StringQueryOperatorInput>;
   _allContactPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterListInput>;
   contactPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
-  _allContactPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterListInput>;
   meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
   originalId?: InputMaybe<StringQueryOperatorInput>;
   locale?: InputMaybe<StringQueryOperatorInput>;
@@ -2300,6 +2116,40 @@ export type QueryDatoCmsServicesPageArgs = {
 export type QueryAllDatoCmsServicesPageArgs = {
   filter?: InputMaybe<DatoCmsServicesPageFilterInput>;
   sort?: InputMaybe<DatoCmsServicesPageSortInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryDatoCmsContactPageArgs = {
+  pageTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allPageTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterListInput>;
+  companyName?: InputMaybe<StringQueryOperatorInput>;
+  _allCompanyNameLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageCompanyNameFilterListInput>;
+  ourEmailTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allOurEmailTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitleFilterListInput>;
+  email?: InputMaybe<StringQueryOperatorInput>;
+  callUsTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allCallUsTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageCallUsTitleFilterListInput>;
+  phoneNumber?: InputMaybe<StringQueryOperatorInput>;
+  secondPhoneNumber?: InputMaybe<StringQueryOperatorInput>;
+  facebookUrl?: InputMaybe<StringQueryOperatorInput>;
+  instagramUrl?: InputMaybe<StringQueryOperatorInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+
+export type QueryAllDatoCmsContactPageArgs = {
+  filter?: InputMaybe<DatoCmsContactPageFilterInput>;
+  sort?: InputMaybe<DatoCmsContactPageSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
@@ -2459,25 +2309,6 @@ export type QueryImageSharpArgs = {
 export type QueryAllImageSharpArgs = {
   filter?: InputMaybe<ImageSharpFilterInput>;
   sort?: InputMaybe<ImageSharpSortInput>;
-  skip?: InputMaybe<Scalars['Int']>;
-  limit?: InputMaybe<Scalars['Int']>;
-};
-
-
-export type QueryDatoCmsContactPageArgs = {
-  id?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  locale?: InputMaybe<StringQueryOperatorInput>;
-  entityPayload?: InputMaybe<DatoCmsContactPageEntityPayloadFilterInput>;
-  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
-};
-
-
-export type QueryAllDatoCmsContactPageArgs = {
-  filter?: InputMaybe<DatoCmsContactPageFilterInput>;
-  sort?: InputMaybe<DatoCmsContactPageSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
@@ -3361,8 +3192,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___description'
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___author___name'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
@@ -3506,8 +3335,6 @@ export type SiteGroupConnectionGroupArgs = {
 export type SiteFilterInput = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
   siteMetadata?: InputMaybe<SiteSiteMetadataFilterInput>;
-  port?: InputMaybe<IntQueryOperatorInput>;
-  host?: InputMaybe<StringQueryOperatorInput>;
   polyfill?: InputMaybe<BooleanQueryOperatorInput>;
   pathPrefix?: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime?: InputMaybe<StringQueryOperatorInput>;
@@ -8591,15 +8418,6 @@ export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterI
   value?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterListInput = {
-  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterInput>;
-};
-
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterInput = {
-  locale?: InputMaybe<StringQueryOperatorInput>;
-  value?: InputMaybe<StringQueryOperatorInput>;
-};
-
 export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterListInput = {
   elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterInput>;
 };
@@ -8609,29 +8427,11 @@ export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterI
   value?: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterListInput = {
-  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterInput>;
-};
-
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterInput = {
-  locale?: InputMaybe<StringQueryOperatorInput>;
-  value?: InputMaybe<StringQueryOperatorInput>;
-};
-
 export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterListInput = {
   elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterInput>;
 };
 
 export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterInput = {
-  locale?: InputMaybe<StringQueryOperatorInput>;
-  value?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterListInput = {
-  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterInput>;
-};
-
-export type DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterInput = {
   locale?: InputMaybe<StringQueryOperatorInput>;
   value?: InputMaybe<StringQueryOperatorInput>;
 };
@@ -8687,25 +8487,16 @@ export type DatoCmsSlugsConfigurationFieldsEnum =
   | '_allServicesPageSlugLocales___locale'
   | '_allServicesPageSlugLocales___value'
   | 'servicesPageSlugReference'
-  | '_allServicesPageSlugReferenceLocales'
-  | '_allServicesPageSlugReferenceLocales___locale'
-  | '_allServicesPageSlugReferenceLocales___value'
   | 'projectsPageSlug'
   | '_allProjectsPageSlugLocales'
   | '_allProjectsPageSlugLocales___locale'
   | '_allProjectsPageSlugLocales___value'
   | 'projectsPageSlugReference'
-  | '_allProjectsPageSlugReferenceLocales'
-  | '_allProjectsPageSlugReferenceLocales___locale'
-  | '_allProjectsPageSlugReferenceLocales___value'
   | 'contactPageSlug'
   | '_allContactPageSlugLocales'
   | '_allContactPageSlugLocales___locale'
   | '_allContactPageSlugLocales___value'
   | 'contactPageSlugReference'
-  | '_allContactPageSlugReferenceLocales'
-  | '_allContactPageSlugReferenceLocales___locale'
-  | '_allContactPageSlugReferenceLocales___value'
   | 'meta___createdAt'
   | 'meta___updatedAt'
   | 'meta___publishedAt'
@@ -8964,15 +8755,12 @@ export type DatoCmsSlugsConfigurationFilterInput = {
   servicesPageSlug?: InputMaybe<StringQueryOperatorInput>;
   _allServicesPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugFilterListInput>;
   servicesPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
-  _allServicesPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationServicesPageSlugReferenceFilterListInput>;
   projectsPageSlug?: InputMaybe<StringQueryOperatorInput>;
   _allProjectsPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugFilterListInput>;
   projectsPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
-  _allProjectsPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationProjectsPageSlugReferenceFilterListInput>;
   contactPageSlug?: InputMaybe<StringQueryOperatorInput>;
   _allContactPageSlugLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugFilterListInput>;
   contactPageSlugReference?: InputMaybe<StringQueryOperatorInput>;
-  _allContactPageSlugReferenceLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsSlugsConfigurationContactPageSlugReferenceFilterListInput>;
   meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
   originalId?: InputMaybe<StringQueryOperatorInput>;
   locale?: InputMaybe<StringQueryOperatorInput>;
@@ -9863,6 +9651,393 @@ export type DatoCmsServicesPageFilterInput = {
 
 export type DatoCmsServicesPageSortInput = {
   fields?: InputMaybe<Array<InputMaybe<DatoCmsServicesPageFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageCompanyNameFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageCompanyNameFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageCompanyNameFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitleFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitleFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageCallUsTitleFilterListInput = {
+  elemMatch?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageCallUsTitleFilterInput>;
+};
+
+export type DatoCmsAllLocalesForDatoCmsContactPageCallUsTitleFilterInput = {
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  value?: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type DatoCmsContactPageConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsContactPageEdge>;
+  nodes: Array<DatoCmsContactPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsContactPageGroupConnection>;
+};
+
+
+export type DatoCmsContactPageConnectionDistinctArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageConnectionMaxArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageConnectionMinArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageConnectionSumArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+export type DatoCmsContactPageEdge = {
+  next?: Maybe<DatoCmsContactPage>;
+  node: DatoCmsContactPage;
+  previous?: Maybe<DatoCmsContactPage>;
+};
+
+export type DatoCmsContactPageFieldsEnum =
+  | 'pageTitle'
+  | '_allPageTitleLocales'
+  | '_allPageTitleLocales___locale'
+  | '_allPageTitleLocales___value'
+  | 'companyName'
+  | '_allCompanyNameLocales'
+  | '_allCompanyNameLocales___locale'
+  | '_allCompanyNameLocales___value'
+  | 'ourEmailTitle'
+  | '_allOurEmailTitleLocales'
+  | '_allOurEmailTitleLocales___locale'
+  | '_allOurEmailTitleLocales___value'
+  | 'email'
+  | 'callUsTitle'
+  | '_allCallUsTitleLocales'
+  | '_allCallUsTitleLocales___locale'
+  | '_allCallUsTitleLocales___value'
+  | 'phoneNumber'
+  | 'secondPhoneNumber'
+  | 'facebookUrl'
+  | 'instagramUrl'
+  | 'meta___createdAt'
+  | 'meta___updatedAt'
+  | 'meta___publishedAt'
+  | 'meta___firstPublishedAt'
+  | 'meta___isValid'
+  | 'meta___status'
+  | 'originalId'
+  | 'locale'
+  | 'seoMetaTags___tags'
+  | 'seoMetaTags___id'
+  | 'seoMetaTags___parent___id'
+  | 'seoMetaTags___parent___parent___id'
+  | 'seoMetaTags___parent___parent___children'
+  | 'seoMetaTags___parent___children'
+  | 'seoMetaTags___parent___children___id'
+  | 'seoMetaTags___parent___children___children'
+  | 'seoMetaTags___parent___internal___content'
+  | 'seoMetaTags___parent___internal___contentDigest'
+  | 'seoMetaTags___parent___internal___description'
+  | 'seoMetaTags___parent___internal___fieldOwners'
+  | 'seoMetaTags___parent___internal___ignoreType'
+  | 'seoMetaTags___parent___internal___mediaType'
+  | 'seoMetaTags___parent___internal___owner'
+  | 'seoMetaTags___parent___internal___type'
+  | 'seoMetaTags___parent___internal___contentFilePath'
+  | 'seoMetaTags___children'
+  | 'seoMetaTags___children___id'
+  | 'seoMetaTags___children___parent___id'
+  | 'seoMetaTags___children___parent___children'
+  | 'seoMetaTags___children___children'
+  | 'seoMetaTags___children___children___id'
+  | 'seoMetaTags___children___children___children'
+  | 'seoMetaTags___children___internal___content'
+  | 'seoMetaTags___children___internal___contentDigest'
+  | 'seoMetaTags___children___internal___description'
+  | 'seoMetaTags___children___internal___fieldOwners'
+  | 'seoMetaTags___children___internal___ignoreType'
+  | 'seoMetaTags___children___internal___mediaType'
+  | 'seoMetaTags___children___internal___owner'
+  | 'seoMetaTags___children___internal___type'
+  | 'seoMetaTags___children___internal___contentFilePath'
+  | 'seoMetaTags___internal___content'
+  | 'seoMetaTags___internal___contentDigest'
+  | 'seoMetaTags___internal___description'
+  | 'seoMetaTags___internal___fieldOwners'
+  | 'seoMetaTags___internal___ignoreType'
+  | 'seoMetaTags___internal___mediaType'
+  | 'seoMetaTags___internal___owner'
+  | 'seoMetaTags___internal___type'
+  | 'seoMetaTags___internal___contentFilePath'
+  | 'model___name'
+  | 'model___singleton'
+  | 'model___sortable'
+  | 'model___apiKey'
+  | 'model___orderingDirection'
+  | 'model___tree'
+  | 'model___modularBlock'
+  | 'model___draftModeActive'
+  | 'model___allLocalesRequired'
+  | 'model___collectionAppeareance'
+  | 'model___hasSingletonItem'
+  | 'model___originalId'
+  | 'model___fields___tags'
+  | 'model___fields___id'
+  | 'model___fields___parent___id'
+  | 'model___fields___parent___children'
+  | 'model___fields___children'
+  | 'model___fields___children___id'
+  | 'model___fields___children___children'
+  | 'model___fields___internal___content'
+  | 'model___fields___internal___contentDigest'
+  | 'model___fields___internal___description'
+  | 'model___fields___internal___fieldOwners'
+  | 'model___fields___internal___ignoreType'
+  | 'model___fields___internal___mediaType'
+  | 'model___fields___internal___owner'
+  | 'model___fields___internal___type'
+  | 'model___fields___internal___contentFilePath'
+  | 'model___id'
+  | 'model___parent___id'
+  | 'model___parent___parent___id'
+  | 'model___parent___parent___children'
+  | 'model___parent___children'
+  | 'model___parent___children___id'
+  | 'model___parent___children___children'
+  | 'model___parent___internal___content'
+  | 'model___parent___internal___contentDigest'
+  | 'model___parent___internal___description'
+  | 'model___parent___internal___fieldOwners'
+  | 'model___parent___internal___ignoreType'
+  | 'model___parent___internal___mediaType'
+  | 'model___parent___internal___owner'
+  | 'model___parent___internal___type'
+  | 'model___parent___internal___contentFilePath'
+  | 'model___children'
+  | 'model___children___id'
+  | 'model___children___parent___id'
+  | 'model___children___parent___children'
+  | 'model___children___children'
+  | 'model___children___children___id'
+  | 'model___children___children___children'
+  | 'model___children___internal___content'
+  | 'model___children___internal___contentDigest'
+  | 'model___children___internal___description'
+  | 'model___children___internal___fieldOwners'
+  | 'model___children___internal___ignoreType'
+  | 'model___children___internal___mediaType'
+  | 'model___children___internal___owner'
+  | 'model___children___internal___type'
+  | 'model___children___internal___contentFilePath'
+  | 'model___internal___content'
+  | 'model___internal___contentDigest'
+  | 'model___internal___description'
+  | 'model___internal___fieldOwners'
+  | 'model___internal___ignoreType'
+  | 'model___internal___mediaType'
+  | 'model___internal___owner'
+  | 'model___internal___type'
+  | 'model___internal___contentFilePath'
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___parent___internal___contentFilePath'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___children___internal___contentFilePath'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'parent___internal___contentFilePath'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___parent___internal___contentFilePath'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___children___internal___contentFilePath'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'children___internal___contentFilePath'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'internal___contentFilePath';
+
+export type DatoCmsContactPageGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<DatoCmsContactPageEdge>;
+  nodes: Array<DatoCmsContactPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<DatoCmsContactPageGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type DatoCmsContactPageGroupConnectionDistinctArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageGroupConnectionMaxArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageGroupConnectionMinArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageGroupConnectionSumArgs = {
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+
+export type DatoCmsContactPageGroupConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: DatoCmsContactPageFieldsEnum;
+};
+
+export type DatoCmsContactPageFilterInput = {
+  pageTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allPageTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterListInput>;
+  companyName?: InputMaybe<StringQueryOperatorInput>;
+  _allCompanyNameLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageCompanyNameFilterListInput>;
+  ourEmailTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allOurEmailTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageOurEmailTitleFilterListInput>;
+  email?: InputMaybe<StringQueryOperatorInput>;
+  callUsTitle?: InputMaybe<StringQueryOperatorInput>;
+  _allCallUsTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageCallUsTitleFilterListInput>;
+  phoneNumber?: InputMaybe<StringQueryOperatorInput>;
+  secondPhoneNumber?: InputMaybe<StringQueryOperatorInput>;
+  facebookUrl?: InputMaybe<StringQueryOperatorInput>;
+  instagramUrl?: InputMaybe<StringQueryOperatorInput>;
+  meta?: InputMaybe<DatoCmsMetaFieldFilterInput>;
+  originalId?: InputMaybe<StringQueryOperatorInput>;
+  locale?: InputMaybe<StringQueryOperatorInput>;
+  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
+  model?: InputMaybe<DatoCmsModelFilterInput>;
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+};
+
+export type DatoCmsContactPageSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<DatoCmsContactPageFieldsEnum>>>;
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
@@ -11302,439 +11477,6 @@ export type ImageSharpSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type DatoCmsContactPageEntityPayloadFilterInput = {
-  id?: InputMaybe<StringQueryOperatorInput>;
-  type?: InputMaybe<StringQueryOperatorInput>;
-  attributes?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesFilterInput>;
-  relationships?: InputMaybe<DatoCmsContactPageEntityPayloadRelationshipsFilterInput>;
-  meta?: InputMaybe<DatoCmsContactPageEntityPayloadMetaFilterInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesFilterInput = {
-  name_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesName_TitleFilterInput>;
-  name_placeholder?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesName_PlaceholderFilterInput>;
-  page_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesPage_TitleFilterInput>;
-  last_name_placeholder?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesLast_Name_PlaceholderFilterInput>;
-  page_background?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundFilterInput>;
-  email_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesEmail_TitleFilterInput>;
-  our_email_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesOur_Email_TitleFilterInput>;
-  email?: InputMaybe<StringQueryOperatorInput>;
-  email_placeholder?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesEmail_PlaceholderFilterInput>;
-  call_us_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesCall_Us_TitleFilterInput>;
-  message_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesMessage_TitleFilterInput>;
-  message_placeholder?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesMessage_PlaceholderFilterInput>;
-  phone_number?: InputMaybe<StringQueryOperatorInput>;
-  submit_button_title?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesSubmit_Button_TitleFilterInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesName_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesName_PlaceholderFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesLast_Name_PlaceholderFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundFilterInput = {
-  en?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEnFilterInput>;
-  es?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEsFilterInput>;
-  hu?: InputMaybe<DatoCmsContactPageEntityPayloadAttributesPage_BackgroundHuFilterInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEnFilterInput = {
-  upload_id?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundEsFilterInput = {
-  upload_id?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesPage_BackgroundHuFilterInput = {
-  upload_id?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesEmail_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesOur_Email_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesEmail_PlaceholderFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesCall_Us_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesMessage_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesMessage_PlaceholderFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadAttributesSubmit_Button_TitleFilterInput = {
-  en?: InputMaybe<StringQueryOperatorInput>;
-  es?: InputMaybe<StringQueryOperatorInput>;
-  hu?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsFilterInput = {
-  item_type?: InputMaybe<DatoCmsContactPageEntityPayloadRelationshipsItem_TypeFilterInput>;
-  creator?: InputMaybe<DatoCmsContactPageEntityPayloadRelationshipsCreatorFilterInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsItem_TypeFilterInput = {
-  data?: InputMaybe<DatoCmsContactPageEntityPayloadRelationshipsItem_TypeDataFilterInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsItem_TypeDataFilterInput = {
-  id?: InputMaybe<StringQueryOperatorInput>;
-  type?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsCreatorFilterInput = {
-  data?: InputMaybe<DatoCmsContactPageEntityPayloadRelationshipsCreatorDataFilterInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadRelationshipsCreatorDataFilterInput = {
-  id?: InputMaybe<StringQueryOperatorInput>;
-  type?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageEntityPayloadMetaFilterInput = {
-  created_at?: InputMaybe<DateQueryOperatorInput>;
-  updated_at?: InputMaybe<DateQueryOperatorInput>;
-  published_at?: InputMaybe<DateQueryOperatorInput>;
-  first_published_at?: InputMaybe<DateQueryOperatorInput>;
-  is_valid?: InputMaybe<BooleanQueryOperatorInput>;
-  is_current_version_valid?: InputMaybe<BooleanQueryOperatorInput>;
-  is_published_version_valid?: InputMaybe<BooleanQueryOperatorInput>;
-  status?: InputMaybe<StringQueryOperatorInput>;
-  current_version?: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type DatoCmsContactPageConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<DatoCmsContactPageEdge>;
-  nodes: Array<DatoCmsContactPage>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  sum?: Maybe<Scalars['Float']>;
-  group: Array<DatoCmsContactPageGroupConnection>;
-};
-
-
-export type DatoCmsContactPageConnectionDistinctArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageConnectionMaxArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageConnectionMinArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageConnectionSumArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageConnectionGroupArgs = {
-  skip?: InputMaybe<Scalars['Int']>;
-  limit?: InputMaybe<Scalars['Int']>;
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-export type DatoCmsContactPageEdge = {
-  next?: Maybe<DatoCmsContactPage>;
-  node: DatoCmsContactPage;
-  previous?: Maybe<DatoCmsContactPage>;
-};
-
-export type DatoCmsContactPageFieldsEnum =
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___parent___internal___contentFilePath'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___children___internal___contentFilePath'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'parent___internal___contentFilePath'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___parent___internal___contentFilePath'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___children___internal___contentFilePath'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'children___internal___contentFilePath'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'internal___contentFilePath'
-  | 'locale'
-  | 'entityPayload___id'
-  | 'entityPayload___type'
-  | 'entityPayload___attributes___name_title___en'
-  | 'entityPayload___attributes___name_title___es'
-  | 'entityPayload___attributes___name_title___hu'
-  | 'entityPayload___attributes___name_placeholder___en'
-  | 'entityPayload___attributes___name_placeholder___es'
-  | 'entityPayload___attributes___name_placeholder___hu'
-  | 'entityPayload___attributes___page_title___en'
-  | 'entityPayload___attributes___page_title___es'
-  | 'entityPayload___attributes___page_title___hu'
-  | 'entityPayload___attributes___last_name_placeholder___en'
-  | 'entityPayload___attributes___last_name_placeholder___es'
-  | 'entityPayload___attributes___last_name_placeholder___hu'
-  | 'entityPayload___attributes___email_title___en'
-  | 'entityPayload___attributes___email_title___es'
-  | 'entityPayload___attributes___email_title___hu'
-  | 'entityPayload___attributes___our_email_title___en'
-  | 'entityPayload___attributes___our_email_title___es'
-  | 'entityPayload___attributes___our_email_title___hu'
-  | 'entityPayload___attributes___email'
-  | 'entityPayload___attributes___email_placeholder___en'
-  | 'entityPayload___attributes___email_placeholder___es'
-  | 'entityPayload___attributes___email_placeholder___hu'
-  | 'entityPayload___attributes___call_us_title___en'
-  | 'entityPayload___attributes___call_us_title___es'
-  | 'entityPayload___attributes___call_us_title___hu'
-  | 'entityPayload___attributes___message_title___en'
-  | 'entityPayload___attributes___message_title___es'
-  | 'entityPayload___attributes___message_title___hu'
-  | 'entityPayload___attributes___message_placeholder___en'
-  | 'entityPayload___attributes___message_placeholder___es'
-  | 'entityPayload___attributes___message_placeholder___hu'
-  | 'entityPayload___attributes___phone_number'
-  | 'entityPayload___attributes___submit_button_title___en'
-  | 'entityPayload___attributes___submit_button_title___es'
-  | 'entityPayload___attributes___submit_button_title___hu'
-  | 'entityPayload___attributes___updated_at'
-  | 'entityPayload___attributes___created_at'
-  | 'entityPayload___meta___created_at'
-  | 'entityPayload___meta___updated_at'
-  | 'entityPayload___meta___published_at'
-  | 'entityPayload___meta___first_published_at'
-  | 'entityPayload___meta___is_valid'
-  | 'entityPayload___meta___is_current_version_valid'
-  | 'entityPayload___meta___is_published_version_valid'
-  | 'entityPayload___meta___status'
-  | 'entityPayload___meta___current_version'
-  | 'seoMetaTags___tags'
-  | 'seoMetaTags___id'
-  | 'seoMetaTags___parent___id'
-  | 'seoMetaTags___parent___parent___id'
-  | 'seoMetaTags___parent___parent___children'
-  | 'seoMetaTags___parent___children'
-  | 'seoMetaTags___parent___children___id'
-  | 'seoMetaTags___parent___children___children'
-  | 'seoMetaTags___parent___internal___content'
-  | 'seoMetaTags___parent___internal___contentDigest'
-  | 'seoMetaTags___parent___internal___description'
-  | 'seoMetaTags___parent___internal___fieldOwners'
-  | 'seoMetaTags___parent___internal___ignoreType'
-  | 'seoMetaTags___parent___internal___mediaType'
-  | 'seoMetaTags___parent___internal___owner'
-  | 'seoMetaTags___parent___internal___type'
-  | 'seoMetaTags___parent___internal___contentFilePath'
-  | 'seoMetaTags___children'
-  | 'seoMetaTags___children___id'
-  | 'seoMetaTags___children___parent___id'
-  | 'seoMetaTags___children___parent___children'
-  | 'seoMetaTags___children___children'
-  | 'seoMetaTags___children___children___id'
-  | 'seoMetaTags___children___children___children'
-  | 'seoMetaTags___children___internal___content'
-  | 'seoMetaTags___children___internal___contentDigest'
-  | 'seoMetaTags___children___internal___description'
-  | 'seoMetaTags___children___internal___fieldOwners'
-  | 'seoMetaTags___children___internal___ignoreType'
-  | 'seoMetaTags___children___internal___mediaType'
-  | 'seoMetaTags___children___internal___owner'
-  | 'seoMetaTags___children___internal___type'
-  | 'seoMetaTags___children___internal___contentFilePath'
-  | 'seoMetaTags___internal___content'
-  | 'seoMetaTags___internal___contentDigest'
-  | 'seoMetaTags___internal___description'
-  | 'seoMetaTags___internal___fieldOwners'
-  | 'seoMetaTags___internal___ignoreType'
-  | 'seoMetaTags___internal___mediaType'
-  | 'seoMetaTags___internal___owner'
-  | 'seoMetaTags___internal___type'
-  | 'seoMetaTags___internal___contentFilePath';
-
-export type DatoCmsContactPageGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<DatoCmsContactPageEdge>;
-  nodes: Array<DatoCmsContactPage>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  max?: Maybe<Scalars['Float']>;
-  min?: Maybe<Scalars['Float']>;
-  sum?: Maybe<Scalars['Float']>;
-  group: Array<DatoCmsContactPageGroupConnection>;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-
-export type DatoCmsContactPageGroupConnectionDistinctArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageGroupConnectionMaxArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageGroupConnectionMinArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageGroupConnectionSumArgs = {
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-
-export type DatoCmsContactPageGroupConnectionGroupArgs = {
-  skip?: InputMaybe<Scalars['Int']>;
-  limit?: InputMaybe<Scalars['Int']>;
-  field: DatoCmsContactPageFieldsEnum;
-};
-
-export type DatoCmsContactPageFilterInput = {
-  id?: InputMaybe<StringQueryOperatorInput>;
-  parent?: InputMaybe<NodeFilterInput>;
-  children?: InputMaybe<NodeFilterListInput>;
-  internal?: InputMaybe<InternalFilterInput>;
-  locale?: InputMaybe<StringQueryOperatorInput>;
-  entityPayload?: InputMaybe<DatoCmsContactPageEntityPayloadFilterInput>;
-  seoMetaTags?: InputMaybe<DatoCmsSeoMetaTagsFilterInput>;
-};
-
-export type DatoCmsContactPageSortInput = {
-  fields?: InputMaybe<Array<InputMaybe<DatoCmsContactPageFieldsEnum>>>;
-  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
-
 export type HomeAboutUsFieldsFragment = { aboutUsTextContent?: string | null, aboutUsTitle?: string | null, aboutBackgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null };
 
 export type HomeCoverFieldsFragment = { backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null, logo?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null };
@@ -11744,6 +11486,15 @@ export type HomeProjectsFieldsFragment = { projects?: Array<{ projectTitle?: str
 export type HomeServicesFieldsFragment = { servicesSectionTitle?: string | null, seeAllProjectsButtonTitle?: string | null, services?: Array<{ serviceTitle?: string | null, serviceDescription?: string | null, serviceIcon?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null> | null };
 
 export type HeaderFieldsFragment = { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null };
+
+export type ContactFieldsFragment = { pageTitle?: string | null, ourEmailTitle?: string | null, email?: string | null, callUsTitle?: string | null, phoneNumber?: string | null, secondPhoneNumber?: string | null, companyName?: string | null, facebookUrl?: string | null, instagramUrl?: string | null };
+
+export type ContactQueryVariables = Exact<{
+  locale: Scalars['String'];
+}>;
+
+
+export type ContactQuery = { datoCmsContactPage?: { pageTitle?: string | null, ourEmailTitle?: string | null, email?: string | null, callUsTitle?: string | null, phoneNumber?: string | null, secondPhoneNumber?: string | null, companyName?: string | null, facebookUrl?: string | null, instagramUrl?: string | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
 
 export type HomeQueryVariables = Exact<{
   locale: Scalars['String'];

@@ -15,7 +15,7 @@ const Slider:React.FC<RenderProps> = ({imageCollection }) => {
        <section className={styles.container}>
            <div className={styles.imagesContainer}>
                <div className={styles.imageContainer}>
-                   <img className={styles.image} loading="eager" src={imageCollection[currentImage].url} alt="" />
+                   <img className={styles.image} loading="lazy" src={imageCollection[currentImage].url} alt="" />
                </div>
            </div>
            {isMobile ? (
@@ -34,17 +34,13 @@ const Slider:React.FC<RenderProps> = ({imageCollection }) => {
 
     function nextSlide() {
         if(currentImage < imageCollection.length - 1) {
-            console.log("click")
-            setCurrentImage(prevState => prevState + 1);
-            console.log(currentImage)
+            setCurrentImage(currentImage + 1);
         }
     }
 
     function previousSlide() {
         if(currentImage > 0) {
-            console.log("clickP")
-            setCurrentImage(prevState => prevState - 1);
-            console.log(currentImage)
+            setCurrentImage(currentImage - 1);
         }
     }
 }

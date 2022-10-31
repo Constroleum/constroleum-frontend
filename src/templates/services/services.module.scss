@@ -48,7 +48,10 @@
   justify-content: flex-start;
   align-items: center;
   margin: 30px;
+  padding: 20px;
   width: 25%;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .serviceTitle {
@@ -58,11 +61,10 @@
   text-transform: uppercase;
   text-align: center;
   padding: 5px 40px;
-  background:  linear-gradient(to right, rgba(0, 0, 0, 0), white, white, white, white, rgba(0, 0, 0, 0));
 }
 
 .serviceDescription {
-  color: white;
+  color: black;
   text-align: center;
   font-family: $quickSandLight, sans-serif;
   font-size: $fontSize-1-and-half;
@@ -93,6 +95,7 @@
 @include mobile {
   .service {
     width: 95vw;
+    margin: 30px 0;
   }
 
   .title {

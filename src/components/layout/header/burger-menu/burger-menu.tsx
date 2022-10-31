@@ -30,9 +30,6 @@ const BurgerMenu: React.FC<RenderProps> = ({ data, lang, mainSlugs }) => {
                     <a className={styles.link} href={lang.locale === lang.defaultLanguage ? `/` : `/${lang.locale}`}>{data.homeButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>
-                    <a className={styles.link} href="/">{data.aboutUsButtonName}</a>
-                </li>
-                <li className={styles.burgerMenuElement}>
                     <a className={styles.link} href={getLocalizedSlug(lang, mainSlugs.projectsPageSlug)}>{data.projectsButtonName}</a>
                 </li>
                 <li className={styles.burgerMenuElement}>

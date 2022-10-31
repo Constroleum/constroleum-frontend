@@ -40,6 +40,8 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
         console.log("--- Projects page built ---"),
         generateServicesPage(),
         console.log("--- Services page built ---"),
+        generateContactPage(),
+        console.log("--- Contact page built ---"),
         generateNotFoundPage(),
         console.log("--- 404 page built ---")
     ])
@@ -191,6 +193,44 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
                     `/${mainSlugs.node.servicesPageSlug}` :
                     `/${locale}/${mainSlugs.node.servicesPageSlug}`,
                 component: servicesPage,
+                context: {
+                    locale: locale,
+                    lang: {
+                        defaultLanguage: defaultLanguage,
+                        locale: locale,
+                    },
+                    mainSlugs: {
+                        projectsPageSlug: mainSlugs.node.projectsPageSlug,
+                        servicesPageSlug: mainSlugs.node.servicesPageSlug,
+                        contactPageSlug: mainSlugs.node.contactPageSlug
+                    }
+                }
+            })
+        })
+    }
+
+    /* CONTACT PAGE */
+    async function generateContactPage() {
+        const contactPage = path.resolve('./src/templates/contact/contact.tsx')
+        const result = await graphql(`
+            query ContactPageCreation {
+                allDatoCmsSlugsConfiguration {
+                    nodes {
+                        locale
+                        contactPageSlug
+                    }
+                }
+            }
+        `)
+
+        result.data.allDatoCmsSlugsConfiguration.nodes.forEach(({ locale }) => {
+            const mainSlugs = allMainSlugs.find(page => page.node.locale === locale)
+
+            createPage({
+                path: locale === defaultLanguage ?
+                    `/${mainSlugs.node.contactPageSlug}` :
+                    `/${locale}/${mainSlugs.node.contactPageSlug}`,
+                component: contactPage,
                 context: {
                     locale: locale,
                     lang: {

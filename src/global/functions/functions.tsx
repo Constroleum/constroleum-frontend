@@ -11,6 +11,7 @@ export function displayImage(img, style, objectFit: any = "contain") {
         return (
             <GatsbyImage
                 image={img && img.gatsbyImageData}
+                loading="lazy"
                 alt={img && img.alt || ""}
                 className={style}
                 objectFit={objectFit}
