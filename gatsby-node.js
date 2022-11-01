@@ -63,7 +63,7 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
 
         result.data.allDatoCmsSlugsConfiguration.nodes.forEach(({ locale }) => {
             const mainSlugs = allMainSlugs.find(page => page.node.locale === locale)
-
+            console.log(locale === defaultLanguage ? `/` : `/${locale}`);
             createPage({
                 path: locale === defaultLanguage ? `/` : `/${locale}`,
                 component: index,
@@ -110,6 +110,9 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
             result.data.allDatoCmsProjectPage.nodes
                 .filter(page => page.locale === locale)
                 .forEach(page => {
+                    console.log(locale === defaultLanguage ?
+                        `/${mainSlugs.node.projectsPageSlug}/${page.slug}` :
+                        `/${locale}/${mainSlugs.node.projectsPageSlug}/${page.slug}`);
                 createPage({
                     path: locale === defaultLanguage ?
                         `/${mainSlugs.node.projectsPageSlug}/${page.slug}` :
@@ -149,7 +152,9 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
 
         result.data.allDatoCmsSlugsConfiguration.nodes.forEach(({ locale }) => {
             const mainSlugs = allMainSlugs.find(page => page.node.locale === locale)
-
+            console.log(locale === defaultLanguage ?
+                `/${mainSlugs.node.projectsPageSlug}` :
+                `/${locale}/${mainSlugs.node.projectsPageSlug}`);
             createPage({
                 path: locale === defaultLanguage ?
                     `/${mainSlugs.node.projectsPageSlug}` :
@@ -187,7 +192,9 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
 
         result.data.allDatoCmsSlugsConfiguration.nodes.forEach(({ locale }) => {
             const mainSlugs = allMainSlugs.find(page => page.node.locale === locale)
-
+            console.log(locale === defaultLanguage ?
+                `/${mainSlugs.node.servicesPageSlug}` :
+                `/${locale}/${mainSlugs.node.servicesPageSlug}`);
             createPage({
                 path: locale === defaultLanguage ?
                     `/${mainSlugs.node.servicesPageSlug}` :
@@ -225,7 +232,9 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
 
         result.data.allDatoCmsSlugsConfiguration.nodes.forEach(({ locale }) => {
             const mainSlugs = allMainSlugs.find(page => page.node.locale === locale)
-
+            console.log(locale === defaultLanguage ?
+                `/${mainSlugs.node.contactPageSlug}` :
+                `/${locale}/${mainSlugs.node.contactPageSlug}`);
             createPage({
                 path: locale === defaultLanguage ?
                     `/${mainSlugs.node.contactPageSlug}` :
