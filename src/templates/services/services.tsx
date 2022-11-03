@@ -18,6 +18,7 @@ const ServicesPage:React.FC<RenderProps> = ({ data, pageContext }) => {
             header={data.datoCmsHeader}
             lang={pageContext.lang}
             mainSlugs={pageContext.mainSlugs}
+            seo={data.datoCmsServicesPage.seo}
         >
             <div className={styles.container}>
                 <div className={styles.titleContainer}>
@@ -53,6 +54,10 @@ const ServicesPage:React.FC<RenderProps> = ({ data, pageContext }) => {
 
 export const fragment = graphql`
     fragment ServicesFields on DatoCmsServicesPage {
+        seo {
+            title
+            description
+        }
         servicesPageTitle
         mainServices {
             serviceTitle

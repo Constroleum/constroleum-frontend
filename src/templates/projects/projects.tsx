@@ -29,6 +29,7 @@ const ProjectsPage:React.FC<RenderProps> = ({ data, pageContext }) => {
             header={data.datoCmsHeader}
             lang={pageContext.lang}
             mainSlugs={pageContext.mainSlugs}
+            seo={data.datoCmsAllProjectsPage.seo}
         >
             <div ref={container} className={styles.container}>
                 <div className={styles.pageTitleContainer}>
@@ -77,6 +78,10 @@ export const pageQuery = graphql`
     query Projects($locale: String!) {
         datoCmsAllProjectsPage(locale: { eq: $locale }) {
             pageTitle
+            seo {
+                title
+                description
+            }
             projectsList {
                 ...ProjectFields
             }

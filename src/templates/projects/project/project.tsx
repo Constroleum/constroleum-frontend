@@ -34,6 +34,7 @@ const ProjectPage:React.FC<RenderProps> = ({ data, pageContext }) => {
             header={data.datoCmsHeader}
             lang={pageContext.lang}
             mainSlugs={pageContext.mainSlugs}
+            seo={project.seo}
         >
             <div ref={container} className={styles.container}>
                 {isMobile && (
@@ -82,6 +83,10 @@ const ProjectPage:React.FC<RenderProps> = ({ data, pageContext }) => {
 export const fragment = graphql`
     fragment ProjectFields on DatoCmsProjectPage {
         id
+        seo {
+            title
+            description
+        }
         title
         slug
         description

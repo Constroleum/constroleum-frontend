@@ -14,13 +14,12 @@ type RenderProps = {
 
 const ContactPage:React.FC<RenderProps> = ({ data, pageContext }) => {
 
-    console.log(data.datoCmsContactPage.facebookUrl)
-
     return (
         <Layout
             header={data.datoCmsHeader}
             lang={pageContext.lang}
             mainSlugs={pageContext.mainSlugs}
+            seo={data.datoCmsContactPage.seo}
         >
             <div
                 className={styles.background}
@@ -51,6 +50,10 @@ const ContactPage:React.FC<RenderProps> = ({ data, pageContext }) => {
 export const fragment = graphql`
     fragment ContactFields on DatoCmsContactPage {
         pageTitle
+        seo {
+            title
+            description
+        }
         ourEmailTitle
         email
         callUsTitle

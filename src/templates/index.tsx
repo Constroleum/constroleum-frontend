@@ -38,6 +38,7 @@ const Index:React.FC<RenderProps> = ({ data, pageContext }) => {
             header={data.datoCmsHeader}
             lang={pageContext.lang}
             mainSlugs={pageContext.mainSlugs}
+            seo={data.datoCmsHomePage.seo}
         >
             <div
                 id="container"
@@ -111,6 +112,10 @@ const Index:React.FC<RenderProps> = ({ data, pageContext }) => {
 export const pageQuery = graphql`
     query Home($locale: String!) {
         datoCmsHomePage(locale: { eq: $locale }) {
+            seo {
+                title
+                description
+            }
             backgroundImage {
                 gatsbyImageData(layout: FIXED)
                 url
