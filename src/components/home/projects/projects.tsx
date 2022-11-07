@@ -45,7 +45,13 @@ const Projects:React.FC<RenderProps> = ({ data, tl, lang, mainSlug }) => {
                     {displayImage(project.projectImage, styles.projectImage, "cover")}
                 </a>
             ))}
-            <a ref={button} href={getLocalizedSlug(lang, mainSlug)} className={styles.button}>{data.seeAllProjectsButtonTitle}</a>
+            {isSmallScreen ? (
+                <div className={styles.projectContainer}>
+                    <a ref={button} href={getLocalizedSlug(lang, mainSlug)} className={styles.button}>{data.seeAllProjectsButtonTitle}</a>
+                </div>
+            ) : (
+                <a ref={button} href={getLocalizedSlug(lang, mainSlug)} className={styles.button}>{data.seeAllProjectsButtonTitle}</a>
+            )}
         </section>
     )
 
