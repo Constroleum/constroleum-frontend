@@ -70,6 +70,7 @@ const ProjectPage:React.FC<RenderProps> = ({ data, pageContext }) => {
                     }
                 })
                 pageElements.current.forEach(element => {
+                    // @ts-ignore
                     tl.from(element, { y: container.current.offsetHeight, ease: 'Power1.easeOut', duration: 0.4 }, `-=${animationDelay}`)
                     animationDelay += 0.1;
                 })

@@ -6,7 +6,8 @@
   display: flex;
 }
 
-.background {
+.content {
+  position: absolute;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -15,9 +16,27 @@
   justify-content: center;
   z-index: 981;
   overflow: hidden;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: $black;
+}
+
+.backgroundImage {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.bgImage {
+  min-width: 100vw;
+  min-height: 100vh;
+
+  * {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
 }
 
 .contactInfoContainer {

@@ -6,6 +6,7 @@ import * as styles from "./contact.module.scss";
 import contactBg from "../../assets/images/contact-bg.jpg"
 import fb from "../../assets/images/facebook.png"
 import ig from "../../assets/images/instagram.png"
+import {displayImage} from "../../global/functions/functions";
 
 type RenderProps = {
     data: ContactQuery,
@@ -21,10 +22,10 @@ const ContactPage:React.FC<RenderProps> = ({ data, pageContext }) => {
             mainSlugs={pageContext.mainSlugs}
             seo={data.datoCmsContactPage.seo}
         >
-            <div
-                className={styles.background}
-                style={{ backgroundImage: `url(${contactBg})` }}
-            >
+            <div className={styles.backgroundImage}>
+                {displayImage(data.datoCmsContactPage.backgroundImage, styles.bgImage, "cover")}
+            </div>
+            <div className={styles.content}>
                 <div className={styles.contactInfoContainer}>
                     <p className={styles.title}><b>{data.datoCmsContactPage.companyName}</b></p>
                     <p className={styles.title}><b>{data.datoCmsContactPage.ourEmailTitle}</b> {data.datoCmsContactPage.email}</p>
@@ -34,10 +35,10 @@ const ContactPage:React.FC<RenderProps> = ({ data, pageContext }) => {
                         <p className={styles.title} style={{ marginLeft: 20 }}>{data.datoCmsContactPage.secondPhoneNumber}</p>
                     </p>
                     <div className={styles.socialMedia}>
-                        <a href={"https://www.facebook.com/constroleum"}>
+                        <a target="_blank" href={data.datoCmsContactPage.facebookUrl}>
                             <img loading="lazy" className={styles.icon} src={fb} alt="Facebook"/>
                         </a>
-                        <a href={data.datoCmsContactPage.instagramUrl}>
+                        <a target="_blank" href={data.datoCmsContactPage.instagramUrl}>
                             <img loading="lazy" className={styles.icon} src={ig} alt="Instagram"/>
                         </a>
                     </div>
@@ -53,6 +54,13 @@ export const fragment = graphql`
         seo {
             title
             description
+        }
+        backgroundImage {
+            gatsbyImageData(layout: FIXED)
+            url
+            title
+            format
+            alt
         }
         ourEmailTitle
         email

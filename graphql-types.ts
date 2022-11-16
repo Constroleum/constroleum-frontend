@@ -1154,6 +1154,7 @@ export type DatoCmsAllLocalesForDatoCmsContactPageCallUsTitle = {
 export type DatoCmsContactPage = Node & {
   seo?: Maybe<DatoCmsSeoField>;
   _allSeoLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsContactPageSeo>>>;
+  backgroundImage?: Maybe<DatoCmsFileField>;
   pageTitle?: Maybe<Scalars['String']>;
   _allPageTitleLocales?: Maybe<Array<Maybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitle>>>;
   companyName?: Maybe<Scalars['String']>;
@@ -2180,6 +2181,7 @@ export type QueryAllDatoCmsServicesPageArgs = {
 export type QueryDatoCmsContactPageArgs = {
   seo?: InputMaybe<DatoCmsSeoFieldFilterInput>;
   _allSeoLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageSeoFilterListInput>;
+  backgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
   pageTitle?: InputMaybe<StringQueryOperatorInput>;
   _allPageTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterListInput>;
   companyName?: InputMaybe<StringQueryOperatorInput>;
@@ -10497,6 +10499,76 @@ export type DatoCmsContactPageFieldsEnum =
   | '_allSeoLocales___value___image___gatsbyImageData'
   | '_allSeoLocales___value___image___id'
   | '_allSeoLocales___value___image___children'
+  | 'backgroundImage___size'
+  | 'backgroundImage___width'
+  | 'backgroundImage___height'
+  | 'backgroundImage___path'
+  | 'backgroundImage___format'
+  | 'backgroundImage___isImage'
+  | 'backgroundImage___notes'
+  | 'backgroundImage___author'
+  | 'backgroundImage___copyright'
+  | 'backgroundImage___tags'
+  | 'backgroundImage___smartTags'
+  | 'backgroundImage___filename'
+  | 'backgroundImage___basename'
+  | 'backgroundImage___exifInfo'
+  | 'backgroundImage___mimeType'
+  | 'backgroundImage___colors'
+  | 'backgroundImage___colors___red'
+  | 'backgroundImage___colors___green'
+  | 'backgroundImage___colors___blue'
+  | 'backgroundImage___colors___alpha'
+  | 'backgroundImage___colors___rgb'
+  | 'backgroundImage___colors___hex'
+  | 'backgroundImage___blurhash'
+  | 'backgroundImage___originalId'
+  | 'backgroundImage___url'
+  | 'backgroundImage___createdAt'
+  | 'backgroundImage___video___muxPlaybackId'
+  | 'backgroundImage___video___frameRate'
+  | 'backgroundImage___video___duration'
+  | 'backgroundImage___video___streamingUrl'
+  | 'backgroundImage___video___thumbnailUrl'
+  | 'backgroundImage___video___mp4Url'
+  | 'backgroundImage___fluid___base64'
+  | 'backgroundImage___fluid___tracedSVG'
+  | 'backgroundImage___fluid___aspectRatio'
+  | 'backgroundImage___fluid___width'
+  | 'backgroundImage___fluid___height'
+  | 'backgroundImage___fluid___src'
+  | 'backgroundImage___fluid___srcSet'
+  | 'backgroundImage___fluid___sizes'
+  | 'backgroundImage___sizes___base64'
+  | 'backgroundImage___sizes___tracedSVG'
+  | 'backgroundImage___sizes___aspectRatio'
+  | 'backgroundImage___sizes___width'
+  | 'backgroundImage___sizes___height'
+  | 'backgroundImage___sizes___src'
+  | 'backgroundImage___sizes___srcSet'
+  | 'backgroundImage___sizes___sizes'
+  | 'backgroundImage___fixed___base64'
+  | 'backgroundImage___fixed___tracedSVG'
+  | 'backgroundImage___fixed___aspectRatio'
+  | 'backgroundImage___fixed___width'
+  | 'backgroundImage___fixed___height'
+  | 'backgroundImage___fixed___src'
+  | 'backgroundImage___fixed___srcSet'
+  | 'backgroundImage___fixed___sizes'
+  | 'backgroundImage___resolutions___base64'
+  | 'backgroundImage___resolutions___tracedSVG'
+  | 'backgroundImage___resolutions___aspectRatio'
+  | 'backgroundImage___resolutions___width'
+  | 'backgroundImage___resolutions___height'
+  | 'backgroundImage___resolutions___src'
+  | 'backgroundImage___resolutions___srcSet'
+  | 'backgroundImage___resolutions___sizes'
+  | 'backgroundImage___gatsbyImageData'
+  | 'backgroundImage___alt'
+  | 'backgroundImage___title'
+  | 'backgroundImage___customData'
+  | 'backgroundImage___focalPoint___x'
+  | 'backgroundImage___focalPoint___y'
   | 'pageTitle'
   | '_allPageTitleLocales'
   | '_allPageTitleLocales___locale'
@@ -10775,6 +10847,7 @@ export type DatoCmsContactPageGroupConnectionGroupArgs = {
 export type DatoCmsContactPageFilterInput = {
   seo?: InputMaybe<DatoCmsSeoFieldFilterInput>;
   _allSeoLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPageSeoFilterListInput>;
+  backgroundImage?: InputMaybe<DatoCmsFileFieldFilterInput>;
   pageTitle?: InputMaybe<StringQueryOperatorInput>;
   _allPageTitleLocales?: InputMaybe<DatoCmsAllLocalesForDatoCmsContactPagePageTitleFilterListInput>;
   companyName?: InputMaybe<StringQueryOperatorInput>;
@@ -12210,14 +12283,14 @@ export type HomeServicesFieldsFragment = { servicesSectionTitle?: string | null,
 
 export type HeaderFieldsFragment = { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null };
 
-export type ContactFieldsFragment = { pageTitle?: string | null, ourEmailTitle?: string | null, email?: string | null, callUsTitle?: string | null, phoneNumber?: string | null, secondPhoneNumber?: string | null, companyName?: string | null, facebookUrl?: string | null, instagramUrl?: string | null, seo?: { title?: string | null, description?: string | null } | null };
+export type ContactFieldsFragment = { pageTitle?: string | null, ourEmailTitle?: string | null, email?: string | null, callUsTitle?: string | null, phoneNumber?: string | null, secondPhoneNumber?: string | null, companyName?: string | null, facebookUrl?: string | null, instagramUrl?: string | null, seo?: { title?: string | null, description?: string | null } | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null };
 
 export type ContactQueryVariables = Exact<{
   locale: Scalars['String'];
 }>;
 
 
-export type ContactQuery = { datoCmsContactPage?: { pageTitle?: string | null, ourEmailTitle?: string | null, email?: string | null, callUsTitle?: string | null, phoneNumber?: string | null, secondPhoneNumber?: string | null, companyName?: string | null, facebookUrl?: string | null, instagramUrl?: string | null, seo?: { title?: string | null, description?: string | null } | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
+export type ContactQuery = { datoCmsContactPage?: { pageTitle?: string | null, ourEmailTitle?: string | null, email?: string | null, callUsTitle?: string | null, phoneNumber?: string | null, secondPhoneNumber?: string | null, companyName?: string | null, facebookUrl?: string | null, instagramUrl?: string | null, seo?: { title?: string | null, description?: string | null } | null, backgroundImage?: { gatsbyImageData?: any | null, url?: string | null, title?: string | null, format?: string | null, alt?: string | null } | null } | null, datoCmsHeader?: { aboutUsButtonName?: string | null, homeButtonName?: string | null, contactButtonName?: string | null, projectsButtonName?: string | null, servicesButtonName?: string | null } | null };
 
 export type HomeQueryVariables = Exact<{
   locale: Scalars['String'];
